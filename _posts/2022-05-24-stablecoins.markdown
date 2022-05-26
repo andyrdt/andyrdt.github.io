@@ -3,7 +3,6 @@ layout: post
 title:  "Stablecoins"
 date:   2022-05-24 10:00:00 -0400
 ---
-
 I know with the great fall of UST, this post seems reactive. That's kind of true in that it sort of reinvigorated me to understand what the hell is going on, and to therefore write up some notes. But I've wanted to write about stablecoins for a while now. So here we go.
 
 ### What's a stablecoin?
@@ -117,11 +116,11 @@ Now let's suppose Bob, tired from minting Dai, falls asleep for 1 year. Upon wak
   - Bob's collateral is seized by the protocol, and sold for Dai in a Dutch auction. The auction continues until enough Dai has been raised to cover the total outstanding debt (initial debt + liquidation penalty). In this case, Bob's Ether will be auctioned off until 100 + 2% * 100 = 102 Dai is raised. Assuming really efficient markets, the Ether will be auctioned off at a price of roughly $30, and so 102 / 30 = 3.4 Ether will be sold to cover the debt.
   - The remaining collateral is returned to Bob. In this case, 5 - 3.4 = 1.6 Ether is returned.
     - Bob initially started with 200 USD worth of Ether
-    - He ends up with 1.6 * 30 = 48 USD worth of Ether and 100 Dai, which sums to a value of 48 USD.
+    - He ends up with 1.6 * 30 = 48 USD worth of Ether and 100 Dai, which sums to a value of 148 USD.
 - Happpy scenario 😊: throughout the entire year of slumber, the price of Ether remained above $30
   - Since the collateral-to-debt ratio remained above the liquidation ratio of 150%, the position was not liquidated, and Bob can recover his collateral if he desires:
     - Bob transfers 102.5 Dai to the CDP contract
-      - This covers (a) the debt of 100 Dai, plus (b) the stability fee of 2.5% * 100 = 2 Dai.
+      - This covers (a) the debt of 100 Dai, plus (b) the stability fee of 2.5% * 100 = 2.5 Dai.
     - Bob is now able to withdraw his original collateral of 5 Ether.
 
 #### Additional safeguard mechanisms
@@ -148,48 +147,46 @@ Dai has two additional protection mechanisms to try and keep its peg to the doll
 ### Algorithmic stablecoins
 Unlike fiat-collateralized and crypto-collateralized stablecoins, algorithmic stablecoins do not rely on collateralized assets to maintain their value. The value of these stablecoins is maintained through algorithmic policies, such as an automatically self-regulating elastic monetary policy. 
 
-Despite [many](https://medium.com/reserve-currency/the-end-of-a-stablecoin-the-case-of-nubits-dd1f0fb427a9) [historical](https://www.coindesk.com/markets/2021/06/17/iron-finances-titan-token-falls-to-near-zero-in-defi-panic-selling/) [attempts](https://www.coindesk.com/tech/2022/05/11/usts-do-kwon-was-behind-earlier-failed-stablecoin-ex-terra-colleagues-say/), no project has successfully created an algorithmic stablecoin. This of course poses a natural question: is a long-term algorithmic stablecoin possible? My intuition says no - a stablecoin must be backed by assets in order to give it the credibility it needs to avoid fear-induced death spirals. It would be an interesting research direction to try and prove such intuition formally. 
+#### UST
+UST ~~is~~ was ([R.I.P.](https://www.coindesk.com/learn/the-fall-of-terra-a-timeline-of-the-meteoric-rise-and-crash-of-ust-and-luna/)) the latest and greatest algorithmic stablecoin project. At its peak, UST had a market cap of over $18 billion.
 
-#### Terra (UST)
-Terra ~~is~~ was ([R.I.P.](https://www.coindesk.com/learn/the-fall-of-terra-a-timeline-of-the-meteoric-rise-and-crash-of-ust-and-luna/)) the latest and greatest attempt at building an algorithmic stablecoin.
+Powering UST, which is pegged to USD, is the Terra Protocol.[^6] The Terra Protocol runs on its own Proof of Stake (PoS) blockchain, on which miners stake in the chain's native token, Luna. 
 
-The Terra Protocol aims at maintaining the value of 1 Terra (UST) equal to the value of 1 USD.[^6]
-
-The Terra Protocol runs on its own Proof of Stake (PoS) blockchain. Miners stake in the chain's native token, Luna. A miner's "mining power" (think of this as the probability of the miner being selected to mine the next block) is proportional to his/her amount of staked Luna. 
+Let's see how the Terra Protocol works.
 
 #### Determining market price on-chain
 The spirit of an algorithmic stablecoin is to monitor the price of the coin, and adjust policies automatically in order to drive the market price back towards its target value (the value of the peg). The first step of this process is how to determine the current market price of the coin. This is achieved in Terra by using an on-chain oracle mechanism.
 
 Terra's on-chain oracle mechanism works as follows: 
-- Miners submit votes on what the current value of Terra is (denominated in USD).
+- Miners submit votes on what the current value of UST is (denominated in USD).
 - Every *n* blocks, the votes are tallied, and the median is selected as the new price.
-- Miners who voted within 1 standard deviation of the median are rewarded with some amount of Terra. Miners who did not may be punished by having their stakes slashed.
+- Miners who voted within 1 standard deviation of the median are rewarded with some amount of UST. Miners who did not may be punished by having their stakes slashed.
 
-This standard oracle mechansim allows the (approximated) market price of Terra to be continuously updated and available on-chain. The same mechanism can be used to approximate the price of Luna.
+This standard oracle mechansim allows the (approximated) market price of UST to be continuously updated and available on-chain. The same mechanism can be used to approximate the price of Luna.
 
 #### Price correction mechanism
-Next, we consider how Terra reacts to price deviations. When the price of Terra deviates from its peg of 1 USD, the system must react and push the price back towards 1 USD. 
+Next, we consider how the system reacts to price deviations. When the price of UST deviates from its peg of 1 USD, the system must react and push the price back towards 1 USD. 
 
-This is achieved through a clever exchange mechanism between Luna and Terra: 
-- A user can send 1 Terra to the system, and receive 1 USD worth of Luna.
-- A user can send 1 USD worth of Luna to the system, and receive 1 Terra.
+This is achieved through a clever exchange mechanism between Luna and UST: 
+- A user can send 1 UST to the system, and receive 1 USD worth of Luna.
+- A user can send 1 USD worth of Luna to the system, and receive 1 UST.
 
 [Note that the "1 USD worth of Luna" can be computed using the price oracles described above!]
 
-When the price of Terra deviates from 1 USD, the exchange mechanism enables arbitrage opportunities which serve to re-adjust the price back towards the peg:
-- If the price of Terra drops to $0.99, an arbitrager can exchange 1 Terra for 1 USD worth of Luna
-  - The arbitrager nets $0.01 of profit, while reducing the supply of Terra, causing its price to increase.
-- If the price of Terra rises to $1.01, an arbitrager can exchange 1 USD worth of Luna for 1 Terra
-  - The arbitrager nets $0.01 of profit, while increasing the supppply of Terra, causing its price to decrease.
+When the price of UST deviates from 1 USD, the exchange mechanism enables arbitrage opportunities which serve to re-adjust the price back towards the peg:
+- If the price of UST drops to $0.99, an arbitrager can exchange 1 UST for 1 USD worth of Luna
+  - The arbitrager nets $0.01 of profit, while reducing the supply of UST, causing its price to increase.
+- If the price of UST rises to $1.01, an arbitrager can exchange 1 USD worth of Luna for 1 UST
+  - The arbitrager nets $0.01 of profit, while increasing the supppply of UST, causing its price to decrease.
 
-With this exchange mechanism, one can in a sense understand UST to be "backed by" Luna. An individual with 1 Terra should always be able to exchange it for 1 USD worth of Luna, and sell that Luna. 
+With this exchange mechanism, one can in a sense understand UST to be "backed by" Luna. An individual with 1 UST should always be able to exchange it for 1 USD worth of Luna, and sell that Luna. 
 
 #### Downfall
-Despite these clever exchange mechanics, Terra eventually met the same fate as all algorithmic stablecoins that came before: it collapsed.
+Despite these clever exchange mechanics, UST eventually met the same fate as all algorithmic stablecoins that came before: it collapsed.
 
 <figure>
   <img src="../../../images/stablecoins/ust_graph.png" class="center">
-  <figcaption align = "center">Terra fell from its $1 peg in May 2022</figcaption>
+  <figcaption align = "center">UST fell from its $1 peg in May 2022</figcaption>
   <figcaption align = "center">[Source: CoinGecko]</figcaption>
 </figure>
 
@@ -197,7 +194,7 @@ What happened? Doesn't the exchange mechanism incentivize arbitragers to readjus
 
 Things started to go south on May 9, when some big whales[^7] sold large quantities of UST on Curve[^8]. This caused the price of UST to fall relative to other stablecoins, knocking it off of its peg. 
 
-Once knocked below its peg, UST holders became fearful that it would keep dropping - they wanted to get out before the house came down. They rushed to redeem their *x* UST for *x* USD worth of Luna, and then sold this Luna on DEXs. This caused DEXs to be flooded with fresh Luna supply, devaluing the price of Luna. This market devaluation of Luna makes it so that future Terra redemptions require the minting of even more Luna, and one can see how the vicious cycle of hyperinflation is born. 
+Once knocked below its peg, UST holders became fearful that it would keep dropping - they wanted to get out before the house came down. They rushed to redeem their *x* UST for *x* USD worth of Luna, and then sold this Luna on DEXs. This caused DEXs to be flooded with fresh Luna supply, devaluing the price of Luna. This market devaluation of Luna makes it so that future UST redemptions require the minting of even more Luna, and one can see how the vicious cycle of hyperinflation is born. 
 
 <figure>
   <img src="../../../images/stablecoins/luna_supply.png" class="center">
@@ -211,14 +208,42 @@ Once knocked below its peg, UST holders became fearful that it would keep droppi
   <figcaption align = "center">[Source: CoinGecko]</figcaption>
 </figure>
 
-With Luna being completely devalued, Terra's PoS chain (on which Terra-Luna exchanges are performed) became vulnerable to attack (since stake is measured in absolute number of Luna tokens), and was eventually [halted](https://twitter.com/terra_money/status/1524935730308456448). As the chain came screeching to a halt, so too did the Luna-Terra exchange mechanism, and any hope of recovery. 
+With Luna being completely devalued, Terra's PoS chain (on which UST-Luna exchanges are performed) became vulnerable to attack (since stake is measured in absolute number of Luna tokens), and was eventually [halted](https://twitter.com/terra_money/status/1524935730308456448). As the chain came screeching to a halt, so too did the Luna-UST exchange mechanism, and any hope of recovery. 
 
-In the end, the Terra protocol's clever exchange mechanism was not enough to withstand sustained UST selling pressure.
+In the end, the Terra Protocol's clever exchange mechanism was not enough to withstand sustained UST selling pressure.
+
+#### Is an algorithmic stablecoin possible?
+For those who have been in the crypto space for a while, UST's collapse did not come as a surprise. There have been [many](https://medium.com/reserve-currency/the-end-of-a-stablecoin-the-case-of-nubits-dd1f0fb427a9) [historical](https://www.coindesk.com/markets/2021/06/17/iron-finances-titan-token-falls-to-near-zero-in-defi-panic-selling/) [attempts](https://www.coindesk.com/tech/2022/05/11/usts-do-kwon-was-behind-earlier-failed-stablecoin-ex-terra-colleagues-say/) at creating an algorithmic stablecoin, and none have stood the test of time. UST is the latest, and by far the largest, of these failed tries.
+
+The continued failures of algorithmic stablecoins poses a natural question: is a long-term algorithmic stablecoin possible? My intuition says no: I think that a stablecoin must be backed by "real" collateral (not some made up/correlated token like Luna) in order to be robust to fear-induced death spirals. Holders should be able to logically justify their confidence in the value of the asset, even in the wake of doubt and fear. This assured "real" value provides the robustness necessary to withstand the Wild West warzone of DeFi. 
+
+That's my intuition, but I am of course not sure. I think it could be an interesting research direction to try and prove such an intuition formally.  
+
+## Recap
+Stablecoins are set to play an important role in the crypto ecosystem. Their maturity seems to be key in enabling large-scale adoption of decentralized payments. 
+
+We've studied the mechanics of all 3 flavors of stablecoins.[^9] Each flavor has its own unique set of pros and cons. Let's do a quick recap:
+
+1. **Fiat-collateralized stablecoins** are backed 1-to-1 by real (off-chain) reserves. An individual is able to trade 1 stablecoin for 1 unit of the fiat currency, and vice versa. A 3rd party custodian is responsible for executing these exchanges, and is also responsible for maintaining the 1-to-1 ratio between stablecoins and its reserves.
+- 👍 Simplest to understand
+- 👍 Robust to volatile crypto market conditions
+- 👎 Requires trust in 3rd party custodian
+2. **Crypto-collateralized stablecoins** are backed by crypto assets. To offset the volatility of crypto assets, these stablecoins are over-collateralized. 
+- 👍 Trustless (entire protocol is transparently on-chain)
+- 👎 Vulnerable to price volatility (positions subject to liquidation)
+- 👎 Inefficient use of capital (requires over-collateralization)
+- 👎 Complex, difficult to understand
+3. **Algorithmic stablecoins** are not backed by collateral. Instead, their peg is maintained by algorithmic policy. 
+- 👍 Trustless (entire protocol is transparently on-chain)
+- 👍 Efficient (no collateral)
+- 👎 Vulnerable to crashes
+- 🦄 An ideal which doesn't really exist (yet?)
 
 ## Sources
 - [Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf) - Satoshi Nakamoto
 - [The Search for a Stable Cryptocurrency](https://blog.ethereum.org/2014/11/11/search-stable-cryptocurrency/) - Vitalik Buterin
 - [What Are Stablecoins?](https://www.gemini.com/cryptopedia/what-are-stablecoins-how-do-they-work) - Cryptopedia team
+- [Stablecoins: designing a price-stable cryptocurrency](https://haseebq.com/stablecoins-designing-a-price-stable-cryptocurrency/) - Haseeb Qureshi
 - [Tether: Fiat currencies on the Bitcoin blockchain](https://assets.ctfassets.net/vyse88cgwfbl/5UWgHMvz071t2Cq5yTw5vi/c9798ea8db99311bf90ebe0810938b01/TetherWhitePaper.pdf) - Tether team
 - [The Dai Stablecoin System](https://makerdao.com/whitepaper/Dai-Whitepaper-Dec17-en.pdf) - Maker team
 - [MakerDAO - Liquidation](https://youtu.be/O6Zu0Fgjsfo) - Campbell Harvey
@@ -226,6 +251,7 @@ In the end, the Terra protocol's clever exchange mechanism was not enough to wit
 - [Terra Money: Stability and Adoption](https://assets.website-files.com/611153e7af981472d8da199c/618b02d13e938ae1f8ad1e45_Terra_White_paper.pdf) - Do Kwon et. al.
 - [The Reign of Terra: The Rise and Fall of UST](https://medium.com/dragonfly-research/the-reign-of-terra-the-rise-and-fall-of-ust-208dabbc8e6e) - Haseeb Qureshi
 
+[Thanks to Vidal for proofreading and giving me feedback!]
 
 ## Footnotes
 [^1]: There are of course issues with this assumption, as the value of 1 USD does indeed fluctuate. This is evidenced by yearly inflation, for example. There are some [projects](https://www.olympusdao.finance/) that view this as a problem, and try to maintain a "truly stable" currency. But, in general, the value of 1 USD is much more stable than the value of any other non-stablecoin digital asset, and is therefore a desirable target to peg against.
@@ -233,6 +259,7 @@ In the end, the Terra protocol's clever exchange mechanism was not enough to wit
 [^3]: As a math guy, this name really bothers me. The term "proof" should be reserved for arguments which are undoubtedly correct. Tether's "Proof of Reserves" certainly has room for doubt.
 [^4]: "DAO" stands for "Decentralized Autonomous Organization", and is an exciting concept enabled by blockchain technology. The basic idea is captured by its name: it is an organization which is 1) composed of individuals, 2) owned by no one individual/entity, and 3) capable of making decisions and performing actions.
 [^5]: Actually, liquidation ratios are not *exclusively* determined by an asset's volatility. It also depends on the values of other risk parameters. For a given asset, there can be different Maker Vaults with differrent mixes of risk parameters. For example, there may be two Vaults for Ether, one with a collateralization ratio of 145% and a stability fee of 2.25%, and the other with a collateralization ratio of 170% and stability fee of 0.50%. See [Block Analitica](https://maker.blockanalitica.com/vaults/) to explore current Maker Vault parameters. 
-[^6]: The Terra Protocol actually supported stablecoins pegged to various different national currencies (not just the USD), all sharing underlying liquidity. For simplicity, we will focus just on UST, Terra's stablecoin pegged to USD (I'll use "Terra" and "UST" interchangably, refering to the stablecoin pegged to USD).
+[^6]: The Terra Protocol actually supports stablecoins pegged to various different national currencies (not just the USD), all sharing underlying liquidity. For simplicity, we will focus just on UST, Terra's stablecoin pegged to USD.
 [^7]: "Whale" is a term in trading that refers to a trader with a lot of capital. Big whales can make big splashes with a flap of the tail: their trades can move the market.
 [^8]: Curve is an decentralized exchange (DEX) specifically designed for trading combinations of tokens which have stable value relative to eachother (e.g. USDT/USDC/Dai, or ETH/stETH). 
+[^9]: Note that not all stablecoins fit *strictly* into a single category. There are actually a couple recent "hybrid" projects ([FRAX](https://docs.frax.finance/), [Sperax USDs](https://docs.sperax.io/)) that blend the crypto-collateralized and algorithmic models. These stablecoins are partially (mostly) backed by crypto-collateral, and partially backed by a protocol token (like Luna). The ratio of these backings is parameterized and can shift over time. I think it's an interesting idea, and it will be interesting to keep an eye on these projects over the next couple of years. 

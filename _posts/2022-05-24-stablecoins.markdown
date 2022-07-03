@@ -3,7 +3,7 @@ layout: post
 title:  "Stablecoins"
 date:   2022-05-24 10:00:00 -0400
 ---
-I know with the great fall of UST, this post seems reactive. That's kind of true in that it sort of reinvigorated me to understand what the hell is going on, and to therefore write up some notes. But I've wanted to write about stablecoins for a while now. So here we go.
+*I know with the great fall of UST, this post seems reactive. That's kind of true in that it sort of reinvigorated me to understand what the hell is going on, and to therefore write up some notes. But I've wanted to write about stablecoins for a while now. So here we go.*
 
 ### What's a stablecoin?
 Crypto assets are notoriously volatile. The most famous crypto asset is, of course, Bitcoin. Without smart contract functionality, Bitcoin was originally intended as a digital currency - a mechanism by which individual parties could directly transact with each other in a decentralized way. But the vision of Bitcoin being a widely accepted currency hasn't really caught on, and it's probably because Bitcoin, like almost all other crypto assets, is extremely volatile.
@@ -49,11 +49,11 @@ Tether initially launched on top of the Bitcoin blockchain[^2], but has since ex
 
 The above diagram shows the flow of funds managed by Tether Limited. The company is responsible for exchanging between USD and USDT:
   - USD to USDT (steps 1 & 2 in diagram):
-    - Bob sends *x* USD to Tether Limited's reserves
-    - Tether Limited mints *x* USDT and issues it to the Bob's address
+    - Bob sends $$x$$ USD to Tether Limited's reserves
+    - Tether Limited mints $$x$$ USDT and issues it to the Bob's address
   - USDT to USD (steps 4 & 5 in diagram):
-    - Bob redeems *x* USDT by sending it to a contract owned by Tether Limited (thus removing this amount of USDT from circulation)
-    - Tether Limited sends *x* USD from its reserves to Bob
+    - Bob redeems $$x$$ USDT by sending it to a contract owned by Tether Limited (thus removing this amount of USDT from circulation)
+    - Tether Limited sends $$x$$ USD from its reserves to Bob
 
 Step 3 of the diagram demonstrates the utility of USDT (and stablecoins in general): once issued, it can be freely exchanged on-chain without the need of any 3rd-party facilitator.
 
@@ -159,7 +159,7 @@ The spirit of an algorithmic stablecoin is to monitor the price of the coin, and
 
 Terra's on-chain oracle mechanism works as follows: 
 - Miners submit votes on what the current value of UST is (denominated in USD).
-- Every *n* blocks, the votes are tallied, and the median is selected as the new price.
+- Every $$n$$ blocks, the votes are tallied, and the median is selected as the new price.
 - Miners who voted within 1 standard deviation of the median are rewarded with some amount of UST. Miners who did not may be punished by having their stakes slashed.
 
 This standard oracle mechansim allows the (approximated) market price of UST to be continuously updated and available on-chain. The same mechanism can be used to approximate the price of Luna.
@@ -194,7 +194,7 @@ What happened? Doesn't the exchange mechanism incentivize arbitragers to readjus
 
 Things started to go south on May 9, when some big whales[^7] sold large quantities of UST on Curve[^8]. This caused the price of UST to fall relative to other stablecoins, knocking it off of its peg. 
 
-Once knocked below its peg, UST holders became fearful that it would keep dropping - they wanted to get out before the house came down. They rushed to redeem their *x* UST for *x* USD worth of Luna, and then sold this Luna on DEXs. This caused DEXs to be flooded with fresh Luna supply, devaluing the price of Luna. This market devaluation of Luna makes it so that future UST redemptions require the minting of even more Luna, and one can see how the vicious cycle of hyperinflation is born. 
+Once knocked below its peg, UST holders became fearful that it would keep dropping - they wanted to get out before the house came down. They rushed to redeem their $$x$$ UST for $$x$$ USD worth of Luna, and then sold this Luna on DEXs. This caused DEXs to be flooded with fresh Luna supply, devaluing the price of Luna. This market devaluation of Luna makes it so that future UST redemptions require the minting of even more Luna, and one can see how the vicious cycle of hyperinflation is born. 
 
 <figure>
   <img src="../../../images/stablecoins/luna_supply.png" class="center">

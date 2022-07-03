@@ -8,11 +8,16 @@ Hi, I'm Andy.
 
 All I know is that I know nothing.
 
-Hey, wait, that's a paradox: "that I know nothing" is itself something. And so then I would then know something, which is not nothing. Ugh. 
+Hey, wait, that's a paradox: "that I know nothing" is itself something. And so then I would then know something, which is not nothing.
 
-I don't know what this website is for yet - I think I'll just try to write notes about things I'm trying to learn about.
+One of the things which I do not know is the purpose of this website. I am interested in far too many things: chess, music theory, cryptography, philosophy of mind, economics (just to name a few). I hope to use this website as a medium to document some of my explorations into these topics. 
 
+## Fun chess games
 
+Here's a funny blitz game where I blundered my queen, but ended up landing a sexy minor piece mate:
+<div class="iframe-container">
+<iframe id="9323071" allowtransparency="true" frameborder="0" style="width:100%;border:none;" src="//www.chess.com/emboard?id=9323071"></iframe><script>window.addEventListener("message",e=>{e['data']&&"9323071"===e['data']['id']&&document.getElementById(`${e['data']['id']}`)&&(document.getElementById(`${e['data']['id']}`).style.height=`${e['data']['frameHeight']+30}px`)});</script>
+</div>
 
 <!-- This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
 

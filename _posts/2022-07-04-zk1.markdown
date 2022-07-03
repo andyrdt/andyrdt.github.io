@@ -1,0 +1,108 @@
+---
+layout: post
+title:  "Zero Knowledge: Theoretical Foundations I"
+date:   2022-07-01 10:00:00 -0400
+---
+*This summer, I've been diving into the beatiful field of zero knowledge. Zero knowledge (ZK) is a subject that's picked up a lot of hype lately, as its practical applications keep being discovered all over the web3 landscape. However, before diving into these recent applications of ZK, I wanted to first understand the theoretical foundations of ZK. The theory behind ZK is itself very beautiful, and worthy of study even indepdent of its applications in the real world.*
+
+*The vast majority of this post (and subsequent ones) is my summarization of the amazing lectures from [Bar Ilan's 2019 Winter School](https://cyber.biu.ac.il/event/the-9th-biu-winter-school-on-cryptography/). These lectures are given by ZK gods, and are amazingly clear and well organized. I highly recommend watching them for anyone interested in understanding ZK theory, and full credit for the content of this post goes to the organizers of the course.*
+
+*Also thanks to my professor Tal Malkin for helping me understand this material.*
+
+### Introduction
+
+#### What's a proof?
+
+Suppose Alice knows that some statement $$x$$ is true. Suppose that Bob does not yet know that $$x$$ is true. How can Alice "prove" to Bob that $$x$$ is true?
+
+Well, in many cases, Alice can write down a logical explanation of *how* she knows that $$x$$ is true. Bob can then read this explanation, and also be convinced that $$x$$ is true. 
+
+For example, suppose $$x$$ to be the statement "$$289$$ is a square root" (or in mathematical notation: "$$\exists w \in \mathbb{N}$$ such that $$w^2 = 289$$"). A simple proof that Alice could write down and send to Bob is the following:
+- Let $$w = 17$$
+- Then $$w^2 = 17^2 = (10 + 7) * (10 + 7) = (10^2) + 2 (10 * 7 ) + (7^2) = 100 + 140 + 49 = 289$$
+
+There are two important aspects of the above proof to point out:
+1. [non-interactive] The proof does not require interaction between Alice and Bob.
+  - Alice can simply write her argument on a piece of paper, hand it to someone, and then walk away. The proof does not require Bob to ask questions or interact with Alice in any way. All he has to do is read Alice's monologue to be convinced.
+2. [non-zero-knowledge] Alice reveals to Bob not only *that* the statement is true, but also *how* the statement is true
+  - Alice shows Bob exactly *which* element $$w$$ satisfies the property $$w^2 = 289$$, namely $$w =17$$.
+        - Such a $$w$$ is generally refered to as a "witness for $$x$$" - it's a piece of information which makes the statement $$x$$ easy (efficient) to verify.
+
+Ok, cool. Basically all proofs in mathematics of this expository, non-interactive flavor. But this flavor of proof can't be used to prove all statements - there are some statements for which it's hard (or impossible) to explain exactly *how* they are true. 
+
+For example, suppose that Alice has a very sophisticated palate and can distinguish between the tastes of Coke and Pepsi. Bob cannot distinguish between them, and is not convinced that Alice can either. In this scenario, $$x$$ is the statement "Alice can distinguish between the tastes of Coke and Pepsi." How can Alice prove this statement to Bob? She can't simply explain to Bob *how* she distinguishes them, as language is insufficient to describe the sensation of taste precisely, especially when the two communicating parties have different palates!
+
+While Alice can't convince Bob of her sophisticated palate through direct explanation, she can convince him through the following game: 
+- Alice sets up two cups on a table.
+- Alice pours Coke into the left cup, and Pepsi into the right cup. She then puts on a blindfold.
+- Bob flips a coin:
+  - If heads, Bob swaps the left and right cups.
+  - If tails, Bob leaves the cups in their original configuration.
+- Alice then tastes both cups, and says whether she thinks the cups were swapped or not.
+
+If Alice can truly distinguish between Coke and Pepsi, the probability of her winning the game is $$1$$: she will always be able to tell whether the drink on the left is Coke or Pepsi, and therefore is always able to tell whether the cups were swapped or not. 
+
+On the other hand, if Alice *cannot* distinguish between Coke and Pepsi, then the probability of her winning the game is $$\frac{1}{2}$$: she cannot leverage taste to distinguish between the unswapped vs swapped scenario, and so her success probability is equivalent to correctly guessing the outcome of Bob's coin flip. 
+
+If this game is played once and Alice wins, Bob may still not be convinced: even if Alice guessed randomly, she could have won with a 50% chance.
+
+However, Alice and Bob can repeat the game $$k$$ times for some arbitrarily-large $$k$$ in order to amplify Bob's confidence. In order for Alice to convince Bob of her discerning palate, she must win all $$k$$ rounds. If she loses even a single round, Bob will conclude that she has an ordinary tongue. With $$k$$ rounds of play, the probability of Alice deceiving Bob (in the case where Alice actually *cannot* distinguish between Coke and Pepsi) is equal to the probability of her randomly guessing Bob's coin flip in all $$k$$ rounds: $$1/2^k$$.[^1]
+
+Let's note two important aspects of the above proof:
+1. [interactive] The proof requires interaction between Alice and Bob.
+  - Bob introduces randomness to the protocol in the form of a coin flip. This coin flip determines the correct answer of the challenge (swap or not) that Alice must complete. 
+2. [zero-knowledge] Alice convinces Bob only *that* the statement is true, and does not reveal *how* the statement is true.
+  - In this case, it's not clear *how* the statement is true (there's no obvious witness). But we will see examples where Alice does know some witness for the statement, and is yet still able to prove the statement without revealing the witness.
+
+
+#### Summarizing proof types
+From the two examples above, we've seen that there are two axes on which a proof can vary (the following statements are not precise and intended just to build up intution - we'll define the terms more formally in a bit):
+
+1. Interactive vs non-interactive
+  - In an interactive proof, Alice and Bob communicate with each other, and the protocol is usually non-deterministic (involves randomness).
+  - In a non-interactive proof, Alice can complete her proof without any communication from Bob. 
+2. Zero-knowledge vs non-zero-knowledge
+  - In a zero-knowledge proof, Alice convinces Bob *that* the statement is true, but does not reveal *how* the statement is true.
+  - In a non-zero-knowledge proof, Alice convinces Bob *that* the statement is true by revealing *how* the statement is true.
+
+We'll see that there exist proofs which satisfy each of the $$\{\text{interactive, non-interactive} \} \times \{\text{zk, non-zk} \}$$ combinations. We'll start by formally defining interactive proof systems, which will then enable us to define and understand zero knowledge. 
+
+
+### Interactive proof systems
+An interactive proof system has two parties: a prover P, and a verifier V. P aims to convince V of some statement "$$x \in L$$." The proof should be quick and easy to verify, and we will therefore stipulate that the verifier V runs in probabilistic-polynomial-time (PPT). On the other hand, we place no restrictions on run-time of the prover P.
+
+<div class="definition" markdown="1">
+An *interactive proof system* for $$L$$ is a PPT algorithm $$V$$ and a function $$P$$ such that for all $$x$$:
+- Completeness: if $$x \in L$$, then $$\Pr[(P,V)$$ accepts $$x] \geq \frac{2}{3}$$ 
+- Soundness: if $$x \notin L$$, then for all $$P^*, \Pr[(P^*,V)$$ accepts $$x] \leq \frac{1}{3}$$
+</div>
+
+A few notes about this definition:
+- The notation $$P^*$$ represents a "cheating prover" - a prover that does not necessarily behave the same as the $$P$$ specified by the proof system
+  - The soundness condition requires that, for *all provers* (even malicious ones), the probability of the verifier being convinced of a false statement is small. 
+- Completeness and soundness can be bounded by any functions $$c(\lvert x \rvert): \mathbb{N} \rightarrow [0,1]$$ and $$s(\lvert x \rvert): \mathbb{N} \rightarrow [0,1]$$ such that:
+  - $$c(\lvert x \rvert) \geq \frac{1}{2} + 1/poly(\lvert x \rvert)$$ &#x200B;
+  - $$s(\lvert x \rvert) \leq \frac{1}{2} - 1/poly(\lvert x \rvert)$$ &#x200B;
+  - Using such functions would yield an equivalent definition as the one above
+    - One definition can be transformed into another by amplification (next bullet point)
+- By repeating the proof system $$poly(\lvert x \rvert)$$ independent times, the completeness and soundness can be amplified to have negligible error: $$c(\lvert x \rvert) - s(\lvert x \rvert) \geq 1 - 2^{- poly(\lvert x \rvert)}$$
+
+#### Example: IP for non-quadratic residuosity
+
+
+
+### What is zero knowledge?
+
+
+
+### Interactive proofs
+
+
+
+## Sources
+- [BIU Winter School 2019, Lecture 1: Zero-knowledge (Intro)](https://cyber.biu.ac.il/wp-content/uploads/2018/08/WS-19-1-ZK-intro.pdf) - Alon Rosen
+- [BIU Winter School 2019, Lecture 2: Zero-knowledge for NP](http://cyber.biu.ac.il/wp-content/uploads/2018/08/WS-19-2-ZK-for-NP.pdf) - Alon Rosen
+
+
+## Footnotes
+[^1]: Plugging in some concrete numbers: if there are $$k=20$$ rounds, then this probability is reduced to less than one-in-a-million: $$\frac{1}{2}^{20} = \frac{1}{1048576}$$. Bob can of course specify the successful-cheating probability $$p$$ to be arbitrarily small, and then repeat the game $$k = -\log{p}$$ rounds to achieve such confidence.

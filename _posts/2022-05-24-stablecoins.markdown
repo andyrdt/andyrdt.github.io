@@ -5,6 +5,8 @@ date:   2022-05-24 10:00:00 -0400
 ---
 *I know with the great fall of UST, this post seems reactive. That's kind of true in that it sort of reinvigorated me to understand what the hell is going on, and to therefore write up some notes. But I've wanted to write about stablecoins for a while now. So here we go.*
 
+*Thanks to Vidal for proofreading and giving me feedback.*
+
 ### What's a stablecoin?
 Crypto assets are notoriously volatile. The most famous crypto asset is, of course, Bitcoin. Without smart contract functionality, Bitcoin was originally intended as a digital currency - a mechanism by which individual parties could directly transact with each other in a decentralized way. But the vision of Bitcoin being a widely accepted currency hasn't really caught on, and it's probably because Bitcoin, like almost all other crypto assets, is extremely volatile.
 
@@ -250,8 +252,6 @@ We've studied the mechanics of all 3 flavors of stablecoins.[^9] Each flavor has
 - [MakerDAO Auction Keeper](https://youtu.be/3sUfu6ayozY) - Petru Catana
 - [Terra Money: Stability and Adoption](https://assets.website-files.com/611153e7af981472d8da199c/618b02d13e938ae1f8ad1e45_Terra_White_paper.pdf) - Do Kwon et. al.
 - [The Reign of Terra: The Rise and Fall of UST](https://medium.com/dragonfly-research/the-reign-of-terra-the-rise-and-fall-of-ust-208dabbc8e6e) - Haseeb Qureshi
-
-[Thanks to Vidal for proofreading and giving me feedback!]
 
 ## Footnotes
 [^1]: There are of course issues with this assumption, as the value of 1 USD does indeed fluctuate. This is evidenced by yearly inflation, for example. There are some [projects](https://www.olympusdao.finance/) that view this as a problem, and try to maintain a "truly stable" currency. But, in general, the value of 1 USD is much more stable than the value of any other non-stablecoin digital asset, and is therefore a desirable target to peg against.

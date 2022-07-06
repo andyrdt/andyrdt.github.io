@@ -1,9 +1,11 @@
 ---
 layout: post
-title:  "Zero Knowledge: Theoretical Foundations I"
+title:  "Zero-Knowledge: Theoretical Foundations I"
 date:   2022-07-01 10:00:00 -0400
 ---
-*This summer, I've been diving into the beatiful field of zero knowledge. Zero knowledge (ZK) is a subject that's picked up a lot of hype lately, as its practical applications keep being discovered all over the web3 landscape. However, before diving into these recent applications of ZK, I wanted to first understand the theoretical foundations of ZK. The theory behind ZK is itself very beautiful, and worthy of study even indepdent of its applications in the real world.*
+[Warning: this is a draft, and will be edited/added to in the near future.]
+
+*This summer, I've been diving into the beatiful field of zero-knowledge. Zero-knowledge (ZK) is a subject that's picked up a lot of hype lately, as its practical applications keep being discovered all over the web3 landscape. However, before diving into these recent applications of ZK, I wanted to first understand the theoretical foundations of ZK. The theory behind ZK is itself very beautiful, and worthy of study even indepdent of its applications in the real world.*
 
 *The vast majority of this post (and subsequent ones) is my summarization of the amazing lectures from [Bar Ilan's 2019 Winter School](https://cyber.biu.ac.il/event/the-9th-biu-winter-school-on-cryptography/). These lectures are given by ZK gods, and are amazingly clear and well organized. I highly recommend watching them for anyone interested in understanding ZK theory, and full credit for the content of this post goes to the organizers of the course.*
 
@@ -13,11 +15,11 @@ date:   2022-07-01 10:00:00 -0400
 
 #### What's a proof?
 
-Suppose Alice knows that some statement $$x$$ is true. Suppose that Bob does not yet know that $$x$$ is true. How can Alice "prove" to Bob that $$x$$ is true?
+Suppose Alice knows that some statement $$s$$ is true. Suppose that Bob does not yet know that $$s$$ is true. How can Alice "prove" to Bob that $$s$$ is true?
 
-Well, in many cases, Alice can write down a logical explanation of *how* she knows that $$x$$ is true. Bob can then read this explanation, and also be convinced that $$x$$ is true. 
+Well, in many cases, Alice can write down a logical explanation of *how* she knows that $$s$$ is true. Bob can then read this explanation, and also be convinced that $$s$$ is true. 
 
-For example, suppose $$x$$ to be the statement "$$289$$ is a square root" (or in mathematical notation: "$$\exists w \in \mathbb{N}$$ such that $$w^2 = 289$$"). A simple proof that Alice could write down and send to Bob is the following:
+For example, suppose $$s$$ to be the statement "$$289$$ is a square root" (or in mathematical notation: "$$\exists w \in \mathbb{N}$$ such that $$w^2 = 289$$"). A simple proof that Alice could write down and send to Bob is the following:
 - Let $$w = 17$$
 - Then $$w^2 = 17^2 = (10 + 7) * (10 + 7) = (10^2) + 2 (10 * 7 ) + (7^2) = 100 + 140 + 49 = 289$$
 
@@ -26,11 +28,11 @@ There are two important aspects of the above proof to point out:
   - Alice can simply write her argument on a piece of paper, hand it to someone, and then walk away. The proof does not require Bob to ask questions or interact with Alice in any way. All he has to do is read Alice's monologue to be convinced.
 2. [non-zero-knowledge] Alice reveals to Bob not only *that* the statement is true, but also *how* the statement is true
   - Alice shows Bob exactly *which* element $$w$$ satisfies the property $$w^2 = 289$$, namely $$w =17$$.
-        - Such a $$w$$ is generally refered to as a "witness for $$x$$" - it's a piece of information which makes the statement $$x$$ easy (efficient) to verify.
+        - Such a $$w$$ is generally refered to as a "witness for $$x$$" - it's a piece of information which makes the statement $$s$$ easy (efficient) to verify.
 
 Ok, cool. Basically all proofs in mathematics of this expository, non-interactive flavor. But this flavor of proof can't be used to prove all statements - there are some statements for which it's hard (or impossible) to explain exactly *how* they are true. 
 
-For example, suppose that Alice has a very sophisticated palate and can distinguish between the tastes of Coke and Pepsi. Bob cannot distinguish between them, and is not convinced that Alice can either. In this scenario, $$x$$ is the statement "Alice can distinguish between the tastes of Coke and Pepsi." How can Alice prove this statement to Bob? She can't simply explain to Bob *how* she distinguishes them, as language is insufficient to describe the sensation of taste precisely, especially when the two communicating parties have different palates!
+For example, suppose that Alice has a very sophisticated palate and can distinguish between the tastes of Coke and Pepsi. Bob cannot distinguish between them, and is not convinced that Alice can either. In this scenario, $$s$$ is the statement "Alice can distinguish between the tastes of Coke and Pepsi." How can Alice prove this statement to Bob? She can't simply explain to Bob *how* she distinguishes them, as language is insufficient to describe the sensation of taste precisely, especially when the two communicating parties have different palates!
 
 While Alice can't convince Bob of her sophisticated palate through direct explanation, she can convince him through the following game: 
 - Alice sets up two cups on a table.
@@ -65,11 +67,11 @@ From the two examples above, we've seen that there are two axes on which a proof
   - In a zero-knowledge proof, Alice convinces Bob *that* the statement is true, but does not reveal *how* the statement is true.
   - In a non-zero-knowledge proof, Alice convinces Bob *that* the statement is true by revealing *how* the statement is true.
 
-We'll see that there exist proofs which satisfy each of the $$\{\text{interactive, non-interactive} \} \times \{\text{zk, non-zk} \}$$ combinations. We'll start by formally defining interactive proof systems, which will then enable us to define and understand zero knowledge. 
+We'll see that there exist proofs which satisfy each of the $$\{\text{interactive, non-interactive} \} \times \{\text{zk, non-zk} \}$$ combinations. We'll start by formally defining interactive proof systems, which will then enable us to define and understand zero-knowledge. 
 
 
 ### Interactive proof systems
-An interactive proof system has two parties: a prover P, and a verifier V. P aims to convince V of some statement "$$x \in L$$." The proof should be quick and easy to verify, and we will therefore stipulate that the verifier V runs in probabilistic-polynomial-time (PPT). On the other hand, we place no restrictions on run-time of the prover P.
+An interactive proof system has two parties: a prover $$P$$, and a verifier $$V$$. The prover $$P$$ aims to convince the verifier $$V$$ of some statement "$$x \in L$$." The proof should be quick and easy to verify, and we will therefore stipulate that the verifier $$V$$ runs in probabilistic-polynomial-time (PPT). On the other hand, we place no restrictions on run-time of the prover $$P$$.
 
 <div class="definition" markdown="1">
 An *interactive proof system* for $$L$$ is a PPT algorithm $$V$$ and a function $$P$$ such that for all $$x$$:
@@ -87,17 +89,144 @@ A few notes about this definition:
     - One definition can be transformed into another by amplification (next bullet point)
 - By repeating the proof system $$poly(\lvert x \rvert)$$ independent times, the completeness and soundness can be amplified to have negligible error: $$c(\lvert x \rvert) - s(\lvert x \rvert) \geq 1 - 2^{- poly(\lvert x \rvert)}$$
 
-#### Example: IP for non-quadratic residuosity
+#### Example: IP for quadratic non-residuosity
+We define the language of "quadratic residues in $$\mathbb{Z}_N^*$$": $$QR_N = \{ x \in \mathbb{Z}_N^* \lvert \exists w \in \mathbb{Z}_N^* \text{ s.t. } x = w^2 (\text{mod } N)\}$$.
 
+Note that there's an obvious way to prove that some quadratic residue $$x$$ is indeed a quadratic residue. One can simply reveal the witness $$w$$ which satisfies $$x = w^2 (\text{mod } N)$$.
 
+Now we can define its complement[^2], the language of "quadratic non-residues in $$\mathbb{Z}_N^*$$": $$\overline{QR_N} = \{ x \in \mathbb{Z}_N^* \lvert \nexists w \in \mathbb{Z}_N^* \text{ s.t. } x = w^2 (\text{mod } N)\}$$.
 
-### What is zero knowledge?
+How can one prove that some quadratic non-residue $$x$$ is indeed a quadratic non-residue? It's not as obvious or simple as in the case of quadratic residues.
 
+Turns out there's a very simple and elegant interactive proof system for quadratic non-residuosity:
+<figure>
+  <img src="../../../images/zk1/ip_nonqr.png" class="center">
+  <figcaption align = "center">Interactive proof system for quadratic non-residuosity</figcaption>
+  <figcaption align = "center">[Source: <a href="https://cyber.biu.ac.il/wp-content/uploads/2018/08/WS-19-1-ZK-intro.pdf#page=19">Lecture 1, Slide 19</a>]</figcaption>
+</figure>
 
+- The verifier $$V$$ first randomly draws a bit $$b \in \{ 0,1\}$$, and an element $$y \in \mathbb{Z}_N^*$$.
+  - If $$b = 0$$, then $$V$$ sends $$z = y^2$$ to $$P$$
+  - If $$b = 1$$, then $$V$$ sends $$z = x y^2$$ to $$P$$
+- The prover $$P$$ receives $$z$$ and checks if $$z \in QR_N$$
+  - If $$z \in QR_N$$, $$P$$ sends $$b'=0$$ to $$V$$
+  - If $$z \notin QR_N$$, $$P$$ sends $$b'=1$$ to $$V$$
+- The verifier $$V$$ checks if $$b' = b$$
+  - If $$b' = b$$, then $$V$$ accepts
+  - If $$b' \neq b$$, then $$V$$ rejects
 
-### Interactive proofs
+**Completeness**:
+- Suppose $$x \notin QR_N$$
+  - When $$b=0$$, $$z = y^2 \in QR_N \implies P$$ sends $$b'=0 \implies V$$ accepts
+  - When $$b=1$$, $$z = xy^2 \notin QR_N \implies P$$ sends $$b'=1 \implies V$$ accepts
+    - To see why $$xy^2 \notin QR_N$$: $$xy^2 \in QR_N \implies \exists r \text{ s.t. } xy^2 = r^2 (\text{mod } N) \implies x = (r/y)^2 (\text{mod } N) \implies x \in QR_N$$
+  - Therefore, $$\Pr[(P,V) \text{ accepts } x] = 1$$
 
+**Soundness**:
+- Suppose $$x \in QR_N$$
+  - Both $$z = y^2 \in QR_N$$ and $$z = xy^2 \in QR_N$$
+  - $$z$$ in both cases is effectively uniformly randomly drawn from $$QR_N$$, and reveals no information about $$b$$
+  - Therefore, the best a malicious prover can do is try to guess $$b'=b$$ randomly:
+    - $$\forall P^*, \Pr[(P^*,V) \text{ accepts } x] = \Pr_b[P^*(z)= b] = 1/2$$&#x200B;
 
+To satisfy the $$1/3$$ constant from the formal definition of interactive proof systems, we can repeat the protocol for multiple rounds (in this case, we just need 2 rounds to satisfy the definition) with fresh independent randomness, and have $$V$$ accept only if all rounds succeed. 
+
+This example demonstrates the potential power of interactive proofs: for some languages, a simple *non-interactive* proof may not exist, while a simple *interactive* proof does.
+
+### Zero-knowledge
+Finally, the time is upon us to define one of the coolest ideas in all of theoretical computer science: zero-knowledge.
+
+Suppose Alice is trying to prove some statement $$s$$ to Bob. As mentioned in the introduction, a zero-knowledge proof should teach Bob no additional information other than the fact that $$s$$ is true. In particular, Bob should not learn *how* $$s$$ is true - only *that* it is true. 
+
+Now, how do we formally define this "additional information" piece? Well, we can say that a piece of information is not "additional information" if Bob could have known it by himself without Alice's proof. 
+
+But now, how do we formally define what it means for Bob to have "known it by himself" without the proof? Well, we can say that Bob could *output* ("write down") the information himself.
+
+So, this means that, if the statement $$s$$ is true, Bob should be able to kind of "simulate" his interaction with Alice. For otherwise, the information sent by Alice could not be considered to be known by Bob independently.
+
+This is the gist of the definition! In place of Bob, we use a PPT algorithm $$S$$ known as the "simulator," which simulates the interaction between the prover and verifier, and outputs a transcript of this interaction. 
+
+Notation: 
+- $$S(x) :=$$ the distribution of outputs for simulator $$S$$ when run on input $$x$$
+- $$(P,V)(x) :=$$ the distribution of transcripts (ordered sequences of messsages sent between $$P$$ and $$V$$) when the protocol $$(P,V)$$ is run on input $$x$$
+- $$S(x) \cong (P,V)(x)$$ means that the distribution $$S(x)$$ is the *same* as the distribution $$(P,V)(x)$$
+
+<div class="definition" markdown="1">
+An interactive proof system $$P, V$$ for $$L$$ is *(honest-verifier) zero-knowledge* if there exists a PPT $$S$$ such that $$\forall x \in L$$, $$S(x) \cong (P,V)(x)$$
+</div>
+
+Note that this definition has a bit of a caveat: it only considers an honest verifier, i.e. a verifier who obeys the behavior specified in the protocol. In the real world, this is not really useful, as some verifier could be malicious and try to extract extra information from the prover by deviating from the specified protocol. We want to have a stronger definition that protects against this rogue-verifier (denoted as $$V^*$$) as well:
+
+<div class="definition" markdown="1">
+An interactive proof system $$P, V$$ for $$L$$ is *perfect zero-knowledge* if for all PPT $$V^*$$, there exists a PPT $$S$$ such that $$\forall x \in L$$, $$S(x) \cong (P,V^*)(x)$$
+</div>
+
+This definition is honestly super weird and hard to wrap your head around when you first learn about it (it was for me, at least), but the more you play around with it, the clearer and more beautiful it becomes. So let's see it in action through an example. 
+
+#### Example: ZK IP for quadratic residuosity
+Recall the language of "quadratic residues in $$\mathbb{Z}_N^*$$": $$QR_N = \{ x \in \mathbb{Z}_N^* \lvert \exists w \in \mathbb{Z}_N^* \text{ s.t. } x = w^2 (\text{mod } N)\}$$.
+
+The following interactive proof system satisfies the definition of perfect ZK (and honest-verifier ZK, since perfect ZK is a stronger definition):
+
+<figure>
+  <img src="../../../images/zk1/zkip_qr.png" class="center">
+  <figcaption align = "center">Zero-knowledge interactive proof system for quadratic residuosity</figcaption>
+  <figcaption align = "center">[Source: <a href="https://cyber.biu.ac.il/wp-content/uploads/2018/08/WS-19-1-ZK-intro.pdf#page=31">Lecture 1, Slide 31</a>]</figcaption>
+</figure>
+
+- $$P$$ randomly draws an element $$r \in \mathbb{Z}_N^*$$, and sends $$y = r^2$$ to $$V$$
+- $$V$$ randomly draws a bit $$b \in \{ 0,1\}$$, and sends it to $$P$$
+- If $$b = 0$$:
+  - $$P$$ sends $$z = r$$
+  - $$V$$ accepts if $$z^2 = y$$
+- If $$b = 1$$:
+  - $$P$$ sends $$z = wr$$
+  - $$V$$ accepts if $$z^2 = xy$$
+
+**Completeness**:
+- Suppose $$x \in QR_N$$. Then $$\exists w $$ s.t. $$x = w^2 (\text{mod }) N$$
+  - If $$b = 0$$, then $$P$$ sends $$z = r$$
+    - Clearly $$z^2 = r^2 = y$$, and so $$V$$ accepts
+  - If $$b = 1$$, then $$P$$ sends $$z = wr$$
+    - Then $$z^2 = (wr)^2 = w^2 r^2 = xy$$, and so $$V$$ accepts
+
+**Soundness**:
+- Suppose $$x \notin QR_N$$
+  - Claim: $$\nexists y \in \mathbb{Z}_N^*$$ such that both $$y \in QR_N$$ *and* $$xy \in QR_N$$
+    - To see this, suppose that both $$y, xy \in QR_N$$. Then $$\exists r, k \in \mathbb{Z}_N^*$$ with $$y = r^2 , xy = k^2$$ (both equalities mod $$N$$). Then we could write $$x = xy / y = k^2 / r^2 = (k/r)^2$$, but this contradicts our assumption that $$x \notin QR_N$$.
+  - Thus, no matter what a dishonest prover $$P^*$$ does, at least one of $$y$$ or $$xy$$ must not be a quadratic residue.
+    - If $$y \notin QR_N$$, then $$V$$ will reject when $$b=0$$ (which happens w.p. 1/2)
+    - If $$xy \notin QR_N$$, then $$V$$ will reject when $$b=1$$ (which happens w.p. 1/2)
+    - In other words, no matter what value of $$y$$ $$V^*$$ commits to, there is at least a probability of 1/2 that $$V$$ will reject
+    - Therefore, we conclude that $$\forall P^*, \Pr_b[(P^*,V) \text{ accepts } x] \leq 1/2$$
+
+Ok, we've proved that the protocol is an interactive proof system for $$QR_N$$. Next, we need to prove that it is perfect zero-knowledge. To do this, we need to define a PPT simulator $$S$$ such that, for all $$x \in QR_N$$, the output of the simulator running on $$x$$ is the "same" as the protocol $$(P, V)$$ running on $$x$$. The key idea is that the simulator can sample $$b$$ before setting $$y$$, and can then craft $$y$$ accordingly to satisfy the verifiable properties. 
+
+Consider the following simulator $$S$$:
+1. Sample $$z \leftarrow \mathbb{Z}_N^*$$
+2. Sample $$b \leftarrow \{ 0, 1\}$$
+3. Set $$y = z^2 / x^b$$
+4. Output $$(y, b, z)$$
+
+The simulator's output is randomly distributed over $$(y, b, z)$$ such that $$y = z^2 / x^b$$. The protocol's output is randomly distributed over $$(y, b z)$$ such that $$z^2 = x^b y$$. These distributions are the same, and so we're done! 
+
+Hang on - not so fast. We forgot to consider what happens when there's a rogue verifier $$V^*$$ that doesn't follow the protocol! The above simulator is a proof for *honest-verifier* zero-knowledge, but we can also prove the the interactive proof system is *perfect* zero-knowledge.
+
+Fix a malicious verifier $$V^*$$. The only part of the protocol that $$V^*$$ controls is the distribution of $$b$$: instead of drawing $$b$$ at random, $$V^*$$ may set $$b$$ according to some function $$b = V^*(y)$$. We can adjust our simulator definition so that its distribution over $$b$$ matches that of the rogue verifier $$V^*$$. 
+
+Consider the following adjusted simulator $$S'$$:
+1. Sample $$z \leftarrow \mathbb{Z}_N^*$$
+2. Sample $$b \leftarrow \{ 0, 1\}$$
+3. Set $$y = z^2 / x^b$$
+4. If $$b = V^*(y)$$, then output $$(y, b, z)$$
+5. Otherwise, repeat
+
+Now our simulator's output is randomly distributed over $$(y, b, z)$$ such that $$y = z^2 / x^b$$ and $$b = V^*(y)$$, which is the same distribution as the protocol running on $$x$$: $$(P, V^*)(x)$$. So *now* we're done! Right?
+
+No. Not yet. If $$b \neq V^*(y)$$ repeatedly, the code we wrote might run forever. We can argue that this is extremely unlikely, though. The main idea is that the simulated distribution of $$y$$ is independent of $$b$$: $$\Pr_{z, b}[y] = \Pr_z[y \lvert b = 0] = \Pr_z[y \lvert b= 1] = \text{Uniform}(QR_N)$$. Therefore, $$V^*(y)$$ is also independent of $$b$$, and we have that on each iteration $$\Pr[b = V^*(y)] = 1/2$$. Thus, the expected number of iterations for $$S'$$ is 2, and the probability of $$S'$$ running in time super-polynomial in $$\lvert x \rvert$$ is super tiny. Ok now we're done.[^3]
+
+#### Auxiliary input and composition
+There's a question which naturally arises from the above interactive proof system and the analysis that follows it. In order to statisfy soundness, the protocol must be repeated for multiple rounds. But when we conduct multiple rounds, is zero-knowledge preserved?
 
 ## Sources
 - [BIU Winter School 2019, Lecture 1: Zero-knowledge (Intro)](https://cyber.biu.ac.il/wp-content/uploads/2018/08/WS-19-1-ZK-intro.pdf) - Alon Rosen
@@ -106,3 +235,5 @@ A few notes about this definition:
 
 ## Footnotes
 [^1]: Plugging in some concrete numbers: if there are $$k=20$$ rounds, then this probability is reduced to less than one-in-a-million: $$\frac{1}{2}^{20} = \frac{1}{1048576}$$. Bob can of course specify the successful-cheating probability $$p$$ to be arbitrarily small, and then repeat the game $$k = -\log{p}$$ rounds to achieve such confidence.
+[^2]: This is slightly imprecise. The complement of $$QR_N$$ contains not only $$\{ x \in \mathbb{Z}_N^* \lvert \nexists w \in \mathbb{Z}_N^* \text{ s.t. } x = w^2 (\text{mod } N)\}$$, but also $$\{ x \notin \mathbb{Z}_N^*\}$$. Let's just assume we're only considering input $$x$$ values from $$\mathbb{Z}_N^*$$.
+[^3]: There's a bit of an annoying caveat here. We got $$S'$$ to run in expected polynomial time, but if we get really really unlucky, $$S'$$ could run in super-polynomial time, which would not satisfy the definition of perfect zero-knowledge which requires the simulator to run in PPT. We'll gloss over this issue for now.

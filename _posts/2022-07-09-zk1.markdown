@@ -1,13 +1,12 @@
 ---
 layout: post
 title:  "Zero-Knowledge: Theoretical Foundations I"
-date:   2022-07-01 10:00:00 -0400
+date:   2022-07-09 10:00:00 -0400
 ---
-[Warning: this is a draft, and will be edited/added to in the near future.]
 
-*This summer, I've been diving into the beatiful field of zero-knowledge. Zero-knowledge (ZK) is a subject that's picked up a lot of hype lately, as its practical applications keep being discovered all over the web3 landscape. However, before diving into these recent applications of ZK, I wanted to first understand the theoretical foundations of ZK. The theory behind ZK is itself very beautiful, and worthy of study even indepdent of its applications in the real world.*
+*This summer, I've been studying the field of zero-knowledge. Zero-knowledge (ZK) is a subject that's picked up a lot of hype lately, as its practical applications keep being discovered all over the web3 landscape. However, before diving into these recent applications of ZK, I wanted to first understand the theoretical foundations of ZK. The theory behind ZK is itself very beautiful, and worthy of study even indepdent of its applications in the real world.*
 
-*The vast majority of this post (and subsequent ones) is my summarization of the amazing lectures from [Bar Ilan's 2019 Winter School](https://cyber.biu.ac.il/event/the-9th-biu-winter-school-on-cryptography/). These lectures are given by ZK gods, and are amazingly clear and well organized. I highly recommend watching them for anyone interested in understanding ZK theory, and full credit for the content of this post goes to the organizers of the course.*
+*The vast majority of this post (and subsequent ones) is my summarization of the amazing lectures from [Bar Ilan's 2019 Winter School](https://cyber.biu.ac.il/event/the-9th-biu-winter-school-on-cryptography/). These lectures are presented by ZK gods, and are amazingly clear and well organized. I highly recommend watching them for anyone interested in understanding ZK theory, and full credit for the content of this post goes to the organizers of the course.*
 
 *Also thanks to my professor Tal Malkin for helping me understand this material.*
 
@@ -30,7 +29,7 @@ There are two important aspects of the above proof to point out:
   - Alice shows Bob exactly *which* element $$w$$ satisfies the property $$w^2 = 289$$, namely $$w =17$$.
         - Such a $$w$$ is generally refered to as a "witness for $$x$$" - it's a piece of information which makes the statement $$s$$ easy (efficient) to verify.
 
-Ok, cool. Basically all proofs in mathematics of this expository, non-interactive flavor. But this flavor of proof can't be used to prove all statements - there are some statements for which it's hard (or impossible) to explain exactly *how* they are true. 
+Ok, cool. Basically all proofs in mathematics are of this expository, non-interactive flavor. But this flavor of proof can't be used to prove all statements - there are some statements for which it's hard (or impossible) to explain exactly *how* they are true. 
 
 For example, suppose that Alice has a very sophisticated palate and can distinguish between the tastes of Coke and Pepsi. Bob cannot distinguish between them, and is not convinced that Alice can either. In this scenario, $$s$$ is the statement "Alice can distinguish between the tastes of Coke and Pepsi." How can Alice prove this statement to Bob? She can't simply explain to Bob *how* she distinguishes them, as language is insufficient to describe the sensation of taste precisely, especially when the two communicating parties have different palates!
 
@@ -44,11 +43,11 @@ While Alice can't convince Bob of her sophisticated palate through direct explan
 
 If Alice can truly distinguish between Coke and Pepsi, the probability of her winning the game is $$1$$: she will always be able to tell whether the drink on the left is Coke or Pepsi, and therefore is always able to tell whether the cups were swapped or not. 
 
-On the other hand, if Alice *cannot* distinguish between Coke and Pepsi, then the probability of her winning the game is $$\frac{1}{2}$$: she cannot leverage taste to distinguish between the unswapped vs swapped scenario, and so her success probability is equivalent to correctly guessing the outcome of Bob's coin flip. 
+On the other hand, if Alice *cannot* distinguish between Coke and Pepsi, then the probability of her winning the game is $$1/2$$: she cannot leverage taste to distinguish between the unswapped vs swapped scenario, and so her success probability is equivalent to correctly guessing the outcome of Bob's coin flip. 
 
 If this game is played once and Alice wins, Bob may still not be convinced: even if Alice guessed randomly, she could have won with a 50% chance.
 
-However, Alice and Bob can repeat the game $$k$$ times for some arbitrarily-large $$k$$ in order to amplify Bob's confidence. In order for Alice to convince Bob of her discerning palate, she must win all $$k$$ rounds. If she loses even a single round, Bob will conclude that she has an ordinary tongue. With $$k$$ rounds of play, the probability of Alice deceiving Bob (in the case where Alice actually *cannot* distinguish between Coke and Pepsi) is equal to the probability of her randomly guessing Bob's coin flip in all $$k$$ rounds: $$1/2^k$$.[^1]
+However, Alice and Bob can repeat the game $$k$$ times for some arbitrarily-large $$k$$ in order to amplify Bob's confidence. In order for Alice to convince Bob of her discerning palate, she must win all $$k$$ rounds. If she loses even a single round, Bob will conclude that she has an ordinary tongue. With $$k$$ rounds of play, the probability of Alice deceiving Bob (in the case where Alice actually *cannot* distinguish between Coke and Pepsi) is equal to the probability of her randomly guessing Bob's coin flip in all $$k$$ rounds: $$2^{-k}$$.[^1]
 
 Let's note two important aspects of the above proof:
 1. [interactive] The proof requires interaction between Alice and Bob.
@@ -57,7 +56,7 @@ Let's note two important aspects of the above proof:
   - In this case, it's not clear *how* the statement is true (there's no obvious witness). But we will see examples where Alice does know some witness for the statement, and is yet still able to prove the statement without revealing the witness.
 
 
-#### Summarizing proof types
+### Summarizing proof types
 From the two examples above, we've seen that there are two axes on which a proof can vary (the following statements are not precise and intended just to build up intution - we'll define the terms more formally in a bit):
 
 1. Interactive vs non-interactive
@@ -71,7 +70,7 @@ We'll see that there exist proofs which satisfy each of the $$\{\text{interactiv
 
 
 ### Interactive proof systems
-An interactive proof system has two parties: a prover $$P$$, and a verifier $$V$$. The prover $$P$$ aims to convince the verifier $$V$$ of some statement "$$x \in L$$." The proof should be quick and easy to verify, and we will therefore stipulate that the verifier $$V$$ runs in probabilistic-polynomial-time (PPT). On the other hand, we place no restrictions on run-time of the prover $$P$$.
+An interactive proof system has two parties: a prover $$P$$, and a verifier $$V$$. The prover $$P$$ aims to convince the verifier $$V$$ of some statement "$$x \in L$$." The proof should be quick and easy to verify, and we will therefore stipulate that the verifier $$V$$ runs in probabilistic-polynomial-time (PPT). On the other hand, we place no restrictions on running time of the prover $$P$$.
 
 <div class="definition" markdown="1">
 An *interactive proof system* for $$L$$ is a PPT algorithm $$V$$ and a function $$P$$ such that for all $$x$$:
@@ -129,36 +128,38 @@ Turns out there's a very simple and elegant interactive proof system for quadrat
   - Therefore, the best a malicious prover can do is try to guess $$b'=b$$ randomly:
     - $$\forall P^*, \Pr[(P^*,V) \text{ accepts } x] = \Pr_b[P^*(z)= b] = 1/2$$&#x200B;
 
-To satisfy the $$1/3$$ constant from the formal definition of interactive proof systems, we can repeat the protocol for multiple rounds (in this case, we just need 2 rounds to satisfy the definition) with fresh independent randomness, and have $$V$$ accept only if all rounds succeed. 
+In a single round, the soundness error is $$1/2$$. Note that this does not actually satisfy the definition of soundness that we gave above, as the definition requires soundness error to be at most $$1/3$$. 
+
+The soundness of the protocol can be improved using a process called *amplification*: we can repeat the protocol for $$k$$ rounds, each with independent randomness, and have $$V$$ accept only if all rounds succeed. In this extended protocol, the probability of a cheating prover fooling $$V$$ (i.e. guessing $$V$$'s random bit) in all $$k$$ rounds is $$2^{-k}$$. Since $$V$$ runs in polynomial time, we can afford to run the protocol with $$k = poly(\lvert x \rvert)$$ rounds, and therefore achieve soundness error $$2^{-poly(\lvert x \rvert)}$$.
 
 This example demonstrates the potential power of interactive proofs: for some languages, a simple *non-interactive* proof may not exist, while a simple *interactive* proof does.
 
 ### Zero-knowledge
 Finally, the time is upon us to define one of the coolest ideas in all of theoretical computer science: zero-knowledge.
 
-Suppose Alice is trying to prove some statement $$s$$ to Bob. As mentioned in the introduction, a zero-knowledge proof should teach Bob no additional information other than the fact that $$s$$ is true. In particular, Bob should not learn *how* $$s$$ is true - only *that* it is true. 
+Suppose Alice is trying to prove some statement $$s$$ to Bob. As mentioned in the introduction, a zero-knowledge proof should reveal no additional information to Bob, other than the fact that $$s$$ is true. In particular, Bob should not learn *how* $$s$$ is true - only *that* it is true. 
 
-Now, how do we formally define this "additional information" piece? Well, we can say that a piece of information is not "additional information" if Bob could have known it by himself without Alice's proof. 
+Now, how do we formally define what it means for Bob not have learned any "additional information" from his interaction with Alice? Well, we could say that Bob doesn't learn any new "additional information" if he could have known that information himself, *without* his interaction with Alice. 
 
-But now, how do we formally define what it means for Bob to have "known it by himself" without the proof? Well, we can say that Bob could *output* ("write down") the information himself.
+But now, how do we formally define what it means for Bob to have "known it himself" without the interaction? Well, we can say that Bob could *output* ("write down") the information himself.
 
-So, this means that, if the statement $$s$$ is true, Bob should be able to kind of "simulate" his interaction with Alice. For otherwise, the information sent by Alice could not be considered to be known by Bob independently.
+So, this means that, if the statement $$s$$ is true, Bob should be able to output, or "simulate," his interaction with Alice, without actually interacting with Alice. For if Bob could not himself produce the information provided by Alice, then that information should be considered "additional knowledge" revealed by Alice.
 
-This is the gist of the definition! In place of Bob, we use a PPT algorithm $$S$$ known as the "simulator," which simulates the interaction between the prover and verifier, and outputs a transcript of this interaction. 
+This is the gist of the definition. In place of Bob, we use a randomized algorithm $$S$$ known as the "simulator," which simulates the interaction between the prover and verifier, and outputs a transcript of this interaction. 
 
 Notation: 
-- $$S(x) :=$$ the distribution of outputs for simulator $$S$$ when run on input $$x$$
+- $$S(x) :=$$ the distribution of transcripts output by the simulator $$S$$ when run on input $$x$$
 - $$(P,V)(x) :=$$ the distribution of transcripts (ordered sequences of messsages sent between $$P$$ and $$V$$) when the protocol $$(P,V)$$ is run on input $$x$$
 - $$S(x) \cong (P,V)(x)$$ means that the distribution $$S(x)$$ is the *same* as the distribution $$(P,V)(x)$$
 
 <div class="definition" markdown="1">
-An interactive proof system $$P, V$$ for $$L$$ is *(honest-verifier) zero-knowledge* if there exists a PPT $$S$$ such that $$\forall x \in L$$, $$S(x) \cong (P,V)(x)$$
+An interactive proof system $$P, V$$ for $$L$$ is *(honest-verifier) zero-knowledge* if there exists a probabilistic simulator $$S$$, running in *expected* polynomial time[^3], such that $$\forall x \in L$$, $$S(x) \cong (P,V)(x)$$.
 </div>
 
 Note that this definition has a bit of a caveat: it only considers an honest verifier, i.e. a verifier who obeys the behavior specified in the protocol. In the real world, this is not really useful, as some verifier could be malicious and try to extract extra information from the prover by deviating from the specified protocol. We want to have a stronger definition that protects against this rogue-verifier (denoted as $$V^*$$) as well:
 
 <div class="definition" markdown="1">
-An interactive proof system $$P, V$$ for $$L$$ is *perfect zero-knowledge* if for all PPT $$V^*$$, there exists a PPT $$S$$ such that $$\forall x \in L$$, $$S(x) \cong (P,V^*)(x)$$
+An interactive proof system $$P, V$$ for $$L$$ is *perfect zero-knowledge* if for all PPT $$V^*$$, there exists a probabilistic simulator $$S$$, running in *expected* polynomial time, such that $$\forall x \in L$$, $$S(x) \cong (P,V^*)(x)$$.
 </div>
 
 This definition is honestly super weird and hard to wrap your head around when you first learn about it (it was for me, at least), but the more you play around with it, the clearer and more beautiful it becomes. So let's see it in action through an example. 
@@ -166,7 +167,7 @@ This definition is honestly super weird and hard to wrap your head around when y
 #### Example: ZK IP for quadratic residuosity
 Recall the language of "quadratic residues in $$\mathbb{Z}_N^*$$": $$QR_N = \{ x \in \mathbb{Z}_N^* \lvert \exists w \in \mathbb{Z}_N^* \text{ s.t. } x = w^2 (\text{mod } N)\}$$.
 
-The following interactive proof system satisfies the definition of perfect ZK (and honest-verifier ZK, since perfect ZK is a stronger definition):
+The following interactive proof system satisfies the definition of perfect ZK (and therefore honest-verifier ZK, since perfect ZK is a stronger definition):
 
 <figure>
   <img src="../../../images/zk1/zkip_qr.png" class="center">
@@ -200,7 +201,7 @@ The following interactive proof system satisfies the definition of perfect ZK (a
     - In other words, no matter what value of $$y$$ $$V^*$$ commits to, there is at least a probability of 1/2 that $$V$$ will reject
     - Therefore, we conclude that $$\forall P^*, \Pr_b[(P^*,V) \text{ accepts } x] \leq 1/2$$
 
-Ok, we've proved that the protocol is an interactive proof system for $$QR_N$$. Next, we need to prove that it is perfect zero-knowledge. To do this, we need to define a PPT simulator $$S$$ such that, for all $$x \in QR_N$$, the output of the simulator running on $$x$$ is the "same" as the protocol $$(P, V)$$ running on $$x$$. The key idea is that the simulator can sample $$b$$ before setting $$y$$, and can then craft $$y$$ accordingly to satisfy the verifiable properties. 
+Ok, we've proved that the protocol is an interactive proof system for $$QR_N$$. Next, we need to prove that it is perfect zero-knowledge. To do this, we need to define a simulator $$S$$ that runs in expected polynomial time, and for all $$x \in QR_N$$, the output of the simulator running on $$x$$ is the "same" as the protocol $$(P, V)$$ running on $$x$$. The key idea is that the simulator can "reverse" the order of the protocol: it can sample the challenge bit $$b$$ first, and can then craft $$y$$ to satisfy the challenge corresponding to $$b$$. 
 
 Consider the following simulator $$S$$:
 1. Sample $$z \leftarrow \mathbb{Z}_N^*$$
@@ -208,7 +209,7 @@ Consider the following simulator $$S$$:
 3. Set $$y = z^2 / x^b$$
 4. Output $$(y, b, z)$$
 
-The simulator's output is randomly distributed over $$(y, b, z)$$ such that $$y = z^2 / x^b$$. The protocol's output is randomly distributed over $$(y, b z)$$ such that $$z^2 = x^b y$$. These distributions are the same, and so we're done! 
+The simulator's output is randomly distributed over $$(y, b, z)$$ such that $$y = z^2 / x^b$$. The protocol's output is randomly distributed over $$(y, b, z)$$ such that $$z^2 = x^b y$$. These distributions are the same, and so we're done! 
 
 Hang on - not so fast. We forgot to consider what happens when there's a rogue verifier $$V^*$$ that doesn't follow the protocol! The above simulator is a proof for *honest-verifier* zero-knowledge, but we can also prove the the interactive proof system is *perfect* zero-knowledge.
 
@@ -223,17 +224,31 @@ Consider the following adjusted simulator $$S'$$:
 
 Now our simulator's output is randomly distributed over $$(y, b, z)$$ such that $$y = z^2 / x^b$$ and $$b = V^*(y)$$, which is the same distribution as the protocol running on $$x$$: $$(P, V^*)(x)$$. So *now* we're done! Right?
 
-No. Not yet. If $$b \neq V^*(y)$$ repeatedly, the code we wrote might run forever. We can argue that this is extremely unlikely, though. The main idea is that the simulated distribution of $$y$$ is independent of $$b$$: $$\Pr_{z, b}[y] = \Pr_z[y \lvert b = 0] = \Pr_z[y \lvert b= 1] = \text{Uniform}(QR_N)$$. Therefore, $$V^*(y)$$ is also independent of $$b$$, and we have that on each iteration $$\Pr[b = V^*(y)] = 1/2$$. Thus, the expected number of iterations for $$S'$$ is 2, and the probability of $$S'$$ running in time super-polynomial in $$\lvert x \rvert$$ is super tiny. Ok now we're done.[^3]
+No. Not yet. If $$b \neq V^*(y)$$ repeatedly, the code we wrote might run forever. We can argue that this is extremely unlikely, though. The main idea is that the simulated distribution of $$y$$ is independent of $$b$$: $$\Pr_{z, b}[y] = \Pr_z[y \lvert b = 0] = \Pr_z[y \lvert b= 1] = \text{Uniform}(QR_N)$$. Therefore, $$V^*(y)$$ is also independent of $$b$$, and we have that on each iteration, $$\Pr[b = V^*(y)] = 1/2$$. Thus, the expected number of iterations for $$S'$$ is 2, and therefore the expected running time of $$S'$$ is 2 times the expected running time of $$V^*$$. Since $$V^*$$ runs in polynomial time, $$S'$$ satisfies the definitional requirement of running in *expected* polynomial time. Done!
 
-#### Auxiliary input and composition
-There's a question which naturally arises from the above interactive proof system and the analysis that follows it. In order to statisfy soundness, the protocol must be repeated for multiple rounds. But when we conduct multiple rounds, is zero-knowledge preserved?
+We have shown that the above protocol is an interactive proof for $$QR_N$$ with soundness error $$1/2$$, and that it satisfies perfect zero-knowledge. However, in the real world, we want to get soundness error down to a small value, like $$2^{-poly(\lvert x \rvert)}$$. Recall that we can use sequential repetition to amplify the soundness error: we can repeat the protocol for $$k = poly(\lvert x \rvert)$$ rounds. However, we need to be careful, and argue that this protocol with multiple repetitions preserves zero-knowledge. It is sufficient to build a simulator for the $$k$$-round protocol.
+
+Consider the following simulator $$S_k$$:
+- For round $$i \in \{1, 2, ..., k\}$$:
+  1. Sample $$z_i \leftarrow \mathbb{Z}_N^*$$
+  2. Sample $$b_i \leftarrow \{ 0, 1\}$$
+  3. Set $$y_i = z_i^2 / x_i^b$$
+  4. If $$b_i = V^*(y_i, t_{i-1})$$, then save $$(y_i, b_i, z_i)$$ and move on to the next round
+    - Where $$t_{i-1}$$ represents all the previous message transcripts before round $$i$$
+  5. Otherwise, repeat the current round $$i$$
+- Output $$(y_1, b_1, z_1, y_2, b_2, z_2, ..., y_k, b_k, z_k)$$
+
+Similar analysis yields that the expected running time of $$S_k$$ is 2 times the expected running time of $$V^*$$, and that $$S_k$$ therefore runs in expected polynomial time.
+
+Cool! We've shown that the language $$QR_N$$ has a perfect zero-knowledge interactive proof system, with soundness error $$2^{-poly (\lvert x \rvert)}$$.
+
 
 ## Sources
 - [BIU Winter School 2019, Lecture 1: Zero-knowledge (Intro)](https://cyber.biu.ac.il/wp-content/uploads/2018/08/WS-19-1-ZK-intro.pdf) - Alon Rosen
-- [BIU Winter School 2019, Lecture 2: Zero-knowledge for NP](http://cyber.biu.ac.il/wp-content/uploads/2018/08/WS-19-2-ZK-for-NP.pdf) - Alon Rosen
+- [The Knowledge Complexity of Interactive Proof Systems](https://people.csail.mit.edu/silvio/Selected%20Scientific%20Papers/Proof%20Systems/The_Knowledge_Complexity_Of_Interactive_Proof_Systems.pdf) - Shafi Goldwasser, Silvio Micali, Charles Rackoff
 
 
 ## Footnotes
-[^1]: Plugging in some concrete numbers: if there are $$k=20$$ rounds, then this probability is reduced to less than one-in-a-million: $$\frac{1}{2}^{20} = \frac{1}{1048576}$$. Bob can of course specify the successful-cheating probability $$p$$ to be arbitrarily small, and then repeat the game $$k = -\log{p}$$ rounds to achieve such confidence.
+[^1]: Plugging in some concrete numbers: if there are $$k=20$$ rounds, then this probability is reduced to less than one-in-a-million: $$2^{-20} = \frac{1}{1048576}$$. Bob can of course specify the successful-cheating probability $$p$$ to be arbitrarily small, and then repeat the game $$k = -\log{p}$$ rounds to achieve such confidence.
 [^2]: This is slightly imprecise. The complement of $$QR_N$$ contains not only $$\{ x \in \mathbb{Z}_N^* \lvert \nexists w \in \mathbb{Z}_N^* \text{ s.t. } x = w^2 (\text{mod } N)\}$$, but also $$\{ x \notin \mathbb{Z}_N^*\}$$. Let's just assume we're only considering input $$x$$ values from $$\mathbb{Z}_N^*$$.
-[^3]: There's a bit of an annoying caveat here. We got $$S'$$ to run in expected polynomial time, but if we get really really unlucky, $$S'$$ could run in super-polynomial time, which would not satisfy the definition of perfect zero-knowledge which requires the simulator to run in PPT. We'll gloss over this issue for now.
+[^3]: We allow $$S$$ to run in *expected* polynomial time, rather than *strict* polynomial time. This is how the original [GMR '85](https://people.csail.mit.edu/silvio/Selected%20Scientific%20Papers/Proof%20Systems/The_Knowledge_Complexity_Of_Interactive_Proof_Systems.pdf) paper defines it (see the last paragraph on page 10). We will revisit this part of the definition at a later stage, and see whether it's possible to require the simulator to run in *strict* polynomial time. 

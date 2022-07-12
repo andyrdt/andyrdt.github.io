@@ -4,11 +4,11 @@ title:  "Zero-Knowledge: Theoretical Foundations I"
 date:   2022-07-09 10:00:00 -0400
 ---
 
-*This summer, I've been studying the field of zero-knowledge. Zero-knowledge (ZK) is a subject that's picked up a lot of hype lately, as its practical applications keep being discovered all over the web3 landscape. However, before diving into these recent applications of ZK, I wanted to first understand the theoretical foundations of ZK. The theory behind ZK is itself very beautiful, and worthy of study even indepdent of its applications in the real world.*
+*This summer, I've been studying the field of zero-knowledge. Zero-knowledge (ZK) is a subject that's picked up a lot of hype lately, as its practical applications keep being discovered all over the web3 landscape. However, before diving into these recent applications of ZK, I wanted to first understand the theoretical foundations of ZK. The theory behind ZK is itself very beautiful, and worthy of study even independent of its applications in the real world.*
 
 *The vast majority of this post (and subsequent ones) is my summarization of the amazing lectures from [Bar Ilan's 2019 Winter School](https://cyber.biu.ac.il/event/the-9th-biu-winter-school-on-cryptography/). These lectures are presented by ZK gods, and are amazingly clear and well organized. I highly recommend watching them for anyone interested in understanding ZK theory, and full credit for the content of this post goes to the organizers of the course.*
 
-*Also thanks to my professor Tal Malkin for helping me understand this material.*
+*Thanks to my professor Tal Malkin for helping me understand this material, and thanks to my buddies Arnold and Raghav for proofreading this post.*
 
 ### Introduction
 
@@ -27,7 +27,7 @@ There are two important aspects of the above proof to point out:
   - Alice can simply write her argument on a piece of paper, hand it to someone, and then walk away. The proof does not require Bob to ask questions or interact with Alice in any way. All he has to do is read Alice's monologue to be convinced.
 2. [non-zero-knowledge] Alice reveals to Bob not only *that* the statement is true, but also *how* the statement is true
   - Alice shows Bob exactly *which* element $$w$$ satisfies the property $$w^2 = 289$$, namely $$w =17$$.
-        - Such a $$w$$ is generally refered to as a "witness for $$x$$" - it's a piece of information which makes the statement $$s$$ easy (efficient) to verify.
+        - Such a $$w$$ is generally refered to as a "witness for $$s$$" - it's a piece of information which makes the statement $$s$$ easy (efficient) to verify.
 
 Ok, cool. Basically all proofs in mathematics are of this expository, non-interactive flavor. But this flavor of proof can't be used to prove all statements - there are some statements for which it's hard (or impossible) to explain exactly *how* they are true. 
 
@@ -81,9 +81,10 @@ An *interactive proof system* for $$L$$ is a PPT algorithm $$V$$ and a function 
 A few notes about this definition:
 - The notation $$P^*$$ represents a "cheating prover" - a prover that does not necessarily behave the same as the $$P$$ specified by the proof system
   - The soundness condition requires that, for *all provers* (even malicious ones), the probability of the verifier being convinced of a false statement is small. 
-- Completeness and soundness can be bounded by any functions $$c(\lvert x \rvert): \mathbb{N} \rightarrow [0,1]$$ and $$s(\lvert x \rvert): \mathbb{N} \rightarrow [0,1]$$ such that:
-  - $$c(\lvert x \rvert) \geq \frac{1}{2} + 1/poly(\lvert x \rvert)$$ &#x200B;
-  - $$s(\lvert x \rvert) \leq \frac{1}{2} - 1/poly(\lvert x \rvert)$$ &#x200B;
+- The completeness and soundness probabilities of $$2/3$$ and $$1/3$$ are just arbitrary constants that are used for convenience.
+  - In general, the completeness and soundness probabilities can be bounded by any functions $$c(\lvert x \rvert): \mathbb{N} \rightarrow [0,1]$$ and $$s(\lvert x \rvert): \mathbb{N} \rightarrow [0,1]$$ such that:
+    - $$c(\lvert x \rvert) \geq \frac{1}{2} + 1/poly(\lvert x \rvert)$$ &#x200B;
+    - $$s(\lvert x \rvert) \leq \frac{1}{2} - 1/poly(\lvert x \rvert)$$ &#x200B;
   - Using such functions would yield an equivalent definition as the one above
     - One definition can be transformed into another by amplification (next bullet point)
 - By repeating the proof system $$poly(\lvert x \rvert)$$ independent times, the completeness and soundness can be amplified to have negligible error: $$c(\lvert x \rvert) - s(\lvert x \rvert) \geq 1 - 2^{- poly(\lvert x \rvert)}$$
@@ -224,7 +225,9 @@ Consider the following adjusted simulator $$S'$$:
 
 Now our simulator's output is randomly distributed over $$(y, b, z)$$ such that $$y = z^2 / x^b$$ and $$b = V^*(y)$$, which is the same distribution as the protocol running on $$x$$: $$(P, V^*)(x)$$. So *now* we're done! Right?
 
-No. Not yet. If $$b \neq V^*(y)$$ repeatedly, the code we wrote might run forever. We can argue that this is extremely unlikely, though. The main idea is that the simulated distribution of $$y$$ is independent of $$b$$: $$\Pr_{z, b}[y] = \Pr_z[y \lvert b = 0] = \Pr_z[y \lvert b= 1] = \text{Uniform}(QR_N)$$. Therefore, $$V^*(y)$$ is also independent of $$b$$, and we have that on each iteration, $$\Pr[b = V^*(y)] = 1/2$$. Thus, the expected number of iterations for $$S'$$ is 2, and therefore the expected running time of $$S'$$ is 2 times the expected running time of $$V^*$$. Since $$V^*$$ runs in polynomial time, $$S'$$ satisfies the definitional requirement of running in *expected* polynomial time. Done!
+No, not yet. We still need to argue that $$S'$$ runs in expected polynomial time. This is not immediately clear, since if $$b \neq V^*(y)$$ repeatedly, the code we wrote might run forever. We can argue that this is extremely unlikely though, and that the simulator actually only repeats a constant number of times in expectation.
+
+The main idea is that the simulated distribution of $$y$$ is independent of $$b$$: $$y$$ is always a random, uniformly distributed element from $$QR_N$$. When $$b=0$$, this is obvious, since $$z^2$$ represents a random element in $$QR_N$$. When $$b=1$$, $$z^2 x^{-1}$$ is also a random element in $$QR_N$$, since multiplying a group element by a random group element yields a random group element. Since $$y$$ is independent of $$b$$, $$V^*(y)$$ must also be independent of $$b$$, and so we have that on each iteration, $$\Pr[b = V^*(y)] = 1/2$$. Thus, the expected number of iterations for $$S'$$ is 2, and therefore the expected running time of $$S'$$ is 2 times the expected running time of $$V^*$$. Since $$V^*$$ runs in polynomial time, $$S'$$ satisfies the definitional requirement of running in *expected* polynomial time. Done!
 
 We have shown that the above protocol is an interactive proof for $$QR_N$$ with soundness error $$1/2$$, and that it satisfies perfect zero-knowledge. However, in the real world, we want to get soundness error down to a small value, like $$2^{-poly(\lvert x \rvert)}$$. Recall that we can use sequential repetition to amplify the soundness error: we can repeat the protocol for $$k = poly(\lvert x \rvert)$$ rounds. However, we need to be careful, and argue that this protocol with multiple repetitions preserves zero-knowledge. It is sufficient to build a simulator for the $$k$$-round protocol.
 
@@ -232,13 +235,13 @@ Consider the following simulator $$S_k$$:
 - For round $$i \in \{1, 2, ..., k\}$$:
   1. Sample $$z_i \leftarrow \mathbb{Z}_N^*$$
   2. Sample $$b_i \leftarrow \{ 0, 1\}$$
-  3. Set $$y_i = z_i^2 / x_i^b$$
+  3. Set $$y_i = z_i^2 / x_i^{b_i}$$
   4. If $$b_i = V^*(y_i, t_{i-1})$$, then save $$(y_i, b_i, z_i)$$ and move on to the next round
     - Where $$t_{i-1}$$ represents all the previous message transcripts before round $$i$$
   5. Otherwise, repeat the current round $$i$$
 - Output $$(y_1, b_1, z_1, y_2, b_2, z_2, ..., y_k, b_k, z_k)$$
 
-Similar analysis yields that the expected running time of $$S_k$$ is 2 times the expected running time of $$V^*$$, and that $$S_k$$ therefore runs in expected polynomial time.
+Similar analysis[^4] yields that the expected running time of $$S_k$$ is 2 times the expected running time of $$V^*$$, and that $$S_k$$ therefore runs in expected polynomial time.
 
 Cool! We've shown that the language $$QR_N$$ has a perfect zero-knowledge interactive proof system, with soundness error $$2^{-poly (\lvert x \rvert)}$$.
 
@@ -246,9 +249,11 @@ Cool! We've shown that the language $$QR_N$$ has a perfect zero-knowledge intera
 ## Sources
 - [BIU Winter School 2019, Lecture 1: Zero-knowledge (Intro)](https://cyber.biu.ac.il/wp-content/uploads/2018/08/WS-19-1-ZK-intro.pdf) - Alon Rosen
 - [The Knowledge Complexity of Interactive Proof Systems](https://people.csail.mit.edu/silvio/Selected%20Scientific%20Papers/Proof%20Systems/The_Knowledge_Complexity_Of_Interactive_Proof_Systems.pdf) - Shafi Goldwasser, Silvio Micali, Charles Rackoff
+- [Lecture 15: Zero Knowledge Proofs](https://www.cs.princeton.edu/courses/archive/fall07/cos433/lec15.pdf) - Boaz Barak
 
 
 ## Footnotes
 [^1]: Plugging in some concrete numbers: if there are $$k=20$$ rounds, then this probability is reduced to less than one-in-a-million: $$2^{-20} = \frac{1}{1048576}$$. Bob can of course specify the successful-cheating probability $$p$$ to be arbitrarily small, and then repeat the game $$k = -\log{p}$$ rounds to achieve such confidence.
 [^2]: This is slightly imprecise. The complement of $$QR_N$$ contains not only $$\{ x \in \mathbb{Z}_N^* \lvert \nexists w \in \mathbb{Z}_N^* \text{ s.t. } x = w^2 (\text{mod } N)\}$$, but also $$\{ x \notin \mathbb{Z}_N^*\}$$. Let's just assume we're only considering input $$x$$ values from $$\mathbb{Z}_N^*$$.
 [^3]: We allow $$S$$ to run in *expected* polynomial time, rather than *strict* polynomial time. This is how the original [GMR '85](https://people.csail.mit.edu/silvio/Selected%20Scientific%20Papers/Proof%20Systems/The_Knowledge_Complexity_Of_Interactive_Proof_Systems.pdf) paper defines it (see the last paragraph on page 10). We will revisit this part of the definition at a later stage, and see whether it's possible to require the simulator to run in *strict* polynomial time. 
+[^4]: One needs to argue that $$b_i$$ is independent of $$y_i$$ *and* $$t_{i-1}$$. We already showed how to argue that $$b_i$$ is independent of $$y_i$$. $$b_i$$ is independent of $$t_{i-1}$$ since it is drawn fresh at each new round (i.e. knowing the transcripts of previous rounds cannot help $$V^*$$ predict $$b_i$$).

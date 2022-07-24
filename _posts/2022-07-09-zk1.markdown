@@ -18,7 +18,7 @@ Suppose Alice knows that some statement $$s$$ is true. Suppose that Bob does not
 
 Well, in many cases, Alice can write down a logical explanation of *how* she knows that $$s$$ is true. Bob can then read this explanation, and also be convinced that $$s$$ is true. 
 
-For example, suppose $$s$$ to be the statement "$$289$$ is a square root" (or in mathematical notation: "$$\exists w \in \mathbb{N}$$ such that $$w^2 = 289$$"). A simple proof that Alice could write down and send to Bob is the following:
+For example, suppose $$s$$ to be the statement "$$289$$ is a square" (or in mathematical notation: "$$\exists w \in \mathbb{N}$$ such that $$w^2 = 289$$"). A simple proof that Alice could write down and send to Bob is the following:
 - Let $$w = 17$$
 - Then $$w^2 = 17^2 = (10 + 7) * (10 + 7) = (10^2) + 2 (10 * 7 ) + (7^2) = 100 + 140 + 49 = 289$$
 

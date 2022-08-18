@@ -59,12 +59,13 @@
     float:right;
 }
 .definition {
+    content: "Definition";
     display: block;
     margin: 12px 0;
     font-style: normal;
 }
-.definition:before {
-    content: "Definition.";
+.definition[text]:before {
+    content: "Definition (" attr(text) "). ";
     font-weight: bold;
     font-style: normal;
 }

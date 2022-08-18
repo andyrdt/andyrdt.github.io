@@ -72,7 +72,7 @@ We'll see that there exist proofs which satisfy each of the $$\{\text{interactiv
 ### Interactive proof systems
 An interactive proof system has two parties: a prover $$P$$, and a verifier $$V$$. The prover $$P$$ aims to convince the verifier $$V$$ of some statement "$$x \in L$$." The proof should be quick and easy to verify, and we will therefore stipulate that the verifier $$V$$ runs in probabilistic-polynomial-time (PPT). On the other hand, we place no restrictions on running time of the prover $$P$$.
 
-<div class="definition" markdown="1">
+<div class="definition" markdown="1" text="interactive proof system">
 An *interactive proof system* for $$L$$ is a PPT algorithm $$V$$ and a function $$P$$ such that for all $$x$$:
 - Completeness: if $$x \in L$$, then $$\Pr[(P,V)$$ accepts $$x] \geq \frac{2}{3}$$ 
 - Soundness: if $$x \notin L$$, then for all $$P^*, \Pr[(P^*,V)$$ accepts $$x] \leq \frac{1}{3}$$
@@ -153,13 +153,13 @@ Notation:
 - $$(P,V)(x) :=$$ the distribution of transcripts (ordered sequences of messsages sent between $$P$$ and $$V$$) when the protocol $$(P,V)$$ is run on input $$x$$
 - $$S(x) \cong (P,V)(x)$$ means that the distribution $$S(x)$$ is the *same* as the distribution $$(P,V)(x)$$
 
-<div class="definition" markdown="1">
-An interactive proof system $$P, V$$ for $$L$$ is *(honest-verifier) zero-knowledge* if there exists a probabilistic simulator $$S$$, running in *expected* polynomial time[^3], such that $$\forall x \in L$$, $$S(x) \cong (P,V)(x)$$.
+<div class="definition" markdown="1" text="honest-verifier zero-knowledge">
+An interactive proof system $$P, V$$ for $$L$$ is *honest-verifier zero-knowledge* if there exists a probabilistic simulator $$S$$, running in *expected* polynomial time[^3], such that $$\forall x \in L$$, $$S(x) \cong (P,V)(x)$$.
 </div>
 
 Note that this definition has a bit of a caveat: it only considers an honest verifier, i.e. a verifier who obeys the behavior specified in the protocol. In the real world, this is not really useful, as some verifier could be malicious and try to extract extra information from the prover by deviating from the specified protocol. We want to have a stronger definition that protects against this rogue-verifier (denoted as $$V^*$$) as well:
 
-<div class="definition" markdown="1">
+<div class="definition" markdown="1" text="perfect zero-knowledge">
 An interactive proof system $$P, V$$ for $$L$$ is *perfect zero-knowledge* if for all PPT $$V^*$$, there exists a probabilistic simulator $$S$$, running in *expected* polynomial time, such that $$\forall x \in L$$, $$S(x) \cong (P,V^*)(x)$$.
 </div>
 

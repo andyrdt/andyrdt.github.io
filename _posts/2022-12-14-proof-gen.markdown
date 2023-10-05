@@ -1,0 +1,8 @@
+---
+layout: post
+title:  "The Anatomy of Proof Generation"
+date:   2022-12-14 10:00:00 -0400
+external_url: https://scroll.io/blog/proofGeneration
+external_site: Scroll
+external_site_logo_path: /images/misc/scroll.jpeg
+---

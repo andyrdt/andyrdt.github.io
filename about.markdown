@@ -29,14 +29,14 @@ permalink: /about/
         Oh and I'm also a die-hard <a href="https://en.wikipedia.org/wiki/Fenerbah%C3%A7e_S.K._(football)">Fenerbahçe</a> fan - I try and watch every game.
       </p>
     </div>
-    <div style="max-width: 200px; margin: 20px; flex-basis: content">
+    <div style="max-width: 210px; margin: 20px; flex-basis: content">
       <figure>
         <img  src="../../../images/about/littlefish.jpg">
-        <figcaption style="font-size: 11px; color: grey; text-align: center; padding-top: 5px;">A little fish that I am fond of.<br>[<i>Big Fish Eat Little Fish</i> - Pieter Bruegel]</figcaption>
+        <figcaption style="font-size: 12px; color: grey; text-align: center; padding-top: 5px;">A little fish that I am fond of.<br>[<i>Big Fish Eat Little Fish</i> - Pieter Bruegel]</figcaption>
       </figure>
       <figure>
         <img  src="../../../images/about/thinker.jpeg" style="padding-top: 5px;">
-        <figcaption style="font-size: 11px; color: grey; text-align: center; padding-top: 5px;">All I know is that I know nothing.<br>[<i>The Thinker</i> - Auguste Rodin]</figcaption>
+        <figcaption style="font-size: 12px; color: grey; text-align: center; padding-top: 5px;">All I know is that I know nothing.<br>[<i>The Thinker</i> - Auguste Rodin]</figcaption>
       </figure>
 
     </div>

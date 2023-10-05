@@ -2,6 +2,7 @@
 ---
 
 @import "minima";
+@import "/fonts/Serif/cmun-serif.css";
 
 .iframe_container {
 	position: relative;
@@ -72,9 +73,9 @@
 
 @font-face {
     font-family: 'MJX_Main';
-        src: url('http://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/eot/MathJax_Main-Regular.eot'); /* IE9 Compat Modes */
-        src: url('http://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/eot/MathJax_Main-Regular.eot?iefix') format('eot'),
-            url('http://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff')  format('woff'),
-            url('http://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf')  format('opentype'),
-            url('http://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/svg/MathJax_Main-Regular.svg#MathJax_Main-Regular') format('svg');
+        src: url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/eot/MathJax_Main-Regular.eot'); /* IE9 Compat Modes */
+        src: url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/eot/MathJax_Main-Regular.eot?iefix') format('eot'),
+            url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff')  format('woff'),
+            url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf')  format('opentype'),
+            url('https://cdn.mathjax.org/mathjax/latest/fonts/HTML-CSS/TeX/svg/MathJax_Main-Regular.svg#MathJax_Main-Regular') format('svg');
 }

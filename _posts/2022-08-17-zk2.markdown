@@ -120,7 +120,7 @@ For this post, we will consider a graph with $$n$$ vertices as being represented
 <figure>
   <img src="../../../images/zk2/zkp_ham_adjmat.png" class="center">
   <figcaption align = "center">Adjacency matrix representation of a graph G with a Hamiltonian cycle w (bolded)</figcaption>
-  <figcaption align = "center">[Source: <a href="http://cyber.biu.ac.il/wp-content/uploads/2018/08/WS-19-2-ZK-for-NP.pdf#page=25">Lecture 2, Slide 25</a>]</figcaption>
+  <figcaption align = "center">[Source: <a href="https://cyber.biu.ac.il/wp-content/uploads/2018/08/WS-19-2-ZK-for-NP.pdf#page=25">Lecture 2, Slide 25</a>]</figcaption>
 </figure>
 
 ### ZK proof for HAM
@@ -128,7 +128,7 @@ For this post, we will consider a graph with $$n$$ vertices as being represented
 <figure>
   <img src="../../../images/zk2/zkp_ham.png" class="center">
   <figcaption align = "center">Computationally zero-knowledge proof for HAM</figcaption>
-  <figcaption align = "center">[Source: <a href="http://cyber.biu.ac.il/wp-content/uploads/2018/08/WS-19-2-ZK-for-NP.pdf#page=27">Lecture 2, Slide 27</a>]</figcaption>
+  <figcaption align = "center">[Source: <a href="https://cyber.biu.ac.il/wp-content/uploads/2018/08/WS-19-2-ZK-for-NP.pdf#page=27">Lecture 2, Slide 27</a>]</figcaption>
 </figure>
 
 - $$P$$ draws a random permutation $$\Pi \in S_n$$
@@ -188,7 +188,7 @@ $$HAM$$ is an NP-complete language, meaning any language in NP can be mapped to 
 
 
 ## Sources
-- [BIU Winter School 2019, Lecture 2: Zero-knowledge for NP](http://cyber.biu.ac.il/wp-content/uploads/2018/08/WS-19-2-ZK-for-NP.pdf) - Alon Rosen
+- [BIU Winter School 2019, Lecture 2: Zero-knowledge for NP](https://cyber.biu.ac.il/wp-content/uploads/2018/08/WS-19-2-ZK-for-NP.pdf) - Alon Rosen
 - [The Complexity of Perfect Zero-Knowledge](https://dl.acm.org/doi/pdf/10.1145/28395.28418) - Lance Fortnow
 - [Computational Indistinguishability](https://www.youtube.com/watch?v=TNS6K5oYt1g) - Ryan O'Donnell
 - [How to Prove a Theorem So No One Else Can Claim It](https://silo.tips/download/how-to-prove-a-theorem-so-no-one-else-can-claim-it) - Manuel Blum

@@ -201,7 +201,7 @@ Once knocked below its peg, UST holders became fearful that it would keep droppi
 <figure>
   <img src="../../../images/stablecoins/luna_supply.png" class="center">
   <figcaption align = "center">From 5/10 to 5/13, Luna supply increased over 18,000%</figcaption>
-  <figcaption align = "center"><a href="https://twitter.com/MaxInvestor89/status/1524990394747998208">[Source: TerraScope]</a></figcaption>
+  <figcaption align = "center">[Source: <a href="https://twitter.com/MaxInvestor89/status/1524990394747998208">TerraScope</a>]</figcaption>
 </figure>
 
 <figure>

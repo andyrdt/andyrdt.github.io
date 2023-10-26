@@ -103,7 +103,7 @@ Let's see how Bob can mint 100 Dai:
 2. Bob sends 5 Ether (worth $200) to the contract
 3. Bob withdraws 100 Dai from the contract
 
-Note that Bob's collateral-to-debt ratio is 200/100 = 200%, which is above the liquidation ratio of 150%. This means that Bob could withdraw even more Dai (133 in total) and still remain sufficiently collateralized. However, if Bob were to take out 133 Dai, his collateral-to-debt ratio would be [almost] exactly equal to the liquidation ratio of 150%, and even the slightest dip in Ether's price would cause it to drop below it and trigger a liquidation. In practice, collateral-to-debt ratios are much larger than the minimum liquidation ratio in order to provide a buffer for flucation in Ether's price.
+Note that Bob's collateral-to-debt ratio is 200/100 = 200%, which is above the liquidation ratio of 150%. This means that Bob could withdraw even more Dai (133 in total) and still remain sufficiently collateralized. However, if Bob were to take out 133 Dai, his collateral-to-debt ratio would be [almost] exactly equal to the liquidation ratio of 150%, and even the slightest dip in Ether's price would cause it to drop below it and trigger a liquidation. In practice, collateral-to-debt ratios are much larger than the minimum liquidation ratio in order to provide a buffer for fluctuation in Ether's price.
 
 After Bob withdraws 100 Dai from the contract, his collateral (5 Ether) is locked in the contract (he cannot withdraw it). To withdraw his collateral, Bob must first pay back the debt of 100 Dai plus the stability fee to the contract. 
 
@@ -119,7 +119,7 @@ Now let's suppose Bob, tired from minting Dai, falls asleep for 1 year. Upon wak
   - The remaining collateral is returned to Bob. In this case, 5 - 3.4 = 1.6 Ether is returned.
     - Bob initially started with 200 USD worth of Ether
     - He ends up with 1.6 * 30 = 48 USD worth of Ether and 100 Dai, which sums to a value of 148 USD.
-- Happpy scenario 😊: throughout the entire year of slumber, the price of Ether remained above $30
+- Happy scenario 😊: throughout the entire year of slumber, the price of Ether remained above $30
   - Since the collateral-to-debt ratio remained above the liquidation ratio of 150%, the position was not liquidated, and Bob can recover his collateral if he desires:
     - Bob transfers 102.5 Dai to the CDP contract
       - This covers (a) the debt of 100 Dai, plus (b) the stability fee of 2.5% * 100 = 2.5 Dai.
@@ -164,7 +164,7 @@ Terra's on-chain oracle mechanism works as follows:
 - Every $$n$$ blocks, the votes are tallied, and the median is selected as the new price.
 - Miners who voted within 1 standard deviation of the median are rewarded with some amount of UST. Miners who did not may be punished by having their stakes slashed.
 
-This standard oracle mechansim allows the (approximated) market price of UST to be continuously updated and available on-chain. The same mechanism can be used to approximate the price of Luna.
+This standard oracle mechanism allows the (approximated) market price of UST to be continuously updated and available on-chain. The same mechanism can be used to approximate the price of Luna.
 
 #### Price correction mechanism
 Next, we consider how the system reacts to price deviations. When the price of UST deviates from its peg of 1 USD, the system must react and push the price back towards 1 USD. 
@@ -179,7 +179,7 @@ When the price of UST deviates from 1 USD, the exchange mechanism enables arbitr
 - If the price of UST drops to $0.99, an arbitrager can exchange 1 UST for 1 USD worth of Luna
   - The arbitrager nets $0.01 of profit, while reducing the supply of UST, causing its price to increase.
 - If the price of UST rises to $1.01, an arbitrager can exchange 1 USD worth of Luna for 1 UST
-  - The arbitrager nets $0.01 of profit, while increasing the supppply of UST, causing its price to decrease.
+  - The arbitrager nets $0.01 of profit, while increasing the supply of UST, causing its price to decrease.
 
 With this exchange mechanism, one can in a sense understand UST to be "backed by" Luna. An individual with 1 UST should always be able to exchange it for 1 USD worth of Luna, and sell that Luna. 
 
@@ -217,7 +217,7 @@ In the end, the Terra Protocol's clever exchange mechanism was not enough to wit
 #### Is an algorithmic stablecoin possible?
 For those who have been in the crypto space for a while, UST's collapse did not come as a surprise. There have been [many](https://medium.com/reserve-currency/the-end-of-a-stablecoin-the-case-of-nubits-dd1f0fb427a9) [historical](https://www.coindesk.com/markets/2021/06/17/iron-finances-titan-token-falls-to-near-zero-in-defi-panic-selling/) [attempts](https://www.coindesk.com/tech/2022/05/11/usts-do-kwon-was-behind-earlier-failed-stablecoin-ex-terra-colleagues-say/) at creating an algorithmic stablecoin, and none have stood the test of time. UST is the latest, and by far the largest, of these failed tries.
 
-The continued failures of algorithmic stablecoins poses a natural question: is a long-term algorithmic stablecoin possible? My intuition says no: I think that a stablecoin must be backed by "real" collateral (not some made up/correlated token like Luna) in order to be robust to fear-induced death spirals. Holders should be able to logically justify their confidence in the value of the asset, even in the wake of doubt and fear. This assured "real" value provides the robustness necessary to withstand the Wild West warzone of DeFi. 
+The continued failures of algorithmic stablecoins poses a natural question: is a long-term algorithmic stablecoin possible? My intuition says no: I think that a stablecoin must be backed by "real" collateral (not some made up/correlated token like Luna) in order to be robust to fear-induced death spirals. Holders should be able to logically justify their confidence in the value of the asset, even in the wake of doubt and fear. This assured "real" value provides the robustness necessary to withstand the Wild West war zone of DeFi. 
 
 That's my intuition, but I am of course not sure. I think it could be an interesting research direction to try and prove such an intuition formally.  
 
@@ -258,8 +258,8 @@ We've studied the mechanics of all 3 flavors of stablecoins.[^9] Each flavor has
 [^2]: Bitcoin does not natively support custom tokens, and therefore does not natively support USDT. Rather, USDT is built on [Omni Layer Protocol](https://www.omnilayer.org/), which is a protocol that sits on top of Bitcoin. Omni Layer Protocol represents custom tokens as metadata stored on the Bitcoin blockchain, and then provides a mechanism to interact with the data. This kind of functionality to operate over custom tokens is natively built into more modern blockchains such as Ethereum.
 [^3]: As a math guy, this name really bothers me. The term "proof" should be reserved for arguments which are undoubtedly correct. Tether's "Proof of Reserves" certainly has room for doubt.
 [^4]: "DAO" stands for "Decentralized Autonomous Organization", and is an exciting concept enabled by blockchain technology. The basic idea is captured by its name: it is an organization which is 1) composed of individuals, 2) owned by no one individual/entity, and 3) capable of making decisions and performing actions.
-[^5]: Actually, liquidation ratios are not *exclusively* determined by an asset's volatility. It also depends on the values of other risk parameters. For a given asset, there can be different Maker Vaults with differrent mixes of risk parameters. For example, there may be two Vaults for Ether, one with a collateralization ratio of 145% and a stability fee of 2.25%, and the other with a collateralization ratio of 170% and stability fee of 0.50%. See [Block Analitica](https://maker.blockanalitica.com/vaults/) to explore current Maker Vault parameters. 
+[^5]: Actually, liquidation ratios are not *exclusively* determined by an asset's volatility. It also depends on the values of other risk parameters. For a given asset, there can be different Maker Vaults with different mixes of risk parameters. For example, there may be two Vaults for Ether, one with a collateralization ratio of 145% and a stability fee of 2.25%, and the other with a collateralization ratio of 170% and stability fee of 0.50%. See [Block Analitica](https://maker.blockanalitica.com/vaults/) to explore current Maker Vault parameters. 
 [^6]: The Terra Protocol actually supports stablecoins pegged to various different national currencies (not just the USD), all sharing underlying liquidity. For simplicity, we will focus just on UST, Terra's stablecoin pegged to USD.
 [^7]: "Whale" is a term in trading that refers to a trader with a lot of capital. Big whales can make big splashes with a flap of the tail: their trades can move the market.
-[^8]: Curve is an decentralized exchange (DEX) specifically designed for trading combinations of tokens which have stable value relative to eachother (e.g. USDT/USDC/Dai, or ETH/stETH). 
+[^8]: Curve is an decentralized exchange (DEX) specifically designed for trading combinations of tokens which have stable value relative to each other (e.g. USDT/USDC/Dai, or ETH/stETH). 
 [^9]: Note that not all stablecoins fit *strictly* into a single category. There are actually a couple recent "hybrid" projects ([FRAX](https://docs.frax.finance/), [Sperax USDs](https://docs.sperax.io/)) that blend the crypto-collateralized and algorithmic models. These stablecoins are partially (mostly) backed by crypto-collateral, and partially backed by a protocol token (like Luna). The ratio of these backings is parameterized and can shift over time. I think it's an interesting idea, and it will be interesting to keep an eye on these projects over the next couple of years. 

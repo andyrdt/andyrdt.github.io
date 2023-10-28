@@ -71,10 +71,10 @@ However, it turns out that this definition is still not loose enough to use for 
 Thus, we need another level of relaxation. This time, we allow the simulator's output and the transcript to be *computationally-indistinguishable*:
 
 <div class="definition" markdown="1" text="computational zero-knowledge">
-An interactive proof system $$P, V$$ for $$L$$ is *perfect zero-knowledge* if for all PPT $$V^*$$, there exists a PPT simulator $$S$$ such that $$\forall x \in L$$, $$S(x) \cong_C (P,V^*)(x)$$.
+An interactive proof system $$P, V$$ for $$L$$ is *computational zero-knowledge* if for all PPT $$V^*$$, there exists a PPT simulator $$S$$ such that $$\forall x \in L$$, $$S(x) \cong_C (P,V^*)(x)$$.
 </div>
 
-This definition will be loose enough, as we will be able to show that every language in NP has a computational zero-knowledge proof system. We're almost ready to show such a construction, but we need to first discuss an important tool: commitment schemes. 
+This definition will be loose enough, as we will be able to show that every language in NP has a computational zero-knowledge proof system. We're almost ready to show such a construction, but we need to first discuss an important tool: commitment schemes.
 
 ### Commitment schemes
 

@@ -1,8 +1,9 @@
 ---
-layout: page_no_title
+layout: page
 permalink: /about/
+title: "About"
+show_in_nav: true
 ---
-## About
 <div>
   <div style="display: flex; flex-wrap: wrap;">
     <div style="flex: 1; min-width: 60%;">
@@ -10,7 +11,8 @@ permalink: /about/
         Hi, I'm Andy.
       </p>
       <p>
-        I have a wide spectrum of interests, and enjoy understanding things deeply from first principles.</p>
+        I have a wide spectrum of interests, and enjoy understanding things deeply from first principles.
+      </p>
       <p>
         I earned my bachelor's from Columbia University in 2018, where I studied computer science and mathematics.
         After graduating, I moved to Seattle to work as a software engineer at Microsoft.
@@ -26,16 +28,16 @@ permalink: /about/
         I love jazz music - I'm a decent tenor player, and a much worse piano player.
         Chess is a more recent hobby of mine - I mostly play <a href="https://www.chess.com/member/andyrdt">online</a> but hope to enter some over-the-board tournaments soon.
         I like to run as well - I <a href="https://results.svetiming.com/Big-Sur/events/2023/Big-Sur-International-Marathon/3156/entrant/share">ran</a> my first marathon in April 2023.
-        Oh and I'm also a die-hard <a href="https://en.wikipedia.org/wiki/Fenerbah%C3%A7e_S.K._(football)">Fenerbahçe</a> fan - I try and watch every game.
+        Oh and I'm also a die-hard <a href="https://en.wikipedia.org/wiki/Fenerbah%C3%A7e_S.K._(football)">Fenerbahçe</a> fan - I try to watch every game.
       </p>
     </div>
-    <div style="max-width: 210px; margin: 20px; flex-basis: content">
+    <div style="max-width: 210px; margin-left: 40px; margin-top: 40px; flex-basis: content">
       <figure>
-        <img  src="../../../images/about/littlefish.jpg">
+        <img  src="../../../images/about/littlefish.jpg" style="border-radius: 3px;">
         <figcaption style="font-size: 12px; color: grey; text-align: center; padding-top: 5px;">A little fish that I am fond of.<br>[<i>Big Fish Eat Little Fish</i> - Pieter Bruegel]</figcaption>
       </figure>
-      <figure>
-        <img  src="../../../images/about/thinker.jpeg" style="padding-top: 5px;">
+      <figure style="padding-top: 20px;">
+        <img  src="../../../images/about/thinker.jpeg" style="border-radius: 3px;"/>
         <figcaption style="font-size: 12px; color: grey; text-align: center; padding-top: 5px;">All I know is that I know nothing.<br>[<i>The Thinker</i> - Auguste Rodin]</figcaption>
       </figure>
 
@@ -43,7 +45,11 @@ permalink: /about/
   </div>
 </div>
 
-## Random things
+## Random
+
+### My favorite things
+
+- [A list of my favorite papers.](/favorite_papers/)
 
 ### Chess
 

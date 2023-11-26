@@ -77,6 +77,30 @@
     vertical-align: text-top;
 }
 
+.paper-entry {
+    margin-bottom: 15px;
+}
+
+.paper-title {
+    font-size: 20px;
+}
+
+.paper-title a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.paper-title a:hover {
+    text-decoration: underline;
+    background-color: darken($background-color, 5%);
+    border-radius: 3px;
+}
+
+.paper-details {
+    font-size: 14px;
+    color: grey;
+}
+
 @font-face {
     font-family: 'MJX_Main';
     src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/eot/MathJax_Main-Regular.eot'),

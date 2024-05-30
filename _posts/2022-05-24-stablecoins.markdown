@@ -2,6 +2,7 @@
 layout: post
 title:  "Stablecoins"
 date:   2022-05-24 10:00:00 -0400
+permalink: /posts/stablecoins
 ---
 *I know with the great fall of UST, this post seems reactive. That's kind of true in that it sort of reinvigorated me to understand what the hell is going on, and to therefore write up some notes. But I've wanted to write about stablecoins for a while now. So here we go.*
 

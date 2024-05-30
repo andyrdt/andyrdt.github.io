@@ -1,9 +1,11 @@
 ---
-layout: page
-permalink: /about/
+layout: default
+permalink: /about
 title: "About"
 show_in_nav: true
 ---
+## About
+
 <div>
   <div style="display: flex; flex-wrap: wrap;">
     <div style="flex: 1; min-width: 60%;">
@@ -17,7 +19,7 @@ show_in_nav: true
         I earned my bachelor's from Columbia University in 2018, where I studied computer science and mathematics.
         After graduating, I moved to Seattle to work as a software engineer at Microsoft.
         In 2020, I returned to Columbia University for my master's, focusing on theoretical computer science.
-        During this period, I became interested in <a href="https://en.wikipedia.org/wiki/Zero-knowledge_proof">zero-knowledge cryptography</a>, and eventually went on to work for a startup applying this technology in the blockchain space.</p>
+        During this period, I became interested in <a href="https://en.wikipedia.org/wiki/Zero-knowledge_proof">zero-knowledge cryptography</a>, and eventually went on to work for <a href="https://scroll.io">Scroll</a>, a startup applying this technology in the blockchain space.</p>
       <p>
         As of August 2023, I've shifted my focus towards <a href="https://en.wikipedia.org/wiki/AI_alignment">AI alignment</a>.
         Modern AI systems have become incredibly impressive, and yet their inner workings are still poorly understood.
@@ -49,7 +51,7 @@ show_in_nav: true
 
 ### My favorite things
 
-- [A list of my favorite papers.](/favorite_papers/)
+- [A list of my favorite papers.](/favorites/papers)
 
 ### Chess
 

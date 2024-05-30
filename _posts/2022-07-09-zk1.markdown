@@ -2,6 +2,7 @@
 layout: post
 title:  "Zero-Knowledge: Theoretical Foundations I"
 date:   2022-07-09 10:00:00 -0400
+permalink: /posts/zk1
 ---
 
 *This summer, I've been studying the field of zero-knowledge. Zero-knowledge (ZK) is a subject that's picked up a lot of hype lately, as its practical applications keep being discovered all over the web3 landscape. However, before diving into these recent applications of ZK, I wanted to first understand the theoretical foundations of ZK. The theory behind ZK is itself very beautiful, and worthy of study even independent of its applications in the real world.*

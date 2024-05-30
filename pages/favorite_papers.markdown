@@ -1,10 +1,11 @@
 ---
-layout: page
-permalink: /favorite_papers/
+layout: default
+permalink: /favorites/papers
 title:  "My favorite papers"
 show_in_nav: false
-# date:   2022-07-09 10:00:00 -0400
 ---
+
+## My favorite papers
 
 *A list of my favorite papers. More to come.*
 

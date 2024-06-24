@@ -23,13 +23,25 @@ email: andyrdt@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "andyrdt.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-# twitter_username: 
+twitter_username: littlefish3625
 # github_username: 
 
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
+
+nav_items:
+  - title: Posts
+    url: /posts/
+  - title: About
+    url: /about/
+
+collections:
+  papers:
+    output: true
+  posts:
+    output: true
 
 # Exclude from processing.
 # The following items will not be processed, by default.

@@ -21,7 +21,7 @@ show_in_nav: true
         In 2020, I returned to Columbia University for my master's, focusing on theoretical computer science.
         During this period, I became interested in <a href="https://en.wikipedia.org/wiki/Zero-knowledge_proof">zero-knowledge cryptography</a>, and eventually went on to work for <a href="https://scroll.io">Scroll</a>, a startup applying this technology in the blockchain space.</p>
       <p>
-        As of August 2023, I've shifted my focus towards <a href="https://en.wikipedia.org/wiki/AI_alignment">AI alignment</a>.
+        As of August 2023, I've shifted my focus towards <a href="https://distill.pub/2020/circuits/zoom-in/">AI interpretability</a>.
         Modern AI systems have become incredibly impressive, and yet their inner workings are still poorly understood.
         There is a lot of work to be done towards understanding the capabilities and limitations of these systems, and I want to try and contribute to this effort.
       </p>
@@ -36,11 +36,17 @@ show_in_nav: true
     <div style="max-width: 210px; margin-left: 40px; margin-top: 40px; flex-basis: content">
       <figure>
         <img  src="../../../images/about/littlefish.jpg" style="border-radius: 3px;">
-        <figcaption style="font-size: 12px; color: grey; text-align: center; padding-top: 5px;">A little fish that I am fond of.<br>[<i>Big Fish Eat Little Fish</i> - Pieter Bruegel]</figcaption>
+          <figcaption style="font-size: 12px; color: grey; text-align: center; padding-top: 5px;">
+            A little fish that I am fond of.<br>
+            [<a href="https://www.metmuseum.org/art/collection/search/338694" style="color: inherit;"><i>Big Fish Eat Little Fish</i> - Pieter Bruegel</a>]
+          </figcaption>
       </figure>
       <figure style="padding-top: 20px;">
-        <img  src="../../../images/about/thinker.jpeg" style="border-radius: 3px;"/>
-        <figcaption style="font-size: 12px; color: grey; text-align: center; padding-top: 5px;">All I know is that I know nothing.<br>[<i>The Thinker</i> - Auguste Rodin]</figcaption>
+        <img src="../../../images/about/thinker.jpg" style="border-radius: 3px;"/>
+        <figcaption style="font-size: 12px; color: grey; text-align: center; padding-top: 5px;">
+          All I know is that I know nothing.<br>
+          [<a href="https://www.metmuseum.org/art/collection/search/191811" style="color: inherit;"><i>The Thinker</i> - Auguste Rodin</a>]
+        </figcaption>
       </figure>
 
     </div>

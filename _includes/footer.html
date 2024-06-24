@@ -1,10 +1,6 @@
 <footer class="site-footer h-card">
   <data class="u-url" href="{{ "/" | relative_url }}"></data>
-
   <div class="wrapper">
-
-    <!-- <h2 class="footer-heading">{{ site.title | escape }}</h2> -->
-
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
@@ -14,22 +10,27 @@
             {%- else -%}
               {{ site.title | escape }}
             {%- endif -%}
+          </li>
+          {%- if site.email -%}
+            <li>
+              <a class="u-email" href="mailto:{{ site.email }}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="grey" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                {{ site.email }}
+              </a>
             </li>
-            {%- if site.email -%}
-            <li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-            {%- endif -%}
+          {%- endif -%}
+          {%- if site.twitter_username -%}
+            <li>
+              <a class="u-email" href="https://x.com/{{site.twitter_username}}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="grey">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+                {{ site.twitter_username }}
+              </a>
+            </li>
+          {%- endif -%}
         </ul>
       </div>
-
-      <div class="footer-col footer-col-2">
-        {%- include social.html -%}
-      </div>
-
-      <div class="footer-col footer-col-3">
-        <p>{{- site.description | escape -}}</p>
-      </div>
     </div>
-
   </div>
-
 </footer>

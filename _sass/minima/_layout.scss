@@ -17,11 +17,7 @@
   letter-spacing: -1px;
   margin-bottom: 0;
   float: left;
-
-  &,
-  &:visited {
-    color: $grey-color-dark;
-  }
+  color: inherit;
 }
 
 .site-nav {
@@ -253,4 +249,13 @@
       @include relative-font-size(1.125);
     }
   }
+}
+
+.contact-list a {
+  display: flex;
+  align-items: center;
+}
+
+.contact-list svg {
+  margin-right: 5px;
 }

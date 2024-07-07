@@ -28,7 +28,7 @@ show_in_nav: true
       <p>
         Outside of working, I spend a lot of time across various hobbies.
         I love jazz music - I'm a decent tenor player, and a much worse piano player.
-        Chess is a more recent hobby of mine - I mostly play <a href="https://www.chess.com/member/andyrdt">online</a> but hope to enter some over-the-board tournaments soon.
+        Chess is a more recent hobby of mine - I mostly play <a href="https://www.chess.com/member/andyrdt">online</a>.
         I like to run as well - I <a href="https://results.svetiming.com/Big-Sur/events/2023/Big-Sur-International-Marathon/3156/entrant/share">ran</a> my first marathon in April 2023.
         Oh and I'm also a die-hard <a href="https://en.wikipedia.org/wiki/Fenerbah%C3%A7e_S.K._(football)">Fenerbahçe</a> fan - I try to watch every game.
       </p>
@@ -58,15 +58,6 @@ show_in_nav: true
 ### My favorite things
 
 - [A list of my favorite papers.](/favorites/papers)
-
-### Chess
-
-I started playing chess at the beginning of the pandemic, and have been hooked ever since.
-
-Here's a funny blitz game where I blundered my queen, and then somehow ended up landing a beautiful minor piece mate:
-<div class="iframe-container">
-<iframe id="9323071" allowtransparency="true" frameborder="0" style="width:100%;border:none;" src="//www.chess.com/emboard?id=9323071"></iframe><script>window.addEventListener("message",e=>{e['data']&&"9323071"===e['data']['id']&&document.getElementById(`${e['data']['id']}`)&&(document.getElementById(`${e['data']['id']}`).style.height=`${e['data']['frameHeight']+30}px`)});</script>
-</div>
 
 <!-- This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
 

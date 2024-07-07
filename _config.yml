@@ -40,6 +40,8 @@ nav_items:
 collections:
   papers:
     output: true
+  notes:
+    output: true
   posts:
     output: true
 

@@ -1,6 +1,8 @@
 ---
 layout: note
 title:  "Variance"
-permalink: /notes/probability/variance
+permalink: /notes/variance
 category: probability
 ---
+
+[TODO]

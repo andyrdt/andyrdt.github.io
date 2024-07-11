@@ -9,6 +9,8 @@ show_in_nav: true
 *This is a rough collection of notes on various technical topics, inspired by Victor Lecomte's [notes](https://victorlecomte.com/notes/).*
 *These notes will always be incomplete, and a work in progress.*
 
+*Additionally, many of these notes are just my reformulation of existing work - see the "Sources" section in each note to see the original source of the material.*
+
 ### Linear Algebra
 {% assign linear_algebra_notes = site.notes | where: "category", "linear_algebra" %}
 {% if linear_algebra_notes.size > 0 %}

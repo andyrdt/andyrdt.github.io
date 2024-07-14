@@ -49,10 +49,29 @@ show_in_nav: true
   </ul>
 {% endif %}
 
+### AI
+{% assign ai_notes = site.notes | where: "category", "ai" %}
+{% if ai_notes.size > 0 %}
+  <ul class="note-list">
+    {% for note in ai_notes %}
+    <li>
+      <h3>
+        <a class="note-link" href="{{ note.url | relative_url }}">
+          {{ note.title | escape }}
+        </a>
+      </h3>
+      {% if site.show_excerpts %}
+        {{ note.excerpt }}
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
 ### Other Notes
 <ul class="note-list">
   {% for note in site.notes %}
-    {% if note.category != "linear_algebra" and note.category != "probability" %}
+    {% if note.category != "linear_algebra" and note.category != "probability" and note.category != "ai"%}
       <li>
         <h3>
           <a class="note-link" href="{{ note.url | relative_url }}">

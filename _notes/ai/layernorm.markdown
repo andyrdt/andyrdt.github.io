@@ -1,7 +1,7 @@
 ---
 layout: note
 title:  "Layer normalization"
-permalink: /notes/layer_norm
+permalink: /notes/layernorm
 category: ai
 ---
 
@@ -118,7 +118,7 @@ We first compute the *root mean square* of the activation vector as follows:
 
 $$
 \begin{align*}
-\text{RMS}(\vec{x}) &= \sqrt{\frac{1}{n} \sum_{i=1}^{n} x_i^2}.
+\text{RMS}(\vec{x}) &= \sqrt{\frac{1}{n} \sum\nolimits_{i=1}^{n} x_i^2}.
 \end{align*}
 $$
 

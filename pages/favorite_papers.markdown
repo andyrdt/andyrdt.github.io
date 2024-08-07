@@ -7,7 +7,7 @@ show_in_nav: false
 
 ## My favorite papers
 
-*A list of my favorite papers. More to come.*
+*Some of my favorite papers.*
 
 ### Interpretability
 

@@ -64,7 +64,8 @@ show_in_nav: true
 
 ### My favorite things
 
-- [A list of my favorite papers.](/favorites/papers)
+- [My favorite papers](/favorites/papers)
+- [My favorite quotes](/favorites/quotes)
 
 <!-- This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
 

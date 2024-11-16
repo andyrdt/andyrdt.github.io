@@ -5,8 +5,6 @@ permalink: /notes/svd
 category: linear_algebra
 ---
 
-[TODO]
-
 ### Sources
 
 - [Singular Value Decomposition as Simply as Possible](https://gregorygundersen.com/blog/2018/12/10/svd/) - Gregory Gundersen, 2018

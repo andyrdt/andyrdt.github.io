@@ -5,7 +5,6 @@ permalink: /notes/quantization
 category: other
 ---
 
-[TODO]
-
 ### Sources
 
+[A Visual Guide to Quantization](https://newsletter.maartengrootendorst.com/p/a-visual-guide-to-quantization) - Maarten Grootendorts, 2024

@@ -1,11 +1,9 @@
 ---
 layout: note
-title:  "Variance"
-permalink: /notes/variance
+title:  "Covariance"
+permalink: /notes/covariance
 category: probability
 ---
-
-[TODO]
 
 ### Sources
 - Introduction to Probability - Dimitri P. Bertsekas and John N. Tsitsiklis, 2008

@@ -32,20 +32,56 @@
     font-style: italic;
 }
 .theorem:before {
-    content: "Theorem.";
+    content: "Theorem" attr(text) " ";
     font-weight: bold;
     font-style: normal;
 }
+.theorem[text]:before {
+    content: "Theorem (" attr(text) "). ";
+}
+
+.proposition {
+    display: block;
+    margin: 12px 0;
+    font-style: italic;
+}
+.proposition:before {
+    content: "Proposition" attr(text) " ";
+    font-weight: bold;
+    font-style: normal;
+}
+.proposition[text]:before {
+    content: "Proposition (" attr(text) "). ";
+}
+
+.corollary {
+    display: block;
+    margin: 12px 0;
+    font-style: italic;
+}
+.corollary:before {
+    content: "Corollary" attr(text) " ";
+    font-weight: bold;
+    font-style: normal;
+}
+.corollary[text]:before {
+    content: "Corollary (" attr(text) "). ";
+}
+
 .lemma {
     display: block;
     margin: 12px 0;
     font-style: italic;
 }
 .lemma:before {
-    content: "Lemma.";
+    content: "Lemma" attr(text) " ";
     font-weight: bold;
     font-style: normal;
 }
+.lemma[text]:before {
+    content: "Lemma (" attr(text) "). ";
+}
+
 .proof {
     display: block;
     margin: 12px 0;
@@ -59,6 +95,35 @@
     content: "\25FB";
     float:right;
 }
+
+.collapsible {
+    margin: 1em 0;
+    padding: 0.5em 1em;
+    background-color: darken($background-color, 3%);
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    
+    summary {
+        cursor: pointer;
+        user-select: none;
+        color: lighten($text-color, 20%);
+  
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+  
+    &[open] summary {
+        margin-bottom: 1em;
+        border-bottom: 1px solid $grey-color-light;
+        padding-bottom: 0.5em;
+    }
+  
+    .content {
+        padding: 0 1em;
+    }
+}
+
 .definition {
     content: "Definition";
     display: block;

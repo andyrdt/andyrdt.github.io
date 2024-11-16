@@ -2,13 +2,5 @@
 layout: default
 ---
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="refresh" content="0; url=/posts" />
-    <title>Redirecting...</title>
-</head>
-<body>
-    <p>If you are not redirected automatically, follow this <a href="/posts">link</a>.</p>
-</body>
-</html>
+{% assign home_page = site.pages | where: "name", "home" | first %}
+{{ home_page.content }}

@@ -7,7 +7,7 @@ permalink: /posts/zk1
 
 *This summer, I've been studying the field of zero-knowledge. Zero-knowledge (ZK) is a subject that's picked up a lot of hype lately, as its practical applications keep being discovered all over the web3 landscape. However, before diving into these recent applications of ZK, I wanted to first understand the theoretical foundations of ZK. The theory behind ZK is itself very beautiful, and worthy of study even independent of its applications in the real world.*
 
-*The vast majority of this post (and subsequent ones) is my summarization of the amazing lectures from [Bar Ilan's 2019 Winter School](https://cyber.biu.ac.il/event/the-9th-biu-winter-school-on-cryptography/). These lectures are presented by ZK gods, and are amazingly clear and well organized. I highly recommend watching them for anyone interested in understanding ZK theory, and full credit for the content of this post goes to the organizers of the course.*
+*The vast majority of this post (and subsequent ones) is my summarization of the amazing lectures from [Bar Ilan's 2019 Winter School](https://youtube.com/playlist?list=PL8Vt-7cSFnw29cLUVqAIuMlg1QJ-szV0K). These lectures are presented by ZK gods, and are amazingly clear and well organized. I highly recommend watching them for anyone interested in understanding ZK theory, and full credit for the content of this post goes to the organizers of the course.*
 
 *Thanks to my professor Tal Malkin for helping me understand this material, and thanks to my buddies Arnold and Raghav for proofreading this post.*
 
@@ -107,7 +107,7 @@ Turns out there's a very simple and elegant interactive proof system for quadrat
 <figure>
   <img src="../../../images/zk1/ip_nonqr.png" class="center">
   <figcaption align = "center">Interactive proof system for quadratic non-residuosity</figcaption>
-  <figcaption align = "center">[Source: <a href="https://cyber.biu.ac.il/wp-content/uploads/2018/08/WS-19-1-ZK-intro.pdf#page=19">Lecture 1, Slide 19</a>]</figcaption>
+  <figcaption align = "center">[Source: <a href="https://youtu.be/6uGimDYZPMw">Lecture 1, Slide 19</a>]</figcaption>
 </figure>
 
 - The verifier $$V$$ first randomly draws a bit $$b \in \{ 0,1\}$$, and an element $$y \in \mathbb{Z}_N^*$$.
@@ -180,7 +180,7 @@ The following interactive proof system satisfies the definition of perfect ZK (a
 <figure>
   <img src="../../../images/zk1/zkip_qr.png" class="center">
   <figcaption align = "center">Zero-knowledge interactive proof system for quadratic residuosity</figcaption>
-  <figcaption align = "center">[Source: <a href="https://cyber.biu.ac.il/wp-content/uploads/2018/08/WS-19-1-ZK-intro.pdf#page=31">Lecture 1, Slide 31</a>]</figcaption>
+  <figcaption align = "center">[Source: <a href="https://youtu.be/6uGimDYZPMw">Lecture 1, Slide 31</a>]</figcaption>
 </figure>
 
 - $$P$$ randomly draws an element $$r \in \mathbb{Z}_N^*$$, and sends $$y = r^2$$ to $$V$$
@@ -254,7 +254,7 @@ Cool! We've shown that the language $$QR_N$$ has a perfect zero-knowledge intera
 
 
 ## Sources
-- [BIU Winter School 2019, Lecture 1: Zero-knowledge (Intro)](https://cyber.biu.ac.il/wp-content/uploads/2018/08/WS-19-1-ZK-intro.pdf) - Alon Rosen
+- [BIU Winter School 2019, Lecture 1: Zero-knowledge (Intro)](https://youtu.be/6uGimDYZPMw) - Alon Rosen
 - [The Knowledge Complexity of Interactive Proof Systems](https://people.csail.mit.edu/silvio/Selected%20Scientific%20Papers/Proof%20Systems/The_Knowledge_Complexity_Of_Interactive_Proof_Systems.pdf) - Shafi Goldwasser, Silvio Micali, Charles Rackoff
 - [Lecture 15: Zero Knowledge Proofs](https://www.cs.princeton.edu/courses/archive/fall07/cos433/lec15.pdf) - Boaz Barak
 

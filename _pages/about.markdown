@@ -10,12 +10,6 @@ show_in_nav: true
   <div style="display: flex; flex-wrap: wrap;">
     <div style="flex: 1; min-width: 60%;">
       <p>
-        Hi, I'm Andy.
-      </p>
-      <p>
-        I have a wide spectrum of interests, and enjoy understanding things deeply from first principles.
-      </p>
-      <p>
         I earned my bachelor's from Columbia University in 2018, where I studied computer science and mathematics.
         After graduating, I moved to Seattle to work as a software engineer at Microsoft.
         In 2020, I returned to Columbia University for my master's, focusing on theoretical computer science.
@@ -26,31 +20,34 @@ show_in_nav: true
         There is a lot of work to be done towards understanding the capabilities and limitations of these systems, and I want to try and contribute to this effort.
       </p>
       <p>
-        Outside of working, I spend a lot of time across various hobbies.
+        I'm currently a PhD student at University of Chicago, where I am fortunate to be advised by Victor Veitch.
+      </p>
+      <p>
+        Outside of work, I spend a lot of time across various hobbies.
         I love jazz music - I'm a decent tenor player, and a much worse piano player.
-        Chess is a more recent hobby of mine - I mostly play <a href="https://www.chess.com/member/andyrdt">online</a>.
-        I like to run as well - I <a href="https://results.svetiming.com/Big-Sur/events/2023/Big-Sur-International-Marathon/3156/entrant/share">ran</a> my first marathon in April 2023.
-        Oh and I'm also a die-hard <a href="https://en.wikipedia.org/wiki/Fenerbah%C3%A7e_S.K._(football)">Fenerbahçe</a> fan - I try to watch every game.
+        Chess is a more recent hobby of mine, and I mostly play online.
+        I like to run - I <a href="https://results.svetiming.com/Big-Sur/events/2023/Big-Sur-International-Marathon/3156/entrant/share">ran</a> my first marathon in April 2023.
+        I'm a die-hard <a href="https://en.wikipedia.org/wiki/Fenerbah%C3%A7e_S.K._(football)">Fenerbahçe</a> fan, and I'm currently learning Turkish.
       </p>
     </div>
     <div style="max-width: 210px; margin-left: 40px; margin-top: 40px; flex-basis: content">
-      <figure>
+      <!-- <figure>
         <img  src="../../../images/about/doodle_portrait.jpg" style="border-radius: 3px;">
           <figcaption style="font-size: 12px; color: grey; text-align: center; padding-top: 5px;">
             A flattering doodle of my likeness.<br>
             [<i>Doodle of Andy</i> - GK]
           </figcaption>
-      </figure>
-      <!-- <figure>
+      </figure> -->
+      <figure>
         <img  src="../../../images/about/littlefish.jpg" style="border-radius: 3px;">
-          <figcaption style="font-size: 12px; color: grey; text-align: center; padding-top: 5px;">
+          <figcaption style="font-size: 11px; color: grey; text-align: center; padding-top: 5px;">
             A little fish that I am fond of.<br>
             [<a href="https://www.metmuseum.org/art/collection/search/338694" style="color: inherit;"><i>Big Fish Eat Little Fish</i> - Pieter Bruegel</a>]
           </figcaption>
-      </figure> -->
+      </figure>
       <figure style="padding-top: 20px;">
         <img src="../../../images/about/thinker.jpg" style="border-radius: 3px;"/>
-        <figcaption style="font-size: 12px; color: grey; text-align: center; padding-top: 5px;">
+        <figcaption style="font-size: 11px; color: grey; text-align: center; padding-top: 5px;">
           All I know is that I know nothing.<br>
           [<a href="https://www.metmuseum.org/art/collection/search/191811" style="color: inherit;"><i>The Thinker</i> - Auguste Rodin</a>]
         </figcaption>
@@ -60,12 +57,11 @@ show_in_nav: true
   </div>
 </div>
 
-## Random
-
-### My favorite things
+## Favorites
 
 - [My favorite papers](/favorites/papers)
 - [My favorite quotes](/favorites/quotes)
+
 
 <!-- This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
 

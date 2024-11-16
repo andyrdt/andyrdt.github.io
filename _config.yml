@@ -32,12 +32,18 @@ plugins:
   - jekyll-feed
 
 nav_items:
-  - title: Posts
-    url: /posts
+  # - title: Home
+  #   url: /
   - title: About
     url: /about
+  - title: Posts
+    url: /posts
+  - title: Publications
+    url: https://scholar.google.com/citations?hl=en&user=NgyIgX4AAAAJ
 
 collections:
+  pages:
+    output: true
   papers:
     output: true
   notes:

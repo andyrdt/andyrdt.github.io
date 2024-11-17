@@ -15,8 +15,7 @@ $$
 The specific function on the right-hand side depends on the assumptions made about $$X$$. For example:
 - [**Markov's inequality**](#markovs-inequality) makes minimal assumptions about $$X$$ (only that it is non-negative) and yields a bound that decays as $$O\left(\frac{1}{t}\right)$$.
 - [**Chebyshev's inequality**](#chebyshevs-inequality) assumes $$X$$ has finite mean $$\mu$$ and variance $$\sigma^2$$, yielding a bound that decays as $$O\left(\frac{1}{t^2}\right)$$.
-- [**Hoeffding's**](#hoeffdings-inequality) and [**Chernoff's**](#chernoffs-inequality) inequalities make further assumptions (such as independence and boundedness) and yield very tight bounds that decay *exponentially* with increasing $$t$$.
-
+- [**Chernoff's inequality**](#chernoffs-inequality) further assumes that $$X$$ is the sum of independent random variables, and yields a very tight bound that decay *exponentially* with increasing $$t$$.
 
 ### Markov's inequality
 
@@ -48,8 +47,8 @@ $$
 &= \mathbb{E}\left[\unicode{x1D7D9}_{X<t}X\right] + \mathbb{E}\left[\unicode{x1D7D9}_{X \geq t}X\right] \\
 & \geq \mathbb{E}\left[\unicode{x1D7D9}_{X \geq t}X\right] \quad (\text{since } X \text{ non-negative})  \\
 & \geq \mathbb{E}\left[\unicode{x1D7D9}_{X \geq t}t\right] \\
-& = t \mathbb{E}[\unicode{x1D7D9}_{X \geq t}] \\
-& = t \Pr[X \geq t].
+& = t \cdot \mathbb{E}[\unicode{x1D7D9}_{X \geq t}] \\
+& = t \cdot \Pr[X \geq t].
 \end{align*}
 $$
 
@@ -81,38 +80,12 @@ $$
 
 </div>
 
-### Hoeffding's inequality
-
-<div class="theorem" markdown="1" text="Hoeffding's inequality">
-Let $$X_1, \ldots, X_N$$ be independent symmetric Bernoulli random variables, and $$a = (a_1, \ldots, a_N) \in \mathbb{R}^N$$.
-Then, for any $$t \geq 0$$, we have
-
-$$
-\begin{align*}
-\Pr\left[\left|\sum_{i=1}^N a_i X_i\right| \geq t\right] & \leq 2 \exp\left(-\frac{t^2}{2 \left| \left| a \right| \right|_2^2}\right).
-\end{align*}
-$$
-
-</div>
-
-<div class="theorem" markdown="1" text="Hoeffding's inequality for general bounded random variables">
-Let $$X_1, \ldots, X_N$$ be independent random variables.
-Assume that $$X_i \in [m_i, M_i]$$ for every $$i$$.
-Then, for any $$t > 0$$, we have
-
-$$
-\Pr\left[\sum_{i=1}^{N}(X_i - \mathbb{E}[X_i]) \geq t\right] \leq \exp\left(-\frac{2t^2}{\sum_{i=1}^{N}(M_i - m_i)^2}\right).
-$$
-
-</div>
-
-
 ### Chernoff's inequality
 
 <div class="theorem" markdown="1" text="Chernoff's inequality">
 
 Let $$X_i$$ be independent Bernoulli random variables with parameters $$p_i$$.
-Consider their sum $$S_N = \sum_{i=1}^N X_i$$, and denote its mean by $$\mu_N = \mathbb{E}[S_N]$$.
+Consider their sum $$S_N = \sum_{i=1}^N X_i$$, and denote its mean by $$\mu = \mathbb{E}[S_N]$$.
 Then, for any $$t > \mu$$, we have
 
 $$
@@ -121,10 +94,77 @@ $$
 
 </div>
 
+<div class="proof" markdown="1">
+The proof follows what is known as the "MGF method".
+This method generally begins by writing the original inequality, multiplying both sides by a parameter $$\lambda > 0$$, exponentiating both sides, and then applying Markov's inequality:
+
+$$
+\begin{align*}
+\Pr[S_N \geq t] & = \Pr\left[e^{\lambda S_N} \geq e^{\lambda t}\right] \\
+& \leq \frac{\mathbb{E}\left[e^{\lambda S_N}\right]}{e^{\lambda t}} \quad (\text{Markov's inequality}) \\
+& = e^{-\lambda t} \mathbb{E}\left[e^{\lambda \sum_{i=1}^{n} X_i}\right] \\
+& = e^{-\lambda t} \mathbb{E}\left[\prod_{i=1}^n e^{\lambda X_i}\right] \\
+& = e^{-\lambda t} \prod_{i=1}^n\mathbb{E}\left[e^{\lambda X_i}\right] \quad (X_i \text{ are independent}).
+\end{align*}
+$$
+
+Note that each term inside the product, $$\mathbb{E}\left[e^{\lambda X_i}\right]$$, is the *moment generating function* (MGF) of $$X_i$$.
+The problem now reduces to bounding these MGFs.
+Recall that $$X_i$$ is a Bernoulli random variable with parameter $$p_i$$.
+Thus, we can bound each MGF as follows:
+
+$$
+\begin{align*}
+\mathbb{E}\left[e^{\lambda X_i}\right] & = p(X_i=1) \cdot e^{\lambda (1)} + p(X_i=0) \cdot e^{\lambda (0)} \\
+&= p_i e^{\lambda} + (1-p_i) \\
+&= 1 + (e^{\lambda} - 1)p_i \\
+&\leq e^{(e^{\lambda} - 1)p_i} \quad (1 + x \leq e^x \text{ for all } x \in \mathbb{R}).
+\end{align*}
+$$
+
+Substituting this back into our previous inequality, we get
+
+$$
+\begin{align*}
+\Pr[S_N \geq t] &\leq e^{-\lambda t} \prod_{i=1}^n\mathbb{E}\left[e^{\lambda X_i}\right] \\
+&\leq e^{-\lambda t} \prod_{i=1}^n e^{(e^{\lambda} - 1)p_i} \\
+&= e^{-\lambda t} e^{\sum_{i=1}^n (e^{\lambda} - 1) p_i} \\
+&= e^{-\lambda t} e^{(e^{\lambda} - 1) \sum_{i=1}^n p_i} \\
+&= e^{-\lambda t} e^{(e^{\lambda} - 1) \mu}.
+\end{align*}
+$$
+
+Recall that $$\lambda > 0$$ is an arbitrary parameter.
+We can find the optimal $$\lambda$$ that minimizes the right-hand side by differentiating with respect to $$\lambda$$ and setting the derivative to zero:
+
+$$
+\begin{align*}
+\frac{d}{d\lambda} \left( e^{-\lambda t + (e^{\lambda} - 1) \mu} \right) &= 0 \\
+\iff \left( e^{-\lambda t + (e^{\lambda} - 1) \mu} \right) \left( - t + \mu e^\lambda \right) &= 0 \\
+\iff - t + \mu e^\lambda &= 0 \\
+\iff e^\lambda &= \frac{t}{\mu} \\
+\iff \lambda &= \ln\left(\frac{t}{\mu}\right).
+\end{align*}
+$$
+
+Substituting this optimal $$\lambda$$ back into our previous inequality, we get
+
+$$
+\begin{align*}
+\Pr[S_N \geq t] &\leq e^{-\lambda t} e^{(e^{\lambda} - 1) \mu} \\
+& = e^{-\ln\left(\frac{t}{\mu}\right) t} e^{\left(\frac{t}{\mu} - 1\right) \mu} \\
+& = \left(\frac{t}{\mu}\right)^{-t} e^{t -\mu}\\
+& = \left(\frac{\mu}{t}\right)^{t} e^{t} e^{-\mu}\\
+& = \left(\frac{e \mu}{t}\right)^{t} e^{- \mu}.
+\end{align*}
+$$
+
+</div>
+
 <div class="corollary" markdown="1" text="Relative Chernoff inequality">
 
 Let $$X_i$$ be independent Bernoulli random variables with parameters $$p_i$$.
-Consider their sum $$S_N = \sum_{i=1}^N X_i$$, and denote its mean by $$\mu_N = \mathbb{E}[S_N]$$.
+Consider their sum $$S_N = \sum_{i=1}^N X_i$$, and denote its mean by $$\mu = \mathbb{E}[S_N]$$.
 Then, for any $$\delta > 0$$, we have
 
 $$
@@ -205,6 +245,8 @@ Thus, $$\phi(\delta) \geq \frac{ \delta^2 }{ 2 + \delta }$$ for all $$\delta > 0
 </div>
 </details>
 
+This concludes the proof.
+
 </div>
 ### Sources
-- High-Dimensional Probability: An Introduction with Applications in Data Science - Roman Vershynin, 2018
+- [High-Dimensional Probability: An Introduction with Applications in Data Science](https://www.math.uci.edu/~rvershyn/papers/HDP-book/HDP-book.html) - Roman Vershynin, 2018

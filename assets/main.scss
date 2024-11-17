@@ -86,14 +86,17 @@
     display: block;
     margin: 12px 0;
     font-style: normal;
+    position: relative;
 }
 .proof:before {
     content: "Proof.";
     font-style: italic;
 }
 .proof:after {
-    content: "\25FB";
-    float:right;
+    content: "□";
+    position: absolute;
+    right: 0;
+    bottom: 0.2em;
 }
 
 .collapsible {
@@ -102,25 +105,45 @@
     background-color: darken($background-color, 3%);
     border-radius: 3px;
     box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
     
     summary {
         cursor: pointer;
         user-select: none;
         color: lighten($text-color, 20%);
-  
+        width: 100%;
+        box-sizing: border-box;
+        
         &:hover {
             opacity: 0.8;
         }
     }
-  
+    
     &[open] summary {
         margin-bottom: 1em;
         border-bottom: 1px solid $grey-color-light;
         padding-bottom: 0.5em;
     }
-  
+    
     .content {
-        padding: 0 1em;
+        padding: 0 0.5em;
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    @include media-query($on-palm) {
+        padding: 0.5em;
+        width: 100%;
+        
+        summary {
+            line-height: 1.4;
+        }
+        
+        .content {
+            padding: 0;
+        }
     }
 }
 

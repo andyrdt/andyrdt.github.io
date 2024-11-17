@@ -222,7 +222,7 @@ The continued failures of algorithmic stablecoins poses a natural question: is a
 
 That's my intuition, but I am of course not sure. I think it could be an interesting research direction to try and prove such an intuition formally.  
 
-## Recap
+### Recap
 Stablecoins are set to play an important role in the crypto ecosystem. Their maturity seems to be key in enabling large-scale adoption of decentralized payments. 
 
 We've studied the mechanics of all 3 flavors of stablecoins.[^9] Each flavor has its own unique set of pros and cons. Let's do a quick recap:
@@ -242,7 +242,7 @@ We've studied the mechanics of all 3 flavors of stablecoins.[^9] Each flavor has
 - 👎 Vulnerable to crashes
 - 🦄 An ideal which doesn't really exist (yet?)
 
-## Sources
+### Sources
 - [Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf) - Satoshi Nakamoto
 - [The Search for a Stable Cryptocurrency](https://blog.ethereum.org/2014/11/11/search-stable-cryptocurrency/) - Vitalik Buterin
 - [What Are Stablecoins?](https://www.gemini.com/cryptopedia/what-are-stablecoins-how-do-they-work) - Cryptopedia team
@@ -254,7 +254,7 @@ We've studied the mechanics of all 3 flavors of stablecoins.[^9] Each flavor has
 - [Terra Money: Stability and Adoption](https://assets.website-files.com/611153e7af981472d8da199c/618b02d13e938ae1f8ad1e45_Terra_White_paper.pdf) - Do Kwon et. al.
 - [The Reign of Terra: The Rise and Fall of UST](https://medium.com/dragonfly-research/the-reign-of-terra-the-rise-and-fall-of-ust-208dabbc8e6e) - Haseeb Qureshi
 
-## Footnotes
+### Footnotes
 [^1]: There are of course issues with this assumption, as the value of 1 USD does indeed fluctuate. This is evidenced by yearly inflation, for example. There are some [projects](https://www.olympusdao.finance/) that view this as a problem, and try to maintain a "truly stable" currency. But, in general, the value of 1 USD is much more stable than the value of any other non-stablecoin digital asset, and is therefore a desirable target to peg against.
 [^2]: Bitcoin does not natively support custom tokens, and therefore does not natively support USDT. Rather, USDT is built on [Omni Layer Protocol](https://www.omnilayer.org/), which is a protocol that sits on top of Bitcoin. Omni Layer Protocol represents custom tokens as metadata stored on the Bitcoin blockchain, and then provides a mechanism to interact with the data. This kind of functionality to operate over custom tokens is natively built into more modern blockchains such as Ethereum.
 [^3]: As a math guy, this name really bothers me. The term "proof" should be reserved for arguments which are undoubtedly correct. Tether's "Proof of Reserves" certainly has room for doubt.

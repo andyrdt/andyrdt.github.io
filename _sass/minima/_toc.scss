@@ -1,0 +1,116 @@
+$toc-width: 220px;
+$toc-padding: 40px;
+$toc-buffer: 200px;
+$toc-font-size: 14px;
+$toc-top-margin: 60px;
+
+.toc-sidebar {
+    position: fixed;
+    left: 0;
+    top: $toc-top-margin;
+    width: $toc-width;
+    max-height: calc(100vh - #{2 * $toc-top-margin});
+    overflow-y: auto;
+    padding: $toc-padding;
+    font-size: $toc-font-size;
+    
+    // Hide TOC when it would overlap with main content
+    @media screen and (max-width: $content-width + 2 * ($toc-width + $toc-padding)) {
+        display: none;
+    }
+    
+    .toc-title {
+        font-weight: bold;
+        margin-bottom: 10px;
+        
+        .toc-title-link {
+            color: $text-color;
+            text-decoration: none;
+            opacity: 1 !important;
+            
+            &:hover {
+                color: $brand-color;
+            }
+        }
+    }
+    
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        
+        li {
+            margin: 5px 0;
+            
+            a {
+                color: $text-color;
+                text-decoration: none;
+                opacity: 0.5;
+                transition: opacity 0.2s ease;
+                
+                &:hover,
+                &:target {
+                    color: $brand-color;
+                    opacity: 1;
+                }
+
+                &.active-toc-link {
+                    opacity: 1 !important;
+                    color: $brand-color !important;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+
+.toc {
+    margin-bottom: 2em;
+    
+    ul {
+        list-style: none;
+        padding-left: 1em;
+    }
+    
+    .toc-item {
+        margin: 0.5em 0;
+    }
+    
+    .toc-link {
+        color: $text-color;
+        text-decoration: none;
+        
+        &:hover {
+            color: $brand-color;
+        }
+    }
+}
+
+.page-toc {
+    margin: 2em 0;
+    padding: 1em;
+    
+    ul {
+        margin: 0;
+        padding-left: 1.5em;
+        
+        li {
+            margin: 0.5em 0;
+            
+            a {
+                text-decoration: none;
+                color: $text-color;
+                
+                &:hover {
+                    color: $brand-color;
+                }
+            }
+        }
+    }
+}
+
+// Highlight the active section's link
+:target + .toc-sidebar a[href*="#{&}"] {
+    opacity: 1 !important;
+    color: $brand-color !important;
+}

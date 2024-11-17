@@ -253,13 +253,13 @@ Similar analysis[^4] yields that the expected running time of $$S_k$$ is 2 times
 Cool! We've shown that the language $$QR_N$$ has a perfect zero-knowledge interactive proof system, with soundness error $$2^{-poly (\lvert x \rvert)}$$.
 
 
-## Sources
+### Sources
 - [BIU Winter School 2019, Lecture 1: Zero-knowledge (Intro)](https://youtu.be/6uGimDYZPMw) - Alon Rosen
 - [The Knowledge Complexity of Interactive Proof Systems](https://people.csail.mit.edu/silvio/Selected%20Scientific%20Papers/Proof%20Systems/The_Knowledge_Complexity_Of_Interactive_Proof_Systems.pdf) - Shafi Goldwasser, Silvio Micali, Charles Rackoff
 - [Lecture 15: Zero Knowledge Proofs](https://www.cs.princeton.edu/courses/archive/fall07/cos433/lec15.pdf) - Boaz Barak
 
 
-## Footnotes
+### Footnotes
 [^1]: Plugging in some concrete numbers: if there are $$k=20$$ rounds, then this probability is reduced to less than one-in-a-million: $$2^{-20} = \frac{1}{1048576}$$. Bob can of course specify the successful-cheating probability $$p$$ to be arbitrarily small, and then repeat the game $$k = -\log{p}$$ rounds to achieve such confidence.
 [^2]: This is slightly imprecise. The complement of $$QR_N$$ contains not only $$\{ x \in \mathbb{Z}_N^* \lvert \nexists w \in \mathbb{Z}_N^* \text{ s.t. } x = w^2 (\text{mod } N)\}$$, but also $$\{ x \notin \mathbb{Z}_N^*\}$$. Let's just assume we're only considering input $$x$$ values from $$\mathbb{Z}_N^*$$.
 [^3]: We allow $$S$$ to run in *expected* polynomial time, rather than *strict* polynomial time. This is how the original [GMR '85](https://people.csail.mit.edu/silvio/Selected%20Scientific%20Papers/Proof%20Systems/The_Knowledge_Complexity_Of_Interactive_Proof_Systems.pdf) paper defines it (see the last paragraph on page 10). We will revisit this part of the definition at a later stage, and see whether it's possible to require the simulator to run in *strict* polynomial time. 

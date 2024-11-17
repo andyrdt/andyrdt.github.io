@@ -188,7 +188,7 @@ We started by establishing a limitation of our definition of perfect zero-knowle
 $$HAM$$ is an NP-complete language, meaning any language in NP can be mapped to $$HAM$$ in polynomial time. Thus, if we can create a computational zero-knowledge proof for $$HAM$$, then this proof can be used to prove any language in NP! And that's indeed what we did! Using statistically-hiding commitment schemes, we constructed an elegant interactive proof for $$HAM$$ satisfying computational zero-knowledge.
 
 
-## Sources
+### Sources
 - [BIU Winter School 2019, Lecture 2: Zero-knowledge for NP](https://youtu.be/cQ-BI1WWzjU) - Alon Rosen
 - [The Complexity of Perfect Zero-Knowledge](https://dl.acm.org/doi/pdf/10.1145/28395.28418) - Lance Fortnow
 - [Computational Indistinguishability](https://www.youtube.com/watch?v=TNS6K5oYt1g) - Ryan O'Donnell

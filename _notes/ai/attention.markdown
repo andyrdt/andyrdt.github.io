@@ -84,9 +84,9 @@ $$
 
 It is usually the case that $$d_{\text{model}} = d_{\text{head}} \cdot n_{\text{heads}}$$. For example, the original paper uses $$d_{\text{model}} = 512$$ with $$n_{\text{heads}} = 8$$ and $$d_{\text{head}} = 64$$.
 
-### Grouped-query attention
+<!-- ### Grouped-query attention -->
 
-[TODO]
+<!-- [TODO] -->
 
 ### Sources
 

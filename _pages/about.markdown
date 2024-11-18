@@ -27,7 +27,7 @@ show_in_nav: true
         I love jazz music - I'm a decent tenor player, and a much worse piano player.
         Chess is a more recent hobby of mine, and I mostly play online.
         I like to run - I <a href="https://results.svetiming.com/Big-Sur/events/2023/Big-Sur-International-Marathon/3156/entrant/share">ran</a> my first marathon in April 2023.
-        I'm a die-hard <a href="https://en.wikipedia.org/wiki/Fenerbah%C3%A7e_S.K._(football)">Fenerbahçe</a> fan, and I'm currently learning Turkish.
+        I'm a big <a href="https://en.wikipedia.org/wiki/Fenerbah%C3%A7e_S.K._(football)">Fenerbahçe</a> fan, and am currently learning Turkish.
       </p>
     </div>
     <div style="max-width: 210px; margin-left: 40px; margin-top: 40px; flex-basis: content">

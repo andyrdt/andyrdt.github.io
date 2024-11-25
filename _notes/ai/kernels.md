@@ -48,8 +48,8 @@ The gradient descent update step is then:
 
 $$
 \begin{align*}
-\theta &\leftarrow \theta - \eta \nabla_{\theta} L(\theta) \\
-&= \theta - \eta \frac{1}{n} \sum_{i=1}^n \left( \theta^T \phi(x^{(i)}) - y^{(i)} \right) \phi(x^{(i)}).
+\theta &\leftarrow \theta - \eta \cdot \nabla_{\theta} L(\theta) \\
+&= \theta - \eta \cdot \frac{1}{n} \sum_{i=1}^n \left( \theta^T \phi(x^{(i)}) - y^{(i)} \right) \phi(x^{(i)}).
 \end{align*}
 $$
 
@@ -76,7 +76,6 @@ $$
 
 Examining this expression, we see that the prediction for a new input $$x$$ is a weighted sum of inner products between $$\phi(x)$$ and each of the training samples $$\phi(x^{(i)})$$.
 
-We've reduced the problem of finding an optimal $$\theta \in \mathbb{R}^k$$ to finding optimal weight coefficients $$[ \alpha_1, \alpha_2, \ldots, \alpha_n ]^T =: \alpha \in \mathbb{R}^n$$.
 
 <details class="collapsible" markdown="1">
 <summary>What if \(\theta_0 \neq 0\)?</summary>
@@ -116,6 +115,31 @@ $$
 </div>
 </details>
 
+We've reduced the problem of finding an optimal $$\theta \in \mathbb{R}^k$$ to finding optimal weight coefficients $$[ \alpha_1, \alpha_2, \ldots, \alpha_n ]^T =: \alpha \in \mathbb{R}^n$$.
+
+<details class="collapsible" markdown="1">
+<summary>Gradient descent update step for \(\alpha\)</summary>
+<div class="content" markdown="1">
+
+We can write the gradient descent update step for $$\alpha$$ in terms of inner products as well:
+
+$$
+\begin{align*}
+\frac{\partial L(\alpha)}{\alpha_k} &= \frac{\partial}{\partial \alpha_k} \frac{1}{n} \sum_{i=1}^n \frac{1}{2} \left( \sum_{j=1}^n \alpha_j \langle \phi(x^{(j)}), \phi(x^{(i)}) \rangle - y^{(i)} \right)^2 \\
+&= \frac{1}{n} \sum_{i=1}^n \left( \sum_{j=1}^n \alpha_j \langle \phi(x^{(j)}), \phi(x^{(i)}) \rangle - y^{(i)} \right) \langle \phi(x^{(k)}), \phi(x^{(i)}) \rangle.
+\end{align*}
+$$
+
+$$
+\begin{align*}
+\alpha_k^{(t+1)} &\leftarrow \alpha_k^{(t)} - \eta \cdot \frac{\partial L(\alpha^{(t)})}{\partial \alpha_k}\\
+&= \alpha_k^{(t)} - \eta \cdot \frac{1}{n} \sum_{i=1}^n \left( \sum_{j=1}^n \alpha_j^{(t)} \langle \phi(x^{(j)}), \phi(x^{(i)}) \rangle - y^{(i)} \right) \langle \phi(x^{(k)}), \phi(x^{(i)}) \rangle.
+\end{align*}
+$$
+
+</div>
+</details>
+
 ### The kernel trick
 
 Above, we noted that the prediction function can be expressed as a weighted sum of inner products between $$\phi(x)$$ and each of the training samples $$\phi(x^{(i)})$$.
@@ -135,7 +159,10 @@ $$
 Before using the kernel trick, we would have needed to convert all $$x_i \in \mathbb{R}^d$$ to $$\phi(x_i) \in \mathbb{R}^k$$, as well as $$x$$ to $$\phi(x) \in \mathbb{R}^k$$, and compute all inner products in $$\mathbb{R}^k$$.
 For very large $$k$$, this can be extremely computationally expensive.
 
-For many common choices of $$\phi$$, there exist more efficient ways to compute the kernel function $$K$$ than computing the feature map $$\phi$$ and then computing the inner product.
+### Examples of kernel functions
+
+Many commonly used kernels, such as the polynomial or Gaussian kernel, provide a way to compute the inner product $$\langle \phi(x), \phi(z) \rangle$$ directly in the input space (i.e. working in $$\mathbb{R}^d$$).
+These kernels are efficient to compute, whereas explicitly constructing the corresponding feature map $$\phi$$ would often be computationally expensive or infeasible, in particular when $$\phi$$ maps to a very high- or infinite-dimensional space.
 
 <details class="collapsible" markdown="1">
 <summary>Example: the polynomial kernel</summary>

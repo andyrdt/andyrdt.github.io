@@ -3,6 +3,7 @@ layout: note
 title:  "Johnson-Lindenstrauss lemma"
 permalink: /notes/johnson_lindenstrauss
 category: probability
+display: false
 ---
 
 ### Sources

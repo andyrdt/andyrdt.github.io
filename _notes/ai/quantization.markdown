@@ -3,6 +3,7 @@ layout: note
 title:  "Quantization"
 permalink: /notes/quantization
 category: other
+display: false
 ---
 
 ### Sources

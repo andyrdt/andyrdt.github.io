@@ -3,6 +3,7 @@ layout: note
 title:  "Superposition"
 permalink: /notes/superposition
 category: ai
+display: false
 ---
 
 ### Sources

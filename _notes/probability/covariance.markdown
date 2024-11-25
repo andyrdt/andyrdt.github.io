@@ -3,6 +3,7 @@ layout: note
 title:  "Covariance"
 permalink: /notes/covariance
 category: probability
+display: false
 ---
 
 ### Sources

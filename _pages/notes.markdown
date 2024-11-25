@@ -16,16 +16,18 @@ show_in_nav: true
 {% if linear_algebra_notes.size > 0 %}
   <ul class="note-list">
     {% for note in linear_algebra_notes %}
-    <li>
-      <h3>
-        <a class="note-link" href="{{ note.url | relative_url }}">
-          {{ note.title | escape }}
-        </a>
-      </h3>
-      {% if site.show_excerpts %}
-        {{ note.excerpt }}
+      {% if note.display != false %}
+        <li>
+          <h3>
+            <a class="note-link" href="{{ note.url | relative_url }}">
+              {{ note.title | escape }}
+            </a>
+          </h3>
+          {% if site.show_excerpts %}
+            {{ note.excerpt }}
+          {% endif %}
+        </li>
       {% endif %}
-    </li>
     {% endfor %}
   </ul>
 {% endif %}
@@ -35,35 +37,39 @@ show_in_nav: true
 {% if probability_notes.size > 0 %}
   <ul class="note-list">
     {% for note in probability_notes %}
-    <li>
-      <h3>
-        <a class="note-link" href="{{ note.url | relative_url }}">
-          {{ note.title | escape }}
-        </a>
-      </h3>
-      {% if site.show_excerpts %}
-        {{ note.excerpt }}
+      {% if note.display != false %}
+        <li>
+          <h3>
+            <a class="note-link" href="{{ note.url | relative_url }}">
+              {{ note.title | escape }}
+            </a>
+          </h3>
+          {% if site.show_excerpts %}
+            {{ note.excerpt }}
+          {% endif %}
+        </li>
       {% endif %}
-    </li>
     {% endfor %}
   </ul>
 {% endif %}
 
-### AI
+### AI / ML
 {% assign ai_notes = site.notes | where: "category", "ai" %}
 {% if ai_notes.size > 0 %}
   <ul class="note-list">
     {% for note in ai_notes %}
-    <li>
-      <h3>
-        <a class="note-link" href="{{ note.url | relative_url }}">
-          {{ note.title | escape }}
-        </a>
-      </h3>
-      {% if site.show_excerpts %}
-        {{ note.excerpt }}
+      {% if note.display != false %}
+        <li>
+          <h3>
+            <a class="note-link" href="{{ note.url | relative_url }}">
+              {{ note.title | escape }}
+            </a>
+          </h3>
+          {% if site.show_excerpts %}
+            {{ note.excerpt }}
+          {% endif %}
+        </li>
       {% endif %}
-    </li>
     {% endfor %}
   </ul>
 {% endif %}
@@ -71,17 +77,19 @@ show_in_nav: true
 ### Other Notes
 <ul class="note-list">
   {% for note in site.notes %}
-    {% if note.category != "linear_algebra" and note.category != "probability" and note.category != "ai"%}
-      <li>
-        <h3>
-          <a class="note-link" href="{{ note.url | relative_url }}">
-            {{ note.title | escape }}
-          </a>
-        </h3>
-        {% if site.show_excerpts %}
-          {{ note.excerpt }}
-        {% endif %}
-      </li>
+    {% if note.display != false %}
+      {% if note.category != "linear_algebra" and note.category != "probability" and note.category != "ai"%}
+        <li>
+          <h3>
+            <a class="note-link" href="{{ note.url | relative_url }}">
+              {{ note.title | escape }}
+            </a>
+          </h3>
+          {% if site.show_excerpts %}
+            {{ note.excerpt }}
+          {% endif %}
+        </li>
+      {% endif %}
     {% endif %}
   {% endfor %}
 </ul>

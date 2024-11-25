@@ -3,6 +3,7 @@ layout: note
 title:  "Transformers"
 permalink: /notes/transformers
 category: ai
+display: false
 ---
 
 ### Sources

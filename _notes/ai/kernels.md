@@ -234,7 +234,7 @@ $$
 K(x, z) = \left( x^T z + 1 \right)^p.
 $$
 
-Note that the effective number of features in the feature space is $${d+p \choose p}$$[^2].
+Note that the effective number of features in the feature space is $${d+p \choose p}$$.[^2]
 Writing this out and fixing the degree $$p$$, we see that the effective dimensionality grows with $$\Omega(d^p)$$:
 
 $$

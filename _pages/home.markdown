@@ -11,7 +11,7 @@ name: "home"
         Hi, I'm Andy.
       </p>
       <p>
-        I'm a first-year PhD student at University of Chicago, where I am working on AI interpretability.
+        I'm a PhD student at University of Chicago, where I am working on AI safety and interpretability.
       </p>
       <p>
         Feel free to get in touch with me via <a href="mailto:andyrdt@gmail.com">email</a>.

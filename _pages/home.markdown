@@ -28,10 +28,3 @@ name: "home"
     </div>
   </div>
 </div>
-
-<!-- ## Random
-
-### My favorite things
-
-- [My favorite papers](/favorites/papers)
-- [My favorite quotes](/favorites/quotes) -->

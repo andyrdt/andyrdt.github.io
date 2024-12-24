@@ -8,10 +8,9 @@ show_in_nav: true
 ## Notes
 *This is a rough collection of notes on various technical topics, inspired by Victor Lecomte's [notes](https://victorlecomte.com/notes/).*
 *These notes will always be incomplete, and a work in progress.*
-
 *Additionally, many of these notes are just my reformulation of existing work - see the "Sources" section in each note to see the original source of the material.*
 
-### Linear Algebra
+<!-- ### Linear Algebra
 {% assign linear_algebra_notes = site.notes | where: "category", "linear_algebra" %}
 {% if linear_algebra_notes.size > 0 %}
   <ul class="note-list">
@@ -30,7 +29,7 @@ show_in_nav: true
       {% endif %}
     {% endfor %}
   </ul>
-{% endif %}
+{% endif %} -->
 
 ### Probability
 {% assign probability_notes = site.notes | where: "category", "probability" %}
@@ -74,7 +73,7 @@ show_in_nav: true
   </ul>
 {% endif %}
 
-### Other Notes
+<!-- ### Other Notes
 <ul class="note-list">
   {% for note in site.notes %}
     {% if note.display != false %}
@@ -92,4 +91,4 @@ show_in_nav: true
       {% endif %}
     {% endif %}
   {% endfor %}
-</ul>
+</ul> -->

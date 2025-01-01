@@ -186,9 +186,62 @@ Compared to MHA, GQA reduces the memory cost of the KV cache from $$O(n_{\text{s
 
 Compared to MQA, GQA is more expressive, because there are multiple K/V sets - one per group - rather than a single shared K/V set across all heads.
 
-<!-- ## Multi-Head Latent Attention
+### Multi-head latent attention
 
-TODO -->
+<figure>
+  <img src="../../../images/notes/mla.png" class="center">
+  <figcaption align = "center" style="max-width: 500px; margin: 0 auto;">Rather than caching each key and value individually, multi-head latent attention (MLA) caches a compressed latent, and then projects this compressed latent to keys and values.<br>[Source: Figure 3 of <a href="https://arxiv.org/abs/2405.04434">DeepSeek-AI, 2024</a>.]</figcaption>
+</figure>
+
+**Multi-head latent attention** (MLA) is another technique to reduce the memory cost of the KV cache while maintaining model performance.
+
+Given an activation $$x_i$$ at position $$i$$, we first project it to a compressed latent vector $$c_i^{\text{KV}}$$:
+
+$$
+c_i^{\text{KV}} =W_{\text{DKV}} x_i,
+$$
+
+where $$W_{\text{DKV}} \in \mathbb{R}^{d_c \times d_{\text{model}}}$$ is a learned down-projection matrix, projecting from $$d_{\text{model}}$$ down to $$d_c$$. Note that for this compression to be effective, we choose $$d_c \ll n_{\text{heads}} \cdot d_{\text{head}}$$.
+
+This latent vector is then expanded into keys and values for each head:
+
+$$
+\begin{aligned}
+k_i^{(h)} &= W_{\text{UK}}^{(h)} c_i^{\text{KV}}, \\
+v_i^{(h)} &= W_{\text{UV}}^{(h)} c_i^{\text{KV}},
+\end{aligned}
+$$
+
+where $$W_{\text{UK}}^{(h)}, W_{\text{UV}}^{(h)} \in \mathbb{R}^{d_{\text{head}} \times d_c}$$ are learned up-projection matrices[^1], projecting from $$d_c$$ to $$d_{\text{head}}$$.
+
+For queries, MLA similarly uses a compressed representation:
+
+$$
+\begin{aligned}
+c_i^{\text{Q}} &= W_{\text{DQ}} x_i, \\
+q_i^{(h)} &= W_{\text{UQ}}^{(h)} c_i^{\text{Q}},
+\end{aligned}
+$$
+
+where $$W_{\text{DQ}} \in \mathbb{R}^{d_c' \times d_{\text{model}}}$$ is a learned down-projection matrix, and $$W_{\text{UQ}}^{(h)} \in \mathbb{R}^{d_{\text{head}} \times d_c'}$$ is a learned up-projection matrix.
+
+During inference, we only need to cache the latent vectors $$c_i^{\text{KV}}$$, not the full keys and values.
+While caching the full keys and values as in MHA requires $$O(n_{\text{seq}} \cdot n_{\text{layers}} \cdot n_{\text{heads}} \cdot d_{\text{head}})$$ memory, caching the latent vectors requires only $$O(n_{\text{seq}} \cdot n_{\text{layers}} \cdot d_c)$$ memory, where $$d_c \ll n_{\text{heads}} \cdot d_{\text{head}}$$.
+
+Another cool property of MLA is that the keys and values don't need to be computed explicitly.
+Recall that the attention scores are computed as:
+
+$$
+\begin{aligned}
+\text{score}_{ij}^{(h)} &\propto q_i^{(h)} \cdot k_j^{(h)} \\
+&= (W_{\text{UQ}}^{(h)} c_i^{\text{Q}})^T (W_{\text{UK}}^{(h)} c_j^{\text{KV}}) \\
+&= c_i^{\text{Q}} \underbrace{\left(W_{\text{UQ}}^{(h)}\right)^T W_{\text{UK}}^{(h)}}_{:= W_{\text{UQK}}^{(h)} \in \mathbb{R}^{d_c' \times d_c}} c_j^{\text{KV}}.
+\end{aligned}
+$$
+
+Thus, we can "roll" $$W_{\text{UK}}^{h}$$ into $$W_{\text{UQ}}^{(h)}$$, and just compute affinity scores between the compressed query and key vectors.
+
+We can similarly "roll" $$W_{\text{UV}}^{(h)}$$ into $$W_{\text{O}}^{(h)}$$.
 
 ### Sources
 
@@ -198,4 +251,8 @@ TODO -->
 - [The Annotated Transformer](https://nlp.seas.harvard.edu/annotated-transformer/) – Huang et al., 2022
 - [An Analogy for Understanding Transformers](https://www.lesswrong.com/posts/euam65XjigaCJQkcN) – Callum McDougall, 2023
 - [GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints](https://arxiv.org/abs/2305.13245) - Ainslie et al., 2023
+- [DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model](https://arxiv.org/abs/2405.04434) - DeepSeek-AI, 2024
 
+### Footnotes
+
+[^1]: Note that the head-specific matrices $$W_{\text{UK}}^{(h)}$$ and $$W_{\text{UV}}^{(h)}$$ may not actually be "up-projection" matrices, as we previously specified that $$d_c \ll n_{\text{heads}} \cdot d_{\text{head}}$$, not necessarily that $$d_c \ll d_{\text{head}}$$. The original paper works with $$W_{\text{UK}}$$ and $$W_{\text{UV}}$$ as matrices projecting from $$d_c$$ to $$n_{\text{heads}} \cdot d_{\text{head}}$$, rather than notating a separate matrix for each head, and through this lens $$W_{\text{UK}}$$ and $$W_{\text{UV}}$$ are true "up-projection" matrices.

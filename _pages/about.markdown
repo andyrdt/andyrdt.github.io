@@ -20,9 +20,6 @@ show_in_nav: true
         There is a lot of work to be done towards understanding the capabilities and limitations of these systems, and I want to try and contribute to this effort.
       </p>
       <p>
-        I'm currently a PhD student at University of Chicago, where I am fortunate to be advised by Victor Veitch.
-      </p>
-      <p>
         Outside of work, I spend a lot of time across various hobbies.
         I love jazz music - I'm a decent tenor player, and a much worse piano player.
         Chess is a more recent hobby of mine, and I mostly play online.

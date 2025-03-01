@@ -2,11 +2,9 @@
  * Site header
  */
 .site-header {
-  // border-top: 5px solid $grey-color-dark;
-  // border-bottom: 1px solid $grey-color-light;
+  border-bottom: 1px solid $grey-color-light;
   min-height: $spacing-unit * 1.865;
 
-  // Positioning context for the mobile navigation icon
   position: relative;
 }
 
@@ -103,7 +101,7 @@
  */
 .site-footer {
   border-top: 1px solid $grey-color-light;
-  padding: $spacing-unit 0;
+  padding: $spacing-unit / 2 0;
 }
 
 .footer-heading {
@@ -118,7 +116,7 @@
 }
 
 .footer-col-wrapper {
-  @include relative-font-size(0.9375);
+  @include relative-font-size(0.8);
   color: $grey-color;
   margin-left: -$spacing-unit / 2;
   @extend %clearfix;
@@ -215,48 +213,58 @@
 /**
  * Posts
  */
-.post-header {
-  margin-bottom: 2em;
+
+ .post-header {
+  margin-bottom: 3em;
+  text-align: center;
+  
+  &:after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 1px;
+    background-color: $grey-color-light;
+    margin: 2rem auto 0;
+  }
 }
 
 .post-title {
-  @include relative-font-size(2.0);
-  letter-spacing: -1px;
-  line-height: 1;
+  @include relative-font-size(2.4);
+  letter-spacing: 0.03rem;
+  line-height: 1.2;
+  font-weight: 500;
+}
 
-  @include media-query($on-laptop) {
-    @include relative-font-size(2.0);
-  }
+.post-meta {
+  font-size: $small-font-size;
+  color: $grey-color;
 }
 
 .post-content {
   margin-bottom: $spacing-unit;
   text-align: justify;
-
+  line-height: 1.7;
+  
   h2 {
-    @include relative-font-size(2);
-
-    @include media-query($on-laptop) {
-      @include relative-font-size(1.75);
-    }
+    @include relative-font-size(1.8);
+    margin-top: 2rem;
+    padding-bottom: 0.2rem;
+    font-weight: 450;
   }
-
   h3 {
-    @include relative-font-size(1.625);
-
-    @include media-query($on-laptop) {
-      @include relative-font-size(1.375);
-    }
+    @include relative-font-size(1.5);
+    margin-top: 2rem;
+    padding-bottom: 0.2rem;
+    font-weight: 500;
   }
-
   h4 {
-    @include relative-font-size(1.25);
-
-    @include media-query($on-laptop) {
-      @include relative-font-size(1.125);
-    }
+    @include relative-font-size(1.2);
+    margin-top: 2rem;
+    padding-bottom: 0.2rem;
+    font-weight: 500;
   }
 }
+
 
 .contact-list a {
   display: flex;

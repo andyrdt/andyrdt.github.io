@@ -15,7 +15,7 @@ $toc-top-margin: 60px;
     font-size: $toc-font-size;
     
     // Hide TOC when it would overlap with main content
-    @media screen and (max-width: $content-width + 2 * ($toc-width + $toc-padding)) {
+    @media screen and (max-width: ($content-width + 2 * ($toc-width + $toc-padding))) {
         display: none;
     }
     
@@ -48,7 +48,11 @@ $toc-top-margin: 60px;
                 color: $text-color;
                 text-decoration: none;
                 opacity: 0.75;
-                transition: opacity 0.2s ease, color 0.2s ease;
+                transition: opacity 0.2s ease, color 0.2s ease, border-left 0.2s ease;
+                display: block;
+                border-left: 2px solid transparent;
+                padding-left: 8px;
+                margin-left: -10px;
                 
                 &:hover,
                 &:target {
@@ -59,7 +63,8 @@ $toc-top-margin: 60px;
                 &.active-toc-link {
                     opacity: 1 !important;
                     color: $brand-color !important;
-                    font-weight: bold;
+                    border-left: 2px solid $brand-color;
+                    padding-left: 8px;
                 }
             }
         }

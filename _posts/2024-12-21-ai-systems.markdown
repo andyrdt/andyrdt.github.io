@@ -100,7 +100,7 @@ System-level thinking suggests alternative approaches to misuse protections. Rat
 
 By focusing on the system, we gain more "levers" of intervention. Even if the underlying model itself is vulnerable, wrapping it with complementary safeguards and oversight mechanisms can make the entire system far more robust against misuse.
 
-It's worth noting explicitly that, to my knowledge, all big labs serving SoTA models already take this system-level approach to preventing misuse.
+It's worth noting explicitly that, to my knowledge, all big labs serving SOTA models already take this system-level approach to preventing misuse.
 
 ## Which level to regulate?
 

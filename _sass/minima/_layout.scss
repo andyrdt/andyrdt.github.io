@@ -245,6 +245,10 @@
   text-align: justify;
   line-height: 1.7;
   
+  h1, h2, h3, h4, h5, h6 {
+    text-align: left;
+  }
+  
   h2 {
     @include relative-font-size(1.8);
     margin-top: 2rem;

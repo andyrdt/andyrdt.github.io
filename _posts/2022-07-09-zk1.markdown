@@ -11,9 +11,7 @@ permalink: /posts/zk1
 
 *Thanks to my professor Tal Malkin for helping me understand this material, and thanks to my buddies Arnold and Raghav for proofreading this post.*
 
-### Introduction
-
-#### What's a proof?
+## What's a proof?
 
 Suppose Alice knows that some statement $$s$$ is true. Suppose that Bob does not yet know that $$s$$ is true. How can Alice "prove" to Bob that $$s$$ is true?
 
@@ -57,7 +55,7 @@ Let's note two important aspects of the above proof:
   - In this case, it's not clear *how* the statement is true (there's no obvious witness). But we will see examples where Alice does know some witness for the statement, and is yet still able to prove the statement without revealing the witness.
 
 
-### Summarizing proof types
+## Summarizing proof types
 From the two examples above, we've seen that there are two axes on which a proof can vary (the following statements are not precise and intended just to build up intuition - we'll define the terms more formally in a bit):
 
 1. Interactive vs non-interactive
@@ -70,7 +68,7 @@ From the two examples above, we've seen that there are two axes on which a proof
 We'll see that there exist proofs which satisfy each of the $$\{\text{interactive, non-interactive} \} \times \{\text{zk, non-zk} \}$$ combinations. We'll start by formally defining interactive proof systems, which will then enable us to define and understand zero-knowledge. 
 
 
-### Interactive proof systems
+## Interactive proof systems
 An interactive proof system has two parties: a prover $$P$$, and a verifier $$V$$. The prover $$P$$ aims to convince the verifier $$V$$ of some statement "$$x \in L$$." The proof should be quick and easy to verify, and we will therefore stipulate that the verifier $$V$$ runs in probabilistic-polynomial-time (PPT). On the other hand, we place no restrictions on running time of the prover $$P$$.
 
 <div class="definition" markdown="1" text="interactive proof system">
@@ -90,7 +88,7 @@ A few notes about this definition:
     - One definition can be transformed into another by amplification (next bullet point).
 - By repeating the proof system $$poly(\lvert x \rvert)$$ independent times, the completeness and soundness can be amplified to have negligible error: $$c(\lvert x \rvert) - s(\lvert x \rvert) \geq 1 - 2^{- poly(\lvert x \rvert)}$$.
 
-#### Example: IP for quadratic non-residuosity
+### Example: IP for quadratic non-residuosity
 We define the language of "quadratic residues in $$\mathbb{Z}_N^*$$":
 
 $$QR_N = \{ x \in \mathbb{Z}_N^* \lvert \exists w \in \mathbb{Z}_N^* \text{ s.t. } x = w^2 (\text{mod } N)\}$$
@@ -140,7 +138,7 @@ The soundness of the protocol can be improved using a process called *amplificat
 
 This example demonstrates the potential power of interactive proofs: for some languages, a simple *non-interactive* proof may not exist, while a simple *interactive* proof does.
 
-### Zero-knowledge
+## Zero-knowledge
 Finally, the time is upon us to define one of the coolest ideas in all of theoretical computer science: zero-knowledge.
 
 Suppose Alice is trying to prove some statement $$s$$ to Bob. As mentioned in the introduction, a zero-knowledge proof should reveal no additional information to Bob, other than the fact that $$s$$ is true. In particular, Bob should not learn *how* $$s$$ is true - only *that* it is true. 
@@ -170,7 +168,7 @@ An interactive proof system $$P, V$$ for $$L$$ is *perfect zero-knowledge* if fo
 
 This definition is honestly super weird and hard to wrap your head around when you first learn about it (it was for me, at least), but the more you play around with it, the clearer and more beautiful it becomes. So let's see it in action through an example. 
 
-#### Example: ZK IP for quadratic residuosity
+### Example: ZK IP for quadratic residuosity
 Recall the language of "quadratic residues in $$\mathbb{Z}_N^*$$":
 
 $$QR_N = \{ x \in \mathbb{Z}_N^* \lvert \exists w \in \mathbb{Z}_N^* \text{ s.t. } x = w^2 (\text{mod } N)\}$$
@@ -253,13 +251,13 @@ Similar analysis[^4] yields that the expected running time of $$S_k$$ is 2 times
 Cool! We've shown that the language $$QR_N$$ has a perfect zero-knowledge interactive proof system, with soundness error $$2^{-poly (\lvert x \rvert)}$$.
 
 
-### Sources
+## Sources
 - [BIU Winter School 2019, Lecture 1: Zero-knowledge (Intro)](https://youtu.be/6uGimDYZPMw) - Alon Rosen
 - [The Knowledge Complexity of Interactive Proof Systems](https://people.csail.mit.edu/silvio/Selected%20Scientific%20Papers/Proof%20Systems/The_Knowledge_Complexity_Of_Interactive_Proof_Systems.pdf) - Shafi Goldwasser, Silvio Micali, Charles Rackoff
 - [Lecture 15: Zero Knowledge Proofs](https://www.cs.princeton.edu/courses/archive/fall07/cos433/lec15.pdf) - Boaz Barak
 
 
-### Footnotes
+## Footnotes
 [^1]: Plugging in some concrete numbers: if there are $$k=20$$ rounds, then this probability is reduced to less than one-in-a-million: $$2^{-20} = \frac{1}{1048576}$$. Bob can of course specify the successful-cheating probability $$p$$ to be arbitrarily small, and then repeat the game $$k = -\log{p}$$ rounds to achieve such confidence.
 [^2]: This is slightly imprecise. The complement of $$QR_N$$ contains not only $$\{ x \in \mathbb{Z}_N^* \lvert \nexists w \in \mathbb{Z}_N^* \text{ s.t. } x = w^2 (\text{mod } N)\}$$, but also $$\{ x \notin \mathbb{Z}_N^*\}$$. Let's just assume we're only considering input $$x$$ values from $$\mathbb{Z}_N^*$$.
 [^3]: We allow $$S$$ to run in *expected* polynomial time, rather than *strict* polynomial time. This is how the original [GMR '85](https://people.csail.mit.edu/silvio/Selected%20Scientific%20Papers/Proof%20Systems/The_Knowledge_Complexity_Of_Interactive_Proof_Systems.pdf) paper defines it (see the last paragraph on page 10). We will revisit this part of the definition at a later stage, and see whether it's possible to require the simulator to run in *strict* polynomial time. 

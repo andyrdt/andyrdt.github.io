@@ -7,11 +7,11 @@ permalink: /posts/zk2
 
 *This post is a continuation of a previous post, and will proceed with the material from [Bar Ilan's 2019 Winter School](https://youtube.com/playlist?list=PL8Vt-7cSFnw29cLUVqAIuMlg1QJ-szV0K).*
 
-### Introduction
+## Introduction
 
 In this post, our objective is to show that there exists a zero-knowledge interactive proof system for any language in NP. In order to do so, we will need to loosen our definition of zero-knowledge slightly. We will define *statistical* zero-knowledge and *computational* zero-knowledge, both of which are relaxations of *perfect* zero-knowledge (which we defined in the previous post). We will then take an NP-complete language, $$HAM$$, and give an interactive proof system which satisfies *computational* zero-knowledge. It will then follow that any language in NP has a *computational* zero-knowledge proof, since any language in NP can reduced to an instance of $$HAM$$.
 
-#### The problem with perfect zero-knowledge for NP
+## The problem with perfect zero-knowledge for NP
 Why do we need relaxations on our definition of *perfect* zero-knowledge at all? Why can't we just construct proof system which satisfies *perfect* zero-knowledge for an NP-complete language?
 
 Well it's *very very* strongly believed that such a proof system cannot exist. In 1987, just a couple years after the original discovery of the concept of zero-knowledge, Fortnow [showed](https://dl.acm.org/doi/pdf/10.1145/28395.28418) that if such a proof system exists, then the [polynomial hierarchy](https://en.wikipedia.org/wiki/Polynomial_hierarchy) collapses. Don't worry if you don't know what this means - just take my word that theoretical computer scientists believe *very very* strongly that the polynomial hierarchy does not collapse (quite similar to the strong belief that P $$\neq$$ NP).
@@ -20,7 +20,7 @@ Thus, if we want to achieve zero-knowledge protocols for all languages in NP, we
 
 In order to do tinker with the definition of zero-knowledge, we need to discuss some different notions of *indistinguishability*.
 
-### Notions of indistinguishability
+## Notions of indistinguishability
 <!-- <div class="definition" markdown="1" text="ensemble">
 Let $$X_1, X_2, ..$$. be a sequence such that $$X_n$$ is a random variable over $$\{0,1\}^{m(n)}$$, where $$m(n) \leq \text{poly}(n)$$. Such a sequence is called an *ensemble*, and is denoted as $$(X_n)$$.
 </div> -->
@@ -50,7 +50,7 @@ $$X$$ and $$Y$$ are *computationally indistinguishable*, denoted $$X \cong_C Y$$
 $$X,Y$$ are *computationally-indistinguishable* if for any PPT algorithm $$A$$, $$\lvert \Pr[A(X)=1] - \Pr[A(Y)=1] \rvert \leq \epsilon(n)$$, for some negligible function $$\epsilon(n)$$.
 </div>
 
-#### Relaxing perfect zero-knowledge
+## Relaxing perfect zero-knowledge
 Now that we have these relaxed notions of indistinguishability, we can use them to define a relaxed notion of zero-knowledge.
 
 First recall the definition of *perfect* zero-knowledge:
@@ -77,7 +77,7 @@ An interactive proof system $$P, V$$ for $$L$$ is *computational zero-knowledge*
 
 This definition will be loose enough, as we will be able to show that every language in NP has a computational zero-knowledge proof system. We're almost ready to show such a construction, but we need to first discuss an important tool: commitment schemes.
 
-### Commitment schemes
+## Commitment schemes
 
 A commitment scheme is a two-phase protocol between two parties: a committer, and a receiver. The idea is to have the committer commit to some value $$m$$ without revealing to receiver what $$m$$ is. To achieve this, the committer computes some value $$c = Com(m,r)$$ (where $$r$$ is some randomness) and sends $$c$$ to the receiver. At a later time, the committer can "decommit," revealing the the original message $$m$$ and randomness $$r\text{:}$$ $$Dec(c) = (m, r)$$. The receiver can verify that $$c = Com(Dec(c))$$.
 
@@ -113,7 +113,7 @@ As a result, we are limited to working with two flavors of commitment schemes:
 
 Ok, we're just about done with the dry definitions. Good job if you stuck through it. We're almost at the finish line.
 
-### Hamiltonian cycles
+## Hamiltonian cycles
 Define $$HAM = \{ G | G \text{ contains a Hamiltonian cycle}\}$$. A Hamiltonian cycle is a cycle through the graph which visits each vertex exactly once. This language $$HAM$$ is NP complete - any language in NP can be reduced to $$HAM$$ in polynomial time.
 
 For this post, we will consider a graph with $$n$$ vertices as being represented by an $$n \times n$$ adjacency matrix, where the $$(i,j)^{th}$$ entry is a 1 if the graph contains the edge $$i \rightarrow j$$, and 0 otherwise.
@@ -124,7 +124,7 @@ For this post, we will consider a graph with $$n$$ vertices as being represented
   <figcaption align = "center">[Source: <a href="https://youtu.be/cQ-BI1WWzjU">Lecture 2, Slide 25</a>]</figcaption>
 </figure>
 
-### ZK proof for HAM
+## ZK proof for HAM
 
 <figure>
   <img src="../../../images/zk2/zkp_ham.png" class="center">
@@ -182,13 +182,13 @@ From $$\Pr_{c, b}[V^*(Com(G_b)) = b] \approx 1/2$$, it follows that the expected
 
 Alright! That's it, we're done!
 
-### Conclusion
+## Conclusion
 We started by establishing a limitation of our definition of perfect zero-knowledge, namely that there cannot exist (well, we *really strongly believe* that there cannot exist) perfect zero-knowledge proofs for all languages in NP. This motivated us to relax our definition to computational zero-knowledge: zero-knowledge that holds for polynomially-bounded machines. We then defined commitment schemes and their useful properties, all in preparation for our zero-knowledge proof of $$HAM$$.
 
 $$HAM$$ is an NP-complete language, meaning any language in NP can be mapped to $$HAM$$ in polynomial time. Thus, if we can create a computational zero-knowledge proof for $$HAM$$, then this proof can be used to prove any language in NP! And that's indeed what we did! Using statistically-hiding commitment schemes, we constructed an elegant interactive proof for $$HAM$$ satisfying computational zero-knowledge.
 
 
-### Sources
+## Sources
 - [BIU Winter School 2019, Lecture 2: Zero-knowledge for NP](https://youtu.be/cQ-BI1WWzjU) - Alon Rosen
 - [The Complexity of Perfect Zero-Knowledge](https://dl.acm.org/doi/pdf/10.1145/28395.28418) - Lance Fortnow
 - [Computational Indistinguishability](https://www.youtube.com/watch?v=TNS6K5oYt1g) - Ryan O'Donnell

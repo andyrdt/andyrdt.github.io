@@ -8,7 +8,7 @@ permalink: /posts/stablecoins
 
 *Thanks to Vidal for proofreading and giving me feedback.*
 
-### What's a stablecoin?
+## What's a stablecoin?
 Crypto assets are notoriously volatile. The most famous crypto asset is, of course, Bitcoin. Without smart contract functionality, Bitcoin was originally intended as a digital currency - a mechanism by which individual parties could directly transact with each other in a decentralized way. But the vision of Bitcoin being a widely accepted currency hasn't really caught on, and it's probably because Bitcoin, like almost all other crypto assets, is extremely volatile.
 
 Here's a graph showing the volatility of Bitcoin over a two year period from May 2020 - May 2022:
@@ -23,7 +23,7 @@ An asset which aims to be used as a currency must not have such volatile value. 
 
 A **stablecoin** is a crypto asset that is designed to maintain a *stable* value over time.
 
-### How can a stablecoin achieve stable value?
+## How can a stablecoin achieve stable value?
 Stablecoins generally achieve stability by "pegging" their value to the value of some stable real-world asset. Most popular stablecoins peg themselves to the US dollar (USD). This means that they aim to maintain the following property: the value of 1 stablecoin is equal to the value of 1 USD. Assuming that the value of 1 USD remains stable[^1], the value of 1 stablecoin should then also remain stable. 
 
 Now the question becomes: how can a stablecoin be disigned such that the value of 1 stablecoin equals (or remains very close to) the value of 1 USD?
@@ -36,10 +36,10 @@ There are three primary flavors of stablecoins, each with its own unique method 
 
 Let's take a look at each of these three flavors, and explore how each of them maintains its peg. For each type of stablecoin, we'll examine a representative example. 
 
-### Fiat-collateralized stablecoins
+## Fiat-collateralized stablecoins
 The idea here is simple: each stablecoin is backed 1:1 by a USD. For every stablecoin in circulation, there is actually a dollar stored in a reserve corresponding to that stablecoin. At any point in time, a stablecoin can be exchanged for a USD, and vice versa. There generally needs to be a central issuer that is responsible for holding the reserve funds and enabling deposits/withdrawals. 
 
-#### Tether (USDT)
+### Tether (USDT)
 [Tether (USDT)](https://tether.to/) is the most popular fiat-collateralized stablecoin, with a market cap of over $75 billion (as of May 2022). Tether is maintained by the Hong Kong company Tether Limited. 
 
 Tether initially launched on top of the Bitcoin blockchain[^2], but has since expanded to many blockchains, most notably Ethereum. This means that a user can obtain a representation of a USDT token on any of Tether's supported blockchains.
@@ -71,10 +71,10 @@ Tether Limited regularly publishes the balance of its reserve, comprised primari
   <figcaption align = "center">[Source: <a href="https://tether.to/en/transparency/">Tether transparency report</a>]</figcaption>
 </figure>
 
-### Crypto-collateralized stablecoins
+## Crypto-collateralized stablecoins
 As the name suggests, these stablecoins maintain digital crypto assets (such as Bitcoin or Ether) as collateral. A major advantage of crypto-collateralized stablecoins is that they are decentralized: there is no off-chain centralized issuer required to manage reserves or perform exchanges. Rather, the notion of "issuer" is moved on-chain: the protocol is carried out by smart-contracts, rather than by a trusted centralized issuer. This results in transparency and trustlessness.
 
-#### Dai
+### Dai
 [Dai](https://makerdao.com/) is the most popular crypto-collateralized stablecoin, with a market cap of over $6 billion (as of May 2022). It is a project built and maintained by Maker DAO[^4].
 
 Anyone can mint Dai by using Maker's Collateralized Debt Position (CDP) smart contracts. The easiest way to think of it is as a collateralized loan: a user deposits some Ether into a CDP contract (known as the "collateral"), and then takes out a loan in Dai (known as the "debt"). In order to gain back ownership of the collateral, the user needs to pay back the debt in Dai, along with an accruing interest fee ("stability fee"). If at any point in time the collateral drops in value such that it is no longer deemed sufficient, the position is liquidated: the collateral is sold on the open market to recover the outstanding debt. 
@@ -147,10 +147,10 @@ Dai has two additional protection mechanisms to try and keep its peg to the doll
       - Users can exchange their Dai or their CDP contracts for an equivalent amount Ether
       - The value which they receive back is a function of 1) the target price of Dai, and 2) the price feed of Ether (both evaluated at the time when the global settlement was triggered)
 
-### Algorithmic stablecoins
+## Algorithmic stablecoins
 Unlike fiat-collateralized and crypto-collateralized stablecoins, algorithmic stablecoins do not rely on collateralized assets to maintain their value. The value of these stablecoins is maintained through algorithmic policies, such as an automatically self-regulating elastic monetary policy. 
 
-#### UST
+### UST
 UST ~~is~~ was ([R.I.P.](https://www.coindesk.com/learn/the-fall-of-terra-a-timeline-of-the-meteoric-rise-and-crash-of-ust-and-luna/)) the latest and greatest algorithmic stablecoin project. At its peak, UST had a market cap of over $18 billion.
 
 Powering UST, which is pegged to USD, is the Terra Protocol.[^6] The Terra Protocol runs on its own Proof of Stake (PoS) blockchain, on which miners stake in the chain's native token, Luna. 
@@ -215,14 +215,14 @@ With Luna being completely devalued, Terra's PoS chain (on which UST-Luna exchan
 
 In the end, the Terra Protocol's clever exchange mechanism was not enough to withstand sustained UST selling pressure.
 
-#### Is an algorithmic stablecoin possible?
+### Is an algorithmic stablecoin possible?
 For those who have been in the crypto space for a while, UST's collapse did not come as a surprise. There have been [many](https://medium.com/reserve-currency/the-end-of-a-stablecoin-the-case-of-nubits-dd1f0fb427a9) [historical](https://www.coindesk.com/markets/2021/06/17/iron-finances-titan-token-falls-to-near-zero-in-defi-panic-selling/) [attempts](https://www.coindesk.com/tech/2022/05/11/usts-do-kwon-was-behind-earlier-failed-stablecoin-ex-terra-colleagues-say/) at creating an algorithmic stablecoin, and none have stood the test of time. UST is the latest, and by far the largest, of these failed tries.
 
 The continued failures of algorithmic stablecoins poses a natural question: is a long-term algorithmic stablecoin possible? My intuition says no: I think that a stablecoin must be backed by "real" collateral (not some made up/correlated token like Luna) in order to be robust to fear-induced death spirals. Holders should be able to logically justify their confidence in the value of the asset, even in the wake of doubt and fear. This assured "real" value provides the robustness necessary to withstand the Wild West war zone of DeFi. 
 
 That's my intuition, but I am of course not sure. I think it could be an interesting research direction to try and prove such an intuition formally.  
 
-### Recap
+## Recap
 Stablecoins are set to play an important role in the crypto ecosystem. Their maturity seems to be key in enabling large-scale adoption of decentralized payments. 
 
 We've studied the mechanics of all 3 flavors of stablecoins.[^9] Each flavor has its own unique set of pros and cons. Let's do a quick recap:
@@ -242,7 +242,7 @@ We've studied the mechanics of all 3 flavors of stablecoins.[^9] Each flavor has
 - 👎 Vulnerable to crashes
 - 🦄 An ideal which doesn't really exist (yet?)
 
-### Sources
+## Sources
 - [Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf) - Satoshi Nakamoto
 - [The Search for a Stable Cryptocurrency](https://blog.ethereum.org/2014/11/11/search-stable-cryptocurrency/) - Vitalik Buterin
 - [What Are Stablecoins?](https://www.gemini.com/cryptopedia/what-are-stablecoins-how-do-they-work) - Cryptopedia team
@@ -254,7 +254,7 @@ We've studied the mechanics of all 3 flavors of stablecoins.[^9] Each flavor has
 - [Terra Money: Stability and Adoption](https://assets.website-files.com/611153e7af981472d8da199c/618b02d13e938ae1f8ad1e45_Terra_White_paper.pdf) - Do Kwon et. al.
 - [The Reign of Terra: The Rise and Fall of UST](https://medium.com/dragonfly-research/the-reign-of-terra-the-rise-and-fall-of-ust-208dabbc8e6e) - Haseeb Qureshi
 
-### Footnotes
+## Footnotes
 [^1]: There are of course issues with this assumption, as the value of 1 USD does indeed fluctuate. This is evidenced by yearly inflation, for example. There are some [projects](https://www.olympusdao.finance/) that view this as a problem, and try to maintain a "truly stable" currency. But, in general, the value of 1 USD is much more stable than the value of any other non-stablecoin digital asset, and is therefore a desirable target to peg against.
 [^2]: Bitcoin does not natively support custom tokens, and therefore does not natively support USDT. Rather, USDT is built on [Omni Layer Protocol](https://www.omnilayer.org/), which is a protocol that sits on top of Bitcoin. Omni Layer Protocol represents custom tokens as metadata stored on the Bitcoin blockchain, and then provides a mechanism to interact with the data. This kind of functionality to operate over custom tokens is natively built into more modern blockchains such as Ethereum.
 [^3]: As a math guy, this name really bothers me. The term "proof" should be reserved for arguments which are undoubtedly correct. Tether's "Proof of Reserves" certainly has room for doubt.

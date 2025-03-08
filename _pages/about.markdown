@@ -29,21 +29,21 @@ show_in_nav: true
     </div>
     <div style="max-width: 210px; margin-left: 40px; margin-top: 40px; flex-basis: content">
       <!-- <figure>
-        <img  src="../../../images/about/doodle_portrait.jpg" style="border-radius: 3px;">
+        <img  src="/assets/images/about/doodle_portrait.jpg" style="border-radius: 3px;">
           <figcaption style="font-size: 12px; color: grey; text-align: center; padding-top: 5px;">
             A flattering doodle of my likeness.<br>
             [<i>Doodle of Andy</i> - GK]
           </figcaption>
       </figure> -->
       <figure>
-        <img  src="../../../images/about/littlefish.jpg" style="border-radius: 3px;">
+        <img  src="/assets/images/about/littlefish.jpg" style="border-radius: 3px;">
           <figcaption style="font-size: 11px; color: grey; text-align: center; padding-top: 5px;">
             A little fish that I am fond of.<br>
             [<a href="https://www.metmuseum.org/art/collection/search/338694" style="color: inherit;"><i>Big Fish Eat Little Fish</i> - Pieter Bruegel</a>]
           </figcaption>
       </figure>
       <figure style="padding-top: 20px;">
-        <img src="../../../images/about/thinker.jpg" style="border-radius: 3px;"/>
+        <img src="/assets/images/about/thinker.jpg" style="border-radius: 3px;"/>
         <figcaption style="font-size: 11px; color: grey; text-align: center; padding-top: 5px;">
           All I know is that I know nothing.<br>
           [<a href="https://www.metmuseum.org/art/collection/search/191811" style="color: inherit;"><i>The Thinker</i> - Auguste Rodin</a>]
@@ -58,7 +58,7 @@ show_in_nav: true
 
 - [My favorite papers](/favorites/papers)
 - [My favorite quotes](/favorites/quotes)
-
+- [My favorite records](/favorites/records)
 
 <!-- This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
 

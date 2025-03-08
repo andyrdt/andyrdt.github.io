@@ -119,7 +119,7 @@ Define $$HAM = \{ G | G \text{ contains a Hamiltonian cycle}\}$$. A Hamiltonian 
 For this post, we will consider a graph with $$n$$ vertices as being represented by an $$n \times n$$ adjacency matrix, where the $$(i,j)^{th}$$ entry is a 1 if the graph contains the edge $$i \rightarrow j$$, and 0 otherwise.
 
 <figure>
-  <img src="../../../images/zk2/zkp_ham_adjmat.png" class="center">
+  <img src="/assets/images/zk2/zkp_ham_adjmat.png" class="center">
   <figcaption align = "center">Adjacency matrix representation of a graph G with a Hamiltonian cycle w (bolded)</figcaption>
   <figcaption align = "center">[Source: <a href="https://youtu.be/cQ-BI1WWzjU">Lecture 2, Slide 25</a>]</figcaption>
 </figure>
@@ -127,7 +127,7 @@ For this post, we will consider a graph with $$n$$ vertices as being represented
 ## ZK proof for HAM
 
 <figure>
-  <img src="../../../images/zk2/zkp_ham.png" class="center">
+  <img src="/assets/images/zk2/zkp_ham.png" class="center">
   <figcaption align = "center">Computationally zero-knowledge proof for HAM</figcaption>
   <figcaption align = "center">[Source: <a href="https://youtu.be/cQ-BI1WWzjU">Lecture 2, Slide 27</a>]</figcaption>
 </figure>

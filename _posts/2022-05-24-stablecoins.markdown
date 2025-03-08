@@ -13,7 +13,7 @@ Crypto assets are notoriously volatile. The most famous crypto asset is, of cour
 
 Here's a graph showing the volatility of Bitcoin over a two year period from May 2020 - May 2022:
 <figure>
-  <img src="../../../images/stablecoins/bitcoin_volatile.png" class="center">
+  <img src="/assets/images/stablecoins/bitcoin_volatile.png" class="center">
   <figcaption align = "center">Source: CoinGecko</figcaption>
 </figure>
 
@@ -45,7 +45,7 @@ The idea here is simple: each stablecoin is backed 1:1 by a USD. For every stabl
 Tether initially launched on top of the Bitcoin blockchain[^2], but has since expanded to many blockchains, most notably Ethereum. This means that a user can obtain a representation of a USDT token on any of Tether's supported blockchains.
 
 <figure>
-  <img src="../../../images/stablecoins/usdt_flow.png" class="center">
+  <img src="/assets/images/stablecoins/usdt_flow.png" class="center">
   <figcaption align = "center">The flow of funds between USD and USDT</figcaption>
   <figcaption align = "center">[Source: Tether whitepaper]</figcaption>
 </figure>
@@ -66,7 +66,7 @@ The total amount of USDT in circulation across blockchains is publicly available
 
 Tether Limited regularly publishes the balance of its reserve, comprised primarily of non-digital assets. It also hires 3rd party auditing companies to verify the published values. Tether Limited thus attempts to provide transparency into the assurance that USDT is backed sufficiently by USD. The below figure is the quarterly transparency report released by Tether Limited on March 31, 2022. It displays the breakdown of their reserve by asset type. 
 <figure>
-  <img src="../../../images/stablecoins/usdt_reserves.png" class="center">
+  <img src="/assets/images/stablecoins/usdt_reserves.png" class="center">
   <figcaption align = "center">Tether's reported reserve breakdown as of March 31, 2022</figcaption>  
   <figcaption align = "center">[Source: <a href="https://tether.to/en/transparency/">Tether transparency report</a>]</figcaption>
 </figure>
@@ -188,7 +188,7 @@ With this exchange mechanism, one can in a sense understand UST to be "backed by
 Despite these clever exchange mechanics, UST eventually met the same fate as all algorithmic stablecoins that came before: it collapsed.
 
 <figure>
-  <img src="../../../images/stablecoins/ust_graph.png" class="center">
+  <img src="/assets/images/stablecoins/ust_graph.png" class="center">
   <figcaption align = "center">UST fell from its $1 peg in May 2022</figcaption>
   <figcaption align = "center">[Source: CoinGecko]</figcaption>
 </figure>
@@ -200,13 +200,13 @@ Things started to go south on May 9, when some big whales[^7] sold large quantit
 Once knocked below its peg, UST holders became fearful that it would keep dropping - they wanted to get out before the house came down. They rushed to redeem their $$x$$ UST for $$x$$ USD worth of Luna, and then sold this Luna on DEXs. This caused DEXs to be flooded with fresh Luna supply, devaluing the price of Luna. This market devaluation of Luna makes it so that future UST redemptions require the minting of even more Luna, and one can see how the vicious cycle of hyperinflation is born. 
 
 <figure>
-  <img src="../../../images/stablecoins/luna_supply.png" class="center">
+  <img src="/assets/images/stablecoins/luna_supply.png" class="center">
   <figcaption align = "center">From 5/10 to 5/13, Luna supply increased over 18,000%</figcaption>
   <figcaption align = "center">[Source: <a href="https://twitter.com/MaxInvestor89/status/1524990394747998208">TerraScope</a>]</figcaption>
 </figure>
 
 <figure>
-  <img src="../../../images/stablecoins/luna_graph.png" class="center">
+  <img src="/assets/images/stablecoins/luna_graph.png" class="center">
   <figcaption align = "center">Luna's value fell as its supply increased</figcaption>
   <figcaption align = "center">[Source: CoinGecko]</figcaption>
 </figure>

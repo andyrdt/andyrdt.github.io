@@ -1,0 +1,220 @@
+// Album Display Components
+// =============================================================================
+
+.albums-container {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-unit;
+    margin: 0 auto;
+}
+
+.album {
+    display: flex;
+    align-items: flex-start;
+    gap: $spacing-unit;
+    padding: $spacing-unit $spacing-unit * 1.1;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    background-color: darken($background-color, 2%);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.album-cover {
+    flex: 0 0 180px;
+    display: block;
+    position: relative;
+    
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+    }
+}
+
+.album-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.album-header {
+    margin-bottom: $spacing-unit * 0.5;
+}
+
+.album-title {
+    font-weight: 600;
+    @include relative-font-size(1.3);
+    line-height: 1.2;
+    margin: 0 0 4px 0;
+}
+
+.album-subtitle {
+    @include relative-font-size(0.9);
+    line-height: 1.3;
+    opacity: 0.9;
+    font-weight: normal;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    color: $grey-color-dark;
+}
+
+.album-artist {
+    @include relative-font-size(0.9);
+    position: relative;
+}
+
+.album-year {
+    margin-left: 12px;
+    @include relative-font-size(0.9);
+    position: relative;
+    
+    &::before {
+        content: "";
+        display: inline-block;
+        width: 3px;
+        height: 3px;
+        background-color: $grey-color-dark;
+        border-radius: 50%;
+        position: absolute;
+        left: -7px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+.section-title {
+    @include relative-font-size(0.9);
+    margin-bottom: 5px;
+    color: $grey-color-dark;
+    opacity: 0.9;
+}
+
+.personnel-section {
+    margin: $spacing-unit * 0.15 0;
+}
+
+.personnel-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.personnel-item {
+    @include relative-font-size(0.75);
+    color: $grey-color;
+    display: inline;
+    line-height: 1.8;
+    position: relative;
+    padding: 0 16px 0 0;
+    
+    &:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        right: 7px;
+        top: 9px;
+        height: 12px;
+        width: 1px;
+        background-color: $grey-color;
+    }
+    
+    &:last-child {
+        padding-right: 0;
+    }
+}
+
+.favorite-track {
+    display: flex;
+    flex-direction: column;
+    margin-top: $spacing-unit * 0.15;
+    color: darken($grey-color, 10%);
+}
+
+.track-container {
+    display: flex;
+    align-items: center;
+    color: $grey-color;
+}
+
+.track-title {
+    @include relative-font-size(0.85);
+    color: $grey-color !important;
+    margin-right: 12px;
+    opacity: 1.0 !important;
+}
+
+.track-links {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.track-link {
+    width: 18px;
+    height: 18px;
+    opacity: 0.25;
+    transition: opacity 0.2s ease;
+    
+    &:hover {
+        opacity: 0.35;
+    }
+}
+
+// Media queries
+@include media-query($on-palm) {    
+    .album {
+        padding: $spacing-unit * 0.75 $spacing-unit * 0.8;
+    }
+    
+    .album-cover {
+        flex: 0 0 140px;
+    }
+    
+    .album-title {
+        @include relative-font-size(1.25);
+    }
+}
+
+@include media-query(600px) {
+    .album {
+        flex-direction: column;
+        gap: $spacing-unit * 0.75;
+        padding: $spacing-unit * 0.65;
+    }
+    
+    .album-cover {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 180px;
+        margin: 0 auto;
+    }
+    
+    .album-details {
+        width: 100%;
+    }
+    
+    .personnel-list {
+        flex-direction: column;
+        gap: 6px;
+    }
+    
+    .personnel-item {
+        display: block;
+        padding: 0;
+        line-height: 1.5;
+        
+        &:not(:last-child)::after {
+            display: none;
+        }
+        
+        &:not(:last-child) {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding-bottom: 6px;
+        }
+    }
+}

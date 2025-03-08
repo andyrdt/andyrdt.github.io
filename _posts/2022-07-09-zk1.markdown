@@ -103,7 +103,7 @@ How can one prove that some quadratic non-residue $$x$$ is indeed a quadratic no
 
 Turns out there's a very simple and elegant interactive proof system for quadratic non-residuosity:
 <figure>
-  <img src="../../../images/zk1/ip_nonqr.png" class="center">
+  <img src="/assets/images/zk1/ip_nonqr.png" class="center">
   <figcaption align = "center">Interactive proof system for quadratic non-residuosity</figcaption>
   <figcaption align = "center">[Source: <a href="https://youtu.be/6uGimDYZPMw">Lecture 1, Slide 19</a>]</figcaption>
 </figure>
@@ -176,7 +176,7 @@ $$QR_N = \{ x \in \mathbb{Z}_N^* \lvert \exists w \in \mathbb{Z}_N^* \text{ s.t.
 The following interactive proof system satisfies the definition of perfect ZK (and therefore honest-verifier ZK, since perfect ZK is a stronger definition):
 
 <figure>
-  <img src="../../../images/zk1/zkip_qr.png" class="center">
+  <img src="/assets/images/zk1/zkip_qr.png" class="center">
   <figcaption align = "center">Zero-knowledge interactive proof system for quadratic residuosity</figcaption>
   <figcaption align = "center">[Source: <a href="https://youtu.be/6uGimDYZPMw">Lecture 1, Slide 31</a>]</figcaption>
 </figure>

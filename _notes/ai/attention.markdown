@@ -160,7 +160,7 @@ However, MQA is not as expressive as standard MHA, since each head must share th
 ### Grouped-query attention
 
 <figure>
-  <img src="../../../images/notes/gqa.png" class="center">
+  <img src="/assets/images/notes/gqa.png" class="center">
   <figcaption align = "center">A nice schematic displaying the difference between multi-head, multi-query, and grouped-query attention.<br>[Source: Figure 2 of <a href="https://arxiv.org/abs/2305.13245">Ainslie et al., 2023</a>.]</figcaption>
 </figure>
 
@@ -189,7 +189,7 @@ Compared to MQA, GQA is more expressive, because there are multiple K/V sets - o
 ### Multi-head latent attention
 
 <figure>
-  <img src="../../../images/notes/mla.png" class="center">
+  <img src="/assets/images/notes/mla.png" class="center">
   <figcaption align = "center" style="max-width: 500px; margin: 0 auto;">Rather than caching each key and value individually, multi-head latent attention (MLA) caches a compressed latent, and then projects this compressed latent to keys and values.<br>[Source: Figure 3 of <a href="https://arxiv.org/abs/2405.04434">DeepSeek-AI, 2024</a>.]</figcaption>
 </figure>
 

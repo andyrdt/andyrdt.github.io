@@ -4,5 +4,5 @@ title:  "KZG in Practice: Polynomial Commitment Schemes and Their Usage in Scali
 date:   2022-10-25 10:00:00 -0400
 external_url: https://scroll.io/blog/kzg
 external_site: Scroll
-external_site_logo_path: /images/misc/scroll.svg
+external_site_logo_path: /assets/images/misc/scroll.svg
 ---

@@ -19,7 +19,7 @@ name: "home"
     </div>
     <div style="max-width: 210px; margin-left: 40px; margin-top: 40px; flex-basis: content">
       <figure>
-        <img  src="../../../images/about/doodle_portrait.jpg" style="border-radius: 3px;">
+        <img  src="/assets/images/about/doodle_portrait.jpg" style="border-radius: 3px;">
           <figcaption style="font-size: 12px; color: grey; text-align: center; padding-top: 5px;">
             A flattering doodle of my likeness.<br>
             [<i>Doodle of Andy</i> - GK]

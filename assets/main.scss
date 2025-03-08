@@ -1,24 +1,29 @@
 ---
 ---
 
+// Import core styles from minima where all variables are defined
 @import "minima";
-@import "/fonts/Serif/cmun-serif.css";
 
+// Layout Components
+// =============================================================================
+
+// Responsive video container
 .iframe_container {
 	position: relative;
-	padding-bottom: 56.25%; /* 16:9 - this is responsive by adjusting the hight according to the width! */
+	padding-bottom: 56.25%; /* 16:9 aspect ratio */
 	padding-top: 25px;
 	height: 0;
+	
+	iframe {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	}
 }
 
-.iframe_container iframe {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-
+// Center images
 .center {
     display: block;
     margin-left: auto;
@@ -26,79 +31,62 @@
     width: 75%;
 }
 
-.theorem {
+// Academic Components
+// =============================================================================
+
+// Theorem, proposition, corollary, lemma styles
+.theorem, .proposition, .corollary, .lemma {
     display: block;
     margin: 12px 0;
     font-style: italic;
 }
-.theorem:before {
-    content: "Theorem" attr(text) " ";
-    font-weight: bold;
-    font-style: normal;
-}
-.theorem[text]:before {
-    content: "Theorem (" attr(text) "). ";
-}
 
-.proposition {
-    display: block;
-    margin: 12px 0;
-    font-style: italic;
-}
-.proposition:before {
-    content: "Proposition" attr(text) " ";
-    font-weight: bold;
-    font-style: normal;
-}
-.proposition[text]:before {
-    content: "Proposition (" attr(text) "). ";
-}
+.theorem:before { content: "Theorem" attr(text) " "; font-weight: bold; font-style: normal; }
+.theorem[text]:before { content: "Theorem (" attr(text) "). "; }
+.proposition:before { content: "Proposition" attr(text) " "; font-weight: bold; font-style: normal; }
+.proposition[text]:before { content: "Proposition (" attr(text) "). "; }
+.corollary:before { content: "Corollary" attr(text) " "; font-weight: bold; font-style: normal; }
+.corollary[text]:before { content: "Corollary (" attr(text) "). "; }
+.lemma:before { content: "Lemma" attr(text) " "; font-weight: bold; font-style: normal; }
+.lemma[text]:before { content: "Lemma (" attr(text) "). "; }
 
-.corollary {
-    display: block;
-    margin: 12px 0;
-    font-style: italic;
-}
-.corollary:before {
-    content: "Corollary" attr(text) " ";
-    font-weight: bold;
-    font-style: normal;
-}
-.corollary[text]:before {
-    content: "Corollary (" attr(text) "). ";
-}
-
-.lemma {
-    display: block;
-    margin: 12px 0;
-    font-style: italic;
-}
-.lemma:before {
-    content: "Lemma" attr(text) " ";
-    font-weight: bold;
-    font-style: normal;
-}
-.lemma[text]:before {
-    content: "Lemma (" attr(text) "). ";
-}
-
+// Proof style
 .proof {
     display: block;
     margin: 12px 0;
     font-style: normal;
     position: relative;
-}
-.proof:before {
-    content: "Proof.";
-    font-style: italic;
-}
-.proof:after {
-    content: "□";
-    position: absolute;
-    right: 0;
-    bottom: 0.2em;
+    
+    &:before {
+        content: "Proof.";
+        font-style: italic;
+    }
+    
+    &:after {
+        content: "□";
+        position: absolute;
+        right: 0;
+        bottom: 0.2em;
+    }
 }
 
+// Definition style
+.definition {
+    display: block;
+    margin: 12px 0;
+    font-style: normal;
+    
+    &[text]:before {
+        content: "Definition (" attr(text) "). ";
+        font-weight: bold;
+        font-style: normal;
+    }
+}
+
+// Interactive Elements
+// =============================================================================
+
+// Collapsible sections
 .collapsible {
     margin: 1em 0;
     padding: 0.5em 1em;
@@ -147,24 +135,17 @@
     }
 }
 
-.definition {
-    content: "Definition";
-    display: block;
-    margin: 12px 0;
-    font-style: normal;
-}
-.definition[text]:before {
-    content: "Definition (" attr(text) "). ";
-    font-weight: bold;
-    font-style: normal;
-}
+// Content Display Components
+// =============================================================================
 
+// External links and icons
 .external-site-logo {
     width: 30px;
     height: 30px;
     vertical-align: text-top;
 }
 
+// Paper entry styles
 .paper-entry {
     margin-bottom: 15px;
 }
@@ -178,15 +159,7 @@
     color: grey;
 }
 
-@font-face {
-    font-family: 'MJX_Main';
-    src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/eot/MathJax_Main-Regular.eot'),
-         url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/eot/MathJax_Main-Regular.eot?iefix') format('eot'),
-         url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff')  format('woff'),
-         url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf')  format('opentype'),
-         url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/fonts/HTML-CSS/TeX/svg/MathJax_Main-Regular.svg#MathJax_Main-Regular') format('svg');
- }
-
+// Quote card styles
 .quote-card {
     margin: 20px 0;
     padding: 20px;
@@ -196,16 +169,16 @@
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     background-color: darken($background-color, 4%);
-  }
-
-.quote-card q {
-    display: block;
-    margin-bottom: 5px;
-    font-style: italic;
-    font-size: 16px;
-}
-
-.quote-card figcaption {
-    text-align: right;
-    font-size: 14px;
+    
+    q {
+        display: block;
+        margin-bottom: 5px;
+        font-style: italic;
+        font-size: 16px;
+    }
+    
+    figcaption {
+        text-align: right;
+        font-size: 14px;
+    }
 }

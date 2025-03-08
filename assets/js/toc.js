@@ -1,53 +1,53 @@
-document.addEventListener('DOMContentLoaded', function() {
+/**
+ * Table of Contents (TOC) Highlighter
+ * Tracks scroll position and highlights the current section in the TOC
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    // Select elements
     const headings = document.querySelectorAll('.post-content h2, .post-content h3');
     const tocLinks = document.querySelectorAll('.toc-sidebar a');
-    const offset = 100; // Adjust this value based on your header height or desired offset
+    const SCROLL_OFFSET = 100; // Adjust based on header height
+    
+    // Skip if no headings or TOC
+    if (headings.length === 0 || tocLinks.length === 0) return;
 
-    // Map headings by their IDs for quick access
-    const headingMap = {};
-    headings.forEach(heading => {
-        headingMap[heading.id] = heading;
-    });
-
-    // Function to update the active ToC link
-    const updateToc = () => {
-        let currentHeadingId = null;
-
-        // Find the heading closest to the top of the viewport
+    // Update active link in TOC based on scroll position
+    const updateActiveTocLink = () => {
+        // Find the heading that's currently in view
+        let activeHeadingId = null;
+        
         headings.forEach(heading => {
             const rect = heading.getBoundingClientRect();
-            if (rect.top - offset <= 0) {
-                currentHeadingId = heading.id;
+            if (rect.top - SCROLL_OFFSET <= 0) {
+                activeHeadingId = heading.id;
             }
         });
-
-        // Update TOC links
+        
+        // Update active state in TOC
         tocLinks.forEach(link => {
             if (!link.classList.contains('toc-title-link')) {
-                if (link.getAttribute('href') === '#' + currentHeadingId) {
-                    link.classList.add('active-toc-link');
-                } else {
-                    link.classList.remove('active-toc-link');
-                }
+                const isActive = link.getAttribute('href') === '#' + activeHeadingId;
+                link.classList.toggle('active-toc-link', isActive);
             }
         });
     };
-
-    // Throttle the scroll event handler for performance
-    let ticking = false;
-    const onScroll = () => {
-        if (!ticking) {
+    
+    // Throttle scroll event for performance
+    let isThrottled = false;
+    const handleScroll = () => {
+        if (!isThrottled) {
             window.requestAnimationFrame(() => {
-                updateToc();
-                ticking = false;
+                updateActiveTocLink();
+                isThrottled = false;
             });
-            ticking = true;
+            isThrottled = true;
         }
     };
-
-    window.addEventListener('scroll', onScroll);
-    window.addEventListener('resize', onScroll);
-
-    // Initial update on page load
-    updateToc();
+    
+    // Add event listeners
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
+    
+    // Initial update
+    updateActiveTocLink();
 });

@@ -1,40 +1,34 @@
 @charset "utf-8";
 
+// Variables
+// =============================================================================
+
 // Typography
-$base-font-family: 'EB Garamond', serif !default;
-$base-font-size: 19px !default;
+$base-font-family: 'EB Garamond' !default;
+$base-font-size: 18px !default;
 $base-font-weight: 400 !default;
 $base-line-height: 1.5 !default;
-$base-letter-spacing: 0.012rem !default;
+$base-letter-spacing: 0.01rem !default;
 $small-font-size: $base-font-size * 0.875 !default;
 $caption-font-size: $base-font-size * 0.75 !default;
 
-// Spacing
-$spacing-unit: 30px !default;
-
+// Colors
 $grey-color:       #828282 !default;
 $grey-color-light: lighten($grey-color, 40%) !default;
 $grey-color-dark:  darken($grey-color, 25%) !default;
-
 $text-color:       darken($grey-color, 25%) !default;
 $background-color: #fafafa !default;
 $brand-color:      #6d88a5 !default;
 
-$table-text-align: left !default;
-
-// Width of the content area
+// Layout
+$spacing-unit: 30px !default;
 $content-width:    800px !default;
-
 $on-palm:          600px !default;
 $on-laptop:        800px !default;
+$table-text-align: left !default;
 
-// Use media queries like this:
-// @include media-query($on-palm) {
-//   .wrapper {
-//     padding-right: $spacing-unit / 2;
-//     padding-left: $spacing-unit / 2;
-//   }
-// }
+// Mixins
+// =============================================================================
 @mixin media-query($device) {
   @media screen and (max-width: $device) {
     @content;
@@ -45,7 +39,8 @@ $on-laptop:        800px !default;
   font-size: $base-font-size * $ratio;
 }
 
-// Import partials.
+// Import partials
+// =============================================================================
 @import
   "minima/base",
   "minima/layout",

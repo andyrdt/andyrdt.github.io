@@ -26,6 +26,11 @@ show_in_nav: false
     <figcaption>Eliezer Yudkowsky</figcaption>
 </div>
 
+<div class="quote-card">
+    <q>If you get on the wrong train, get off at the nearest station. The longer it takes you to get off, the more expensive the return trip will be.</q>
+    <figcaption>Japanese proverb</figcaption>
+</div>
+
 ### On understanding
 
 <div class="quote-card">

@@ -4,7 +4,7 @@ title:  "AI as systems, not just models"
 date:   2024-12-21 10:00:00 -0400
 permalink: /posts/ai-systems
 linkpost_site: "LessWrong"
-linkpost_link: "https://www.lesswrong.com/posts/2po6bp2gCHzxaccNz"
+linkpost_link: "https://www.lesswrong.com/posts/2po6bp2gCHzxaccNz/ai-as-systems-not-just-models"
 ---
 
 *Inspired by Christopher Potts' [recent lecture](https://www.youtube.com/watch?v=vRTcE19M-KE), I've written some notes on thinking about "AI systems" rather than "AI models". Most of the framings presented here can be attributed to Potts' lecture.*

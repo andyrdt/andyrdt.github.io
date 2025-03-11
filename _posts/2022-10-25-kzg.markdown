@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "KZG in Practice: Polynomial Commitment Schemes and Their Usage in Scaling Ethereum"
+title:  "KZG in practice: polynomial commitment schemes and their usage in scaling Ethereum"
 date:   2022-10-25 10:00:00 -0400
 external_url: https://scroll.io/blog/kzg
 external_site: Scroll

@@ -26,15 +26,18 @@ show_in_nav: true
         I like to run - I <a href="https://results.svetiming.com/Big-Sur/events/2023/Big-Sur-International-Marathon/3156/entrant/share">ran</a> my first marathon in April 2023.
         I'm a big <a href="https://en.wikipedia.org/wiki/Fenerbah%C3%A7e_S.K._(football)">Fenerbahçe</a> fan, and am currently learning Turkish.
       </p>
+      <h2>Now</h2>
+      <p><em>(Last updated: March 2025)</em></p>
+      <p>I'm currently based in Berkeley, where I'm working on AI safety research as part of the <a href="https://alignment.anthropic.com/2024/anthropic-fellows-program/">Anthropic Fellows Program</a>.</p>
+      
+      <h2><a href="https://youtu.be/JQvc-Gkwhow" style="color: inherit; text-decoration: none;">My favorite things</a></h2>
+      <ul>
+        <li><a href="/favorites/papers">My favorite papers</a></li>
+        <li><a href="/favorites/quotes">My favorite quotes</a></li>
+        <li><a href="/favorites/records">My favorite records</a></li>
+      </ul>
     </div>
-    <div style="max-width: 210px; margin-left: 40px; margin-top: 40px; flex-basis: content">
-      <!-- <figure>
-        <img  src="/assets/images/about/doodle_portrait.jpg" style="border-radius: 3px;">
-          <figcaption style="font-size: 12px; color: grey; text-align: center; padding-top: 5px;">
-            A flattering doodle of my likeness.<br>
-            [<i>Doodle of Andy</i> - GK]
-          </figcaption>
-      </figure> -->
+    <div style="max-width: 190px; margin-left: 40px; margin-top: 40px; flex-basis: content">
       <figure>
         <img  src="/assets/images/about/littlefish.jpg" style="border-radius: 3px;">
           <figcaption style="font-size: 11px; color: grey; text-align: center; padding-top: 5px;">
@@ -53,12 +56,6 @@ show_in_nav: true
     </div>
   </div>
 </div>
-
-## Favorites
-
-- [My favorite papers](/favorites/papers)
-- [My favorite quotes](/favorites/quotes)
-- [My favorite records](/favorites/records)
 
 <!-- This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
 

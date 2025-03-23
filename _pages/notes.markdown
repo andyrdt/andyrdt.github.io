@@ -2,7 +2,7 @@
 layout: default
 permalink: /notes
 title: "Notes"
-show_in_nav: true
+show_in_nav: false
 ---
 
 ## Notes

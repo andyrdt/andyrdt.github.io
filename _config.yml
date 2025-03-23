@@ -27,8 +27,8 @@ nav_items:
     url: /about
   - title: Posts
     url: /posts
-  - title: Notes
-    url: /notes
+  # - title: Notes
+  #   url: /notes
   - title: Publications
     url: https://scholar.google.com/citations?hl=en&user=NgyIgX4AAAAJ
 

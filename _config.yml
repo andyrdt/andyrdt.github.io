@@ -25,12 +25,8 @@ plugins:
 nav_items:
   - title: About
     url: /about
-  - title: Posts
-    url: /posts
-  # - title: Notes
-  #   url: /notes
-  - title: Publications
-    url: https://scholar.google.com/citations?hl=en&user=NgyIgX4AAAAJ
+  - title: Research
+    url: /research
 
 # ==============================================================================
 # CONTENT COLLECTIONS

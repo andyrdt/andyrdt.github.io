@@ -24,15 +24,14 @@ show_in_nav: true
         I love jazz music - I'm a decent tenor player, and a much worse piano player.
         Chess is a more recent hobby of mine, and I mostly play online.
         I like to run - I <a href="https://results.svetiming.com/Big-Sur/events/2023/Big-Sur-International-Marathon/3156/entrant/share">ran</a> my first marathon in April 2023.
-        I'm a big <a href="https://en.wikipedia.org/wiki/Fenerbah%C3%A7e_S.K._(football)">Fenerbahçe</a> fan, and am currently learning Turkish.
+        I'm also a big <a href="https://en.wikipedia.org/wiki/Fenerbah%C3%A7e_S.K._(football)">Fenerbahçe</a> fan.
       </p>
       <h2>Now</h2>
-      <p><em>(Last updated: March 2025)</em></p>
-      <p>I'm currently based in Berkeley, where I'm working on AI safety research as part of the <a href="https://alignment.anthropic.com/2024/anthropic-fellows-program/">Anthropic Fellows Program</a>.</p>
+      <p><em>(Last updated: September 2025)</em></p>
+      <p>I'm currently based in Boston, where I'm working on mechanistic interpretability in Professor David Bau's lab.</p>
       
       <h2><a href="https://youtu.be/JQvc-Gkwhow" style="color: inherit; text-decoration: none;">My favorite things</a></h2>
       <ul>
-        <li><a href="/favorites/papers">My favorite papers</a></li>
         <li><a href="/favorites/quotes">My favorite quotes</a></li>
         <li><a href="/favorites/records">My favorite records</a></li>
       </ul>

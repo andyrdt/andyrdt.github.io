@@ -73,6 +73,14 @@ show_in_nav: true
 
 <div class="paper-entry">
     <div class="paper-title">
+        <a href="https://www.lesswrong.com/posts/NCWiR8K8jpFqtywFG/finding-misaligned-persona-features-in-open-weight-models">Finding "misaligned persona" features in open-weight models</a>
+    </div>
+    <div class="paper-authors"><strong>Andy Arditi</strong>,  Runjin Chen</div>
+    <div class="paper-venue">LessWrong, 2025</div>
+</div>
+
+<div class="paper-entry">
+    <div class="paper-title">
         <a href="https://www.lesswrong.com/posts/abtegBoDfnCzewndm/do-models-say-what-they-learn">Do models say what they learn?</a>
     </div>
     <div class="paper-authors"><strong>Andy Arditi</strong>,  Marvin Li, Joe Benton, Miles Turpin</div>
@@ -123,7 +131,7 @@ show_in_nav: true
 
 <div class="paper-entry">
     <div class="paper-title">
-        <a href="https://scroll.io/blog/proof-generation">The Anatomy of Proof Generation</a>
+        <a href="https://scroll.io/blog/proof-generation">The anatomy of proof generation</a>
     </div>
     <div class="paper-authors"><strong>Andy Arditi</strong>, Ye Zhang</div>
     <div class="paper-venue">Scroll blog, 2022</div>

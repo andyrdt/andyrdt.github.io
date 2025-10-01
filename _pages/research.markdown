@@ -7,6 +7,8 @@ show_in_nav: true
 
 ## Papers
 
+For a full list of publications, see my [Google Scholar](https://scholar.google.com/citations?user=NgyIgX4AAAAJ).
+
 ### Selected papers
 
 <div class="paper-entry">
@@ -64,7 +66,7 @@ show_in_nav: true
         <a href="https://causalai.net/r122.pdf">Structural Causal Bandits under Markov Equivalence</a>
     </div>
     <div class="paper-authors">Min Woo Park, <strong>Andy Arditi</strong>, Elias Bareinboim, Sanghack Lee</div>
-    <div class="paper-venue">Preprint, 2025</div>
+    <div class="paper-venue">Advances in Neural Information Processing Systems, 2025</div>
 </div>
 
 ## Blog posts

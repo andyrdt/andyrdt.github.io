@@ -25,10 +25,10 @@ show_in_nav: false
             <div class="personnel-section">
                 <div class="section-title">Personnel</div>
                 <ul class="personnel-list">
-                    <li class="personnel-item">Charlie Parker — alto saxophone</li>
-                    <li class="personnel-item">Ray Brown — bass</li>
-                    <li class="personnel-item">Buddy Rich — drums</li>
-                    <li class="personnel-item">Jimmy Carroll, Joe Lipman — arranger and conductor</li>
+                    <li class="personnel-item">Charlie Parker – alto saxophone</li>
+                    <li class="personnel-item">Ray Brown – bass</li>
+                    <li class="personnel-item">Buddy Rich – drums</li>
+                    <li class="personnel-item">Jimmy Carroll, Joe Lipman – arranger and conductor</li>
                     <li class="personnel-item">Et al.</li>
                 </ul>
             </div>
@@ -64,12 +64,12 @@ show_in_nav: false
             <div class="personnel-section">
                 <div class="section-title">Personnel</div>
                 <ul class="personnel-list">
-                    <li class="personnel-item">Clifford Brown — trumpet</li>
-                    <li class="personnel-item">Richie Powell — piano</li>
-                    <li class="personnel-item">Barry Galbraith — guitar</li>
-                    <li class="personnel-item">George Morrow — bass</li>
-                    <li class="personnel-item">Max Roach — drums</li>
-                    <li class="personnel-item">Neal Hefti — arranger and conductor</li>
+                    <li class="personnel-item">Clifford Brown – trumpet</li>
+                    <li class="personnel-item">Richie Powell – piano</li>
+                    <li class="personnel-item">Barry Galbraith – guitar</li>
+                    <li class="personnel-item">George Morrow – bass</li>
+                    <li class="personnel-item">Max Roach – drums</li>
+                    <li class="personnel-item">Neal Hefti – arranger and conductor</li>
                     <li class="personnel-item">Et al.</li>
                 </ul>
             </div>
@@ -105,11 +105,11 @@ show_in_nav: false
             <div class="personnel-section">
                 <div class="section-title">Personnel</div>
                 <ul class="personnel-list">
-                    <li class="personnel-item">Kenny Dorham — trumpet</li>
-                    <li class="personnel-item">J.R. Monterose — tenor saxophone</li>
-                    <li class="personnel-item">Bobby Timmons — piano</li>
-                    <li class="personnel-item">Sam Jones — bass</li>
-                    <li class="personnel-item">Arthur Edgehill — drums</li>
+                    <li class="personnel-item">Kenny Dorham – trumpet</li>
+                    <li class="personnel-item">J.R. Monterose – tenor saxophone</li>
+                    <li class="personnel-item">Bobby Timmons – piano</li>
+                    <li class="personnel-item">Sam Jones – bass</li>
+                    <li class="personnel-item">Arthur Edgehill – drums</li>
                 </ul>
             </div>
             <div class="favorite-track">
@@ -144,9 +144,9 @@ show_in_nav: false
             <div class="personnel-section">
                 <div class="section-title">Personnel</div>
                 <ul class="personnel-list">
-                    <li class="personnel-item">Ahmad Jamal — piano</li>
-                    <li class="personnel-item">Israel Crosby — bass</li>
-                    <li class="personnel-item">Vernel Fournier — drums</li>
+                    <li class="personnel-item">Ahmad Jamal – piano</li>
+                    <li class="personnel-item">Israel Crosby – bass</li>
+                    <li class="personnel-item">Vernel Fournier – drums</li>
                 </ul>
             </div>
             <div class="favorite-track">
@@ -181,10 +181,10 @@ show_in_nav: false
             <div class="personnel-section">
                 <div class="section-title">Personnel</div>
                 <ul class="personnel-list">
-                    <li class="personnel-item">Blue Mitchell — trumpet</li>
-                    <li class="personnel-item">Wynton Kelly — piano</li>
-                    <li class="personnel-item">Sam Jones — bass</li>
-                    <li class="personnel-item">Roy Brooks — drums</li>
+                    <li class="personnel-item">Blue Mitchell – trumpet</li>
+                    <li class="personnel-item">Wynton Kelly – piano</li>
+                    <li class="personnel-item">Sam Jones – bass</li>
+                    <li class="personnel-item">Roy Brooks – drums</li>
                 </ul>
             </div>
             <div class="favorite-track">
@@ -219,9 +219,9 @@ show_in_nav: false
             <div class="personnel-section">
                 <div class="section-title">Personnel</div>
                 <ul class="personnel-list">
-                    <li class="personnel-item">Lee Konitz — alto saxophone</li>
-                    <li class="personnel-item">Elvin Jones — drums</li>
-                    <li class="personnel-item">Sonny Dallas — bass</li>
+                    <li class="personnel-item">Lee Konitz – alto saxophone</li>
+                    <li class="personnel-item">Elvin Jones – drums</li>
+                    <li class="personnel-item">Sonny Dallas – bass</li>
                 </ul>
             </div>
             <div class="favorite-track">
@@ -256,11 +256,11 @@ show_in_nav: false
             <div class="personnel-section">
                 <div class="section-title">Personnel</div>
                 <ul class="personnel-list">
-                    <li class="personnel-item">Joe Henderson — tenor saxophone</li>
-                    <li class="personnel-item">Kenny Dorham — trumpet</li>
-                    <li class="personnel-item">McCoy Tyner — piano</li>
-                    <li class="personnel-item">Richard Davis — bass</li>
-                    <li class="personnel-item">Elvin Jones — drums</li>
+                    <li class="personnel-item">Joe Henderson – tenor saxophone</li>
+                    <li class="personnel-item">Kenny Dorham – trumpet</li>
+                    <li class="personnel-item">McCoy Tyner – piano</li>
+                    <li class="personnel-item">Richard Davis – bass</li>
+                    <li class="personnel-item">Elvin Jones – drums</li>
                 </ul>
             </div>
             <div class="favorite-track">
@@ -295,10 +295,10 @@ show_in_nav: false
             <div class="personnel-section">
                 <div class="section-title">Personnel</div>
                 <ul class="personnel-list">
-                    <li class="personnel-item">John Coltrane — tenor saxophone</li>
-                    <li class="personnel-item">McCoy Tyner — piano</li>
-                    <li class="personnel-item">Jimmy Garrison — bass</li>
-                    <li class="personnel-item">Elvin Jones — drums</li>
+                    <li class="personnel-item">John Coltrane – tenor saxophone</li>
+                    <li class="personnel-item">McCoy Tyner – piano</li>
+                    <li class="personnel-item">Jimmy Garrison – bass</li>
+                    <li class="personnel-item">Elvin Jones – drums</li>
                 </ul>
             </div>
             <div class="favorite-track">

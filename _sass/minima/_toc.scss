@@ -24,13 +24,13 @@ $toc-top-margin: 60px;
         margin-bottom: 10px;
 
         .toc-title-link {
-            color: $text-color;
+            color: var(--text-primary);
             text-decoration: none;
             opacity: 0.65 !important;
             transition: opacity 0.2s ease, color 0.2s ease;
-            
+
             &:hover {
-                color: $brand-color;
+                color: var(--accent);
                 opacity: 1 !important;
             }
         }
@@ -45,7 +45,7 @@ $toc-top-margin: 60px;
             margin: 5px 0;
             
             a {
-                color: $text-color;
+                color: var(--text-primary);
                 text-decoration: none;
                 opacity: 0.65;
                 transition: opacity 0.2s ease, color 0.2s ease, border-left 0.2s ease;
@@ -55,17 +55,17 @@ $toc-top-margin: 60px;
                 margin-left: -10px;
                 line-height: 1.1; /* Controls spacing between wrapped lines */
                 margin-bottom: 0.75em; /* Creates additional space between paragraphs */
-                
+
                 &:hover,
                 &:target {
-                    color: $brand-color;
+                    color: var(--accent);
                     opacity: 1;
                 }
 
                 &.active-toc-link {
                     opacity: 1 !important;
-                    color: $brand-color !important;
-                    border-left: 2px solid $brand-color;
+                    color: var(--accent) !important;
+                    border-left: 2px solid var(--accent);
                     padding-left: 8px;
                 }
             }
@@ -126,11 +126,11 @@ $toc-top-margin: 60px;
     }
     
     .toc-link {
-        color: $text-color;
+        color: var(--text-primary);
         text-decoration: none;
-        
+
         &:hover {
-            color: $brand-color;
+            color: var(--accent);
         }
     }
 }
@@ -148,10 +148,10 @@ $toc-top-margin: 60px;
             
             a {
                 text-decoration: none;
-                color: $text-color;
-                
+                color: var(--text-primary);
+
                 &:hover {
-                    color: $brand-color;
+                    color: var(--accent);
                 }
             }
         }
@@ -161,5 +161,5 @@ $toc-top-margin: 60px;
 // Highlight the active section's link
 :target + .toc-sidebar a[href*="#{&}"] {
     opacity: 1 !important;
-    color: $brand-color !important;
+    color: var(--accent) !important;
 }

@@ -30,7 +30,7 @@ show_in_nav: true
       <p><em>(Last updated: September 2025)</em></p>
       <p>I'm currently based in Boston, where I'm working on mechanistic interpretability in Professor David Bau's lab.</p>
       
-      <h2><a href="https://youtu.be/JQvc-Gkwhow" style="color: inherit; text-decoration: none;">My favorite things</a></h2>
+      <h2><a href="https://youtu.be/JQvc-Gkwhow" class="hidden-link">My favorite things</a></h2>
       <ul>
         <li><a href="/favorites/quotes">My favorite quotes</a></li>
         <li><a href="/favorites/records">My favorite records</a></li>
@@ -39,14 +39,14 @@ show_in_nav: true
     <div style="max-width: 190px; margin-left: 40px; margin-top: 40px; flex-basis: content">
       <figure>
         <img  src="/assets/images/about/littlefish.jpg" style="border-radius: 3px;">
-          <figcaption style="font-size: 11px; color: grey; text-align: center; padding-top: 5px;">
+          <figcaption class="image-caption">
             A little fish that I am fond of.<br>
             [<a href="https://www.metmuseum.org/art/collection/search/338694" style="color: inherit;"><i>Big Fish Eat Little Fish</i> - Pieter Bruegel</a>]
           </figcaption>
       </figure>
       <figure style="padding-top: 20px;">
         <img src="/assets/images/about/thinker.jpg" style="border-radius: 3px;"/>
-        <figcaption style="font-size: 11px; color: grey; text-align: center; padding-top: 5px;">
+        <figcaption class="image-caption">
           All I know is that I know nothing.<br>
           [<a href="https://www.metmuseum.org/art/collection/search/191811" style="color: inherit;"><i>The Thinker</i> - Auguste Rodin</a>]
         </figcaption>

@@ -14,6 +14,7 @@
         {% for item in site.nav_items %}
           <a class="page-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
         {% endfor %}
+        {%- include theme-toggle.html -%}
       </div>
     </nav>
   </div>

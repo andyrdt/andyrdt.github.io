@@ -1,0 +1,228 @@
+// =============================================================================
+// Theme System - Dual Mode Support
+// =============================================================================
+// This file defines CSS custom properties for a cohesive theming system
+// supporting both warm-light and dark modes. All colors are defined as
+// semantic variables for easy maintenance and consistency.
+//
+// Theme switching is handled via data-theme attribute on document root,
+// managed by assets/js/theme-toggle.js
+
+// =============================================================================
+// Layout & Typography Variables
+// =============================================================================
+
+:root {
+  --body-font-size: 19px;
+  --body-line-height: 1.65;
+  --body-letter-spacing: 0.01rem;
+  --spacing-unit: 35px;
+  --content-width: 780px;
+  --heading-margin-top: 2em;
+  --heading-margin-bottom: 1em;
+}
+
+// =============================================================================
+// Color Themes
+// =============================================================================
+
+// Warm Light Theme (Default)
+// Warm, inviting palette with terracotta accents
+[data-theme="warm-light"],
+:root {
+  --bg-primary: #fffbf4;        // Warm off-white background
+  --bg-card: #fff8ef;           // Slightly darker for cards/sections
+  --text-primary: #4a453f;      // Soft dark grey for readability
+  --text-secondary: #6b7b81;    // Muted grey for secondary text
+  --border-color: #e8cfb8;      // Warm beige border
+  --border-light: #f0dcc8;      // Lighter variant for subtle borders
+  --accent: #c85a3c;            // Terracotta accent for links/highlights
+  --shadow: rgba(200, 90, 60, 0.06);
+}
+
+// Dark Theme
+// Solarized dark blue palette with elegant blue accents
+[data-theme="dark"] {
+  --bg-primary: #002b36;        // Deep blue-black background
+  --bg-card: #073642;           // Lighter blue for cards
+  --text-primary: #93a1a1;      // Light grey for primary text
+  --text-secondary: #839496;    // Muted grey for secondary text
+  --border-color: #0d4552;      // Subtle blue-grey border
+  --border-light: #073642;      // Matches card background
+  --accent: #6ba5db;            // Soft periwinkle blue for links
+  --shadow: rgba(0, 0, 0, 0.2);
+}
+
+// =============================================================================
+// Base Typography & Layout
+// =============================================================================
+
+body {
+  font-size: var(--body-font-size) !important;
+  line-height: var(--body-line-height) !important;
+  letter-spacing: var(--body-letter-spacing) !important;
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+a {
+  color: var(--accent) !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary) !important;
+  margin-top: var(--heading-margin-top) !important;
+  margin-bottom: var(--heading-margin-bottom) !important;
+
+  &:first-of-type {
+    margin-top: 1em !important;
+  }
+}
+
+.wrapper {
+  max-width: calc(var(--content-width) - (var(--spacing-unit) * 2)) !important;
+  padding-right: var(--spacing-unit) !important;
+  padding-left: var(--spacing-unit) !important;
+}
+
+p, blockquote, pre, ul, ol, dl, figure {
+  margin-bottom: calc(var(--spacing-unit) / 2) !important;
+}
+
+// =============================================================================
+// Content Cards - Papers, Quotes, Albums
+// =============================================================================
+// Standardized styling for all card-based content with consistent spacing,
+// borders, and shadows that adapt to the active theme
+
+.paper-entry, .quote-card, .album {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: 0 1px 2px var(--shadow) !important;
+  border-radius: 2px !important;
+  padding: 0.9em 1.2em !important;
+  margin-bottom: 0.8em !important;
+}
+
+// Paper-specific styling
+.paper-title {
+  font-size: 17px !important;
+  margin-bottom: 0.3em !important;
+
+  a {
+    color: var(--accent) !important;
+  }
+}
+
+.paper-authors,
+.paper-venue {
+  font-size: 14px !important;
+  color: var(--text-secondary) !important;
+}
+
+// Album-specific styling
+.album-artist,
+.album-year,
+.section-title,
+.personnel-item,
+.track-title {
+  color: var(--text-secondary) !important;
+}
+
+.album-title {
+  color: var(--text-primary) !important;
+}
+
+// Blockquotes
+blockquote {
+  border-left-color: var(--accent) !important;
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  padding: 12px 16px !important;
+}
+
+// =============================================================================
+// Header & Footer
+// =============================================================================
+
+.site-header {
+  border-bottom: 2px solid var(--border-light) !important;
+}
+
+.site-footer {
+  border-top: 1px solid var(--border-light) !important;
+}
+
+// =============================================================================
+// Utility Classes
+// =============================================================================
+
+// Hidden link - appears as regular text but is clickable
+.hidden-link {
+  color: inherit !important;
+  text-decoration: none !important;
+
+  &:hover,
+  &:visited {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+}
+
+// Image captions with theme-aware colors
+.image-caption {
+  font-size: 11px !important;
+  color: var(--text-secondary) !important;
+  text-align: center;
+  padding-top: 5px;
+}
+
+// =============================================================================
+// Theme Toggle Button
+// =============================================================================
+// Icon-based theme switcher that appears inline with navigation.
+// On mobile, it switches to a fixed position in the corner.
+
+.theme-toggle-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 8px;
+  color: var(--text-primary);
+  opacity: 1;
+  transition: opacity 0.2s ease;
+  display: inline-block;
+  vertical-align: baseline;
+  line-height: $base-line-height;
+  font-size: $base-font-size;
+
+  &:hover {
+    text-decoration: none;
+    opacity: 0.7;
+  }
+
+  .icon-container {
+    display: inline-block;
+    width: 1em;
+    text-align: center;
+    font-family: inherit;
+  }
+
+  .icon-sun,
+  .icon-moon {
+    display: inline-block;
+    width: 1em;
+    text-align: center;
+  }
+}
+
+// Mobile: move to corner for better UX
+@media screen and (max-width: 600px) {
+  .theme-toggle-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+}

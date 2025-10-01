@@ -4,8 +4,9 @@
 // Import core styles from minima where all variables are defined
 @import "minima";
 
-// Layout Components
+// Theme System - Warm variants
 // =============================================================================
+@import "theme-clean";
 
 // Responsive video container
 .iframe_container {
@@ -90,45 +91,47 @@
 .collapsible {
     margin: 1em 0;
     padding: 0.5em 1em;
-    background-color: darken($background-color, 3%);
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
     border-radius: 3px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    box-shadow: 0 1px 2px var(--shadow);
     max-width: 100%;
     box-sizing: border-box;
     overflow-x: hidden;
-    
+
     summary {
         cursor: pointer;
         user-select: none;
-        color: lighten($text-color, 20%);
+        color: var(--text-secondary);
         width: 100%;
         box-sizing: border-box;
-        
+
         &:hover {
             opacity: 0.8;
         }
     }
-    
+
     &[open] summary {
         margin-bottom: 1em;
-        border-bottom: 1px solid $grey-color-light;
+        border-bottom: 1px solid var(--border-light);
         padding-bottom: 0.5em;
     }
-    
+
     .content {
         padding: 0 0.5em;
         max-width: 100%;
         overflow-x: auto;
+        color: var(--text-primary);
     }
 
     @include media-query($on-palm) {
         padding: 0.5em;
         width: 100%;
-        
+
         summary {
             line-height: 1.4;
         }
-        
+
         .content {
             padding: 0;
         }
@@ -145,83 +148,3 @@
     vertical-align: text-top;
 }
 
-// Card-style paper entries with clean spacing
-.paper-entry {
-    margin-bottom: 1.2em;
-    padding: 1em 1.2em;
-    background-color: darken($background-color, 2%);
-    border-radius: 4px;
-    border: 1px solid darken($background-color, 8%);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-}
-
-.paper-title {
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1.4;
-    margin-bottom: 0.4em;
-    
-    a {
-        color: $brand-color;
-        text-decoration: none;
-        
-        &:hover {
-            text-decoration: underline;
-            color: darken($brand-color, 15%);
-        }
-        
-        &:visited {
-            color: darken($brand-color, 10%);
-        }
-    }
-}
-
-.paper-authors {
-    font-size: 15px;
-    margin-bottom: 0.2em;
-}
-
-.paper-venue {
-    font-size: 14px;
-    color: lighten($text-color, 25%);
-}
-
-.paper-note {
-    font-size: 13px;
-    color: lighten($text-color, 30%);
-    margin-top: 2px;
-}
-
-// Reset header spacing to defaults
-h2, h3 {
-    margin-top: 1.5em;
-    margin-bottom: 0.8em;
-    
-    &:first-of-type {
-        margin-top: 1em;
-    }
-}
-
-// Quote card styles
-.quote-card {
-    margin: 20px 0;
-    padding: 20px;
-    padding-bottom: 10px;
-    padding-top: 15px;
-    border: 1px solid darken($background-color, 16%);
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    background-color: darken($background-color, 4%);
-    
-    q {
-        display: block;
-        margin-bottom: 5px;
-        font-style: italic;
-        font-size: 16px;
-    }
-    
-    figcaption {
-        text-align: right;
-        font-size: 14px;
-    }
-}

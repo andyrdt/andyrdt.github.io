@@ -104,6 +104,20 @@ p, blockquote, pre, ul, ol, dl, figure {
   margin-bottom: 0.8em !important;
 }
 
+// Quote card specific styling
+.quote-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  figcaption {
+    align-self: flex-end;
+    margin-top: 0.8em;
+    font-style: italic;
+    color: var(--text-secondary) !important;
+  }
+}
+
 // Paper-specific styling
 .paper-title {
   font-size: 17px !important;
@@ -190,7 +204,7 @@ blockquote {
   padding: 0;
   margin-left: 8px;
   color: var(--text-primary);
-  opacity: 1;
+  opacity: 0.5;
   transition: opacity 0.2s ease;
   display: inline-block;
   vertical-align: baseline;
@@ -199,7 +213,7 @@ blockquote {
 
   &:hover {
     text-decoration: none;
-    opacity: 0.7;
+    opacity: 1;
   }
 
   .icon-container {
@@ -217,12 +231,27 @@ blockquote {
   }
 }
 
-// Mobile: move to corner for better UX
+// Mobile: integrate into dropdown menu
 @media screen and (max-width: 600px) {
   .theme-toggle-icon {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 10px 16px;
+    margin: 0;
+    opacity: 1;
+    border-bottom: 1px solid var(--border-light);
+
+    &:hover {
+      background-color: var(--bg-primary);
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .icon-container {
+      display: inline;
+    }
   }
 }

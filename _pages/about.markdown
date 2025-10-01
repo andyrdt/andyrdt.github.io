@@ -26,15 +26,6 @@ show_in_nav: true
         I like to run - I <a href="https://results.svetiming.com/Big-Sur/events/2023/Big-Sur-International-Marathon/3156/entrant/share">ran</a> my first marathon in April 2023.
         I'm also a big <a href="https://en.wikipedia.org/wiki/Fenerbah%C3%A7e_S.K._(football)">Fenerbahçe</a> fan.
       </p>
-      <h2>Now</h2>
-      <p><em>(Last updated: September 2025)</em></p>
-      <p>I'm currently based in Boston, where I'm working on mechanistic interpretability in Professor David Bau's lab.</p>
-      
-      <h2><a href="https://youtu.be/JQvc-Gkwhow" class="hidden-link">My favorite things</a></h2>
-      <ul>
-        <li><a href="/favorites/quotes">My favorite quotes</a></li>
-        <li><a href="/favorites/records">My favorite records</a></li>
-      </ul>
     </div>
     <div style="max-width: 190px; margin-left: 40px; margin-top: 40px; flex-basis: content">
       <figure>
@@ -51,9 +42,18 @@ show_in_nav: true
           [<a href="https://www.metmuseum.org/art/collection/search/191811" style="color: inherit;"><i>The Thinker</i> - Auguste Rodin</a>]
         </figcaption>
       </figure>
-
     </div>
   </div>
+
+  <h2>Now</h2>
+  <p><em>(Last updated: September 2025)</em></p>
+  <p>I'm currently based in Boston, where I'm working on interpretability in the <a href="https://baulab.info/">Bau Lab</a>.</p>
+
+  <h2><a href="https://youtu.be/JQvc-Gkwhow" class="hidden-link">My favorite things</a></h2>
+  <ul>
+    <li><a href="/favorites/quotes">Favorite quotes</a></li>
+    <li><a href="/favorites/records">Favorite records</a></li>
+  </ul>
 </div>
 
 <!-- This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)

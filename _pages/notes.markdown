@@ -6,7 +6,7 @@ show_in_nav: false
 ---
 
 ## Notes
-*This is a rough collection of notes on various technical topics, inspired by Victor Lecomte's [notes](https://victorlecomte.com/notes/).*
+*This is a rough collection of notes on various technical topics.*
 *These notes will always be incomplete, and a work in progress.*
 *Additionally, many of these notes are just my reformulation of existing work - see the "Sources" section in each note to see the original source of the material.*
 

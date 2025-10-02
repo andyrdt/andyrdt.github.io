@@ -15,7 +15,14 @@
   letter-spacing: -1px;
   margin-bottom: 0;
   float: left;
-  color: inherit;
+  color: var(--text-primary) !important;
+  text-decoration: none;
+
+  &:hover,
+  &:visited {
+    color: var(--text-primary) !important;
+    text-decoration: none;
+  }
 }
 
 .site-nav {

@@ -257,17 +257,19 @@ table {
 }
 
 #footnotediv {
-  background-color: lighten($background-color, 1%);
-  border: 1px solid darken($background-color, 1%);
-  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px var(--shadow);
   padding: 10px;
   font-size: 14px;
   line-height: 1.4;
   border-radius: 5px;
   z-index: 1000;
+  color: var(--text-primary);
 }
 
 #footnotediv p {
-  margin: 0;
-  padding: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+  margin-bottom: 0 !important;
 }

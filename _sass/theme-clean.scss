@@ -27,29 +27,29 @@
 // =============================================================================
 
 // Warm Light Theme (Default)
-// Warm, inviting palette with terracotta accents
+// Solarized Light inspired - warm, high contrast
 [data-theme="warm-light"],
 :root {
-  --bg-primary: #fffbf4;        // Warm off-white background
-  --bg-card: #fff8ef;           // Slightly darker for cards/sections
-  --text-primary: #4a453f;      // Soft dark grey for readability
-  --text-secondary: #6b7b81;    // Muted grey for secondary text
-  --border-color: #e8cfb8;      // Warm beige border
-  --border-light: #f0dcc8;      // Lighter variant for subtle borders
-  --accent: #c85a3c;            // Terracotta accent for links/highlights
-  --shadow: rgba(200, 90, 60, 0.06);
+  --bg-primary: #fdf6e3;        // Solarized light base3
+  --bg-card: #eee8d5;           // Solarized light base2
+  --text-primary: #586e75;      // Solarized base01 (darker)
+  --text-secondary: #657b83;    // Solarized base00
+  --border-color: #d9cdb3;      // Between base2 and base3
+  --border-light: #e9ddc3;      // Lighter variant
+  --accent: #b5632d;            // Medium warm orange
+  --shadow: rgba(0, 0, 0, 0.04);
 }
 
 // Dark Theme
-// Solarized dark blue palette with elegant blue accents
+// Solarized Dark inspired
 [data-theme="dark"] {
-  --bg-primary: #002b36;        // Deep blue-black background
-  --bg-card: #073642;           // Lighter blue for cards
-  --text-primary: #93a1a1;      // Light grey for primary text
-  --text-secondary: #839496;    // Muted grey for secondary text
-  --border-color: #0d4552;      // Subtle blue-grey border
+  --bg-primary: #002b36;        // Solarized dark base03
+  --bg-card: #073642;           // Solarized dark base02
+  --text-primary: #839496;      // Solarized base0
+  --text-secondary: #657b83;    // Solarized base00
+  --border-color: #0d4552;      // Between base02 and base03
   --border-light: #073642;      // Matches card background
-  --accent: #6ba5db;            // Soft periwinkle blue for links
+  --accent: #5c9db8;            // Medium teal-blue
   --shadow: rgba(0, 0, 0, 0.2);
 }
 

@@ -30,12 +30,12 @@
 // Solarized Light inspired - warm, high contrast
 [data-theme="warm-light"],
 :root {
-  --bg-primary: #fdf6e3;        // Solarized light base3
-  --bg-card: #eee8d5;           // Solarized light base2
-  --text-primary: #586e75;      // Solarized base01 (darker)
-  --text-secondary: #657b83;    // Solarized base00
-  --border-color: #d9cdb3;      // Between base2 and base3
-  --border-light: #e9ddc3;      // Lighter variant
+  --bg-primary: #f5f0e3;        // Even darker warm off-white
+  --bg-card: #e8e3d5;           // Even darker warm card background
+  --text-primary: #4a5459;      // Darker text for better contrast
+  --text-secondary: #586e75;    // Darker secondary text
+  --border-color: #d3cdb8;      // Even darker border
+  --border-light: #ded8c9;      // Even darker lighter variant
   --accent: #b5632d;            // Medium warm orange
   --shadow: rgba(0, 0, 0, 0.04);
 }

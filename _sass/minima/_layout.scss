@@ -230,9 +230,18 @@
   @include relative-font-size(1.0); 
 }
 
-.note-list h3 {
-  display: inline;
-  line-height: 1.0;
+.note-list {
+  margin-left: 0;
+  list-style: none;
+  
+  > li {
+    margin-bottom: 0.6em;
+  }
+  
+  h3 {
+    display: inline;
+    line-height: 1.0;
+  }
 }
 
 /**

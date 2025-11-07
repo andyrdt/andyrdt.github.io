@@ -22,6 +22,8 @@ show_in_nav: false
               {{ note.title | escape }}
             </a>
           </h3>
+          {% assign rendered_content = note.content | markdownify %}
+          {% include note-sections.html html=rendered_content note_url=note.url %}
           {% if site.show_excerpts %}
             {{ note.excerpt }}
           {% endif %}
@@ -43,6 +45,8 @@ show_in_nav: false
               {{ note.title | escape }}
             </a>
           </h3>
+          {% assign rendered_content = note.content | markdownify %}
+          {% include note-sections.html html=rendered_content note_url=note.url %}
           {% if site.show_excerpts %}
             {{ note.excerpt }}
           {% endif %}
@@ -64,6 +68,8 @@ show_in_nav: false
               {{ note.title | escape }}
             </a>
           </h3>
+          {% assign rendered_content = note.content | markdownify %}
+          {% include note-sections.html html=rendered_content note_url=note.url %}
           {% if site.show_excerpts %}
             {{ note.excerpt }}
           {% endif %}
@@ -84,6 +90,8 @@ show_in_nav: false
               {{ note.title | escape }}
             </a>
           </h3>
+          {% assign rendered_content = note.content | markdownify %}
+          {% include note-sections.html html=rendered_content note_url=note.url %}
           {% if site.show_excerpts %}
             {{ note.excerpt }}
           {% endif %}

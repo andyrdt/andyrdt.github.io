@@ -1,0 +1,60 @@
+{% comment %}
+  Extract and display note sections (headings) for the notes listing page.
+  Usage: {% include note-sections.html html=note.content %}
+  
+  Parameters:
+    * html - the rendered HTML content of the note
+    * note_url - the URL of the note (for creating links)
+{% endcomment %}
+
+{% assign html_content = include.html | default: '' %}
+{% assign note_url = include.note_url | default: '' %}
+{% assign nodes = html_content | strip | split: '<h' %}
+{% assign sections = '' %}
+{% assign section_count = 0 %}
+
+{% for node in nodes %}
+  {% if node == "" %}
+    {% continue %}
+  {% endif %}
+  
+  {% assign currLevel = node | replace: '"', '' | slice: 0, 1 | times: 1 %}
+  
+  {% comment %} Only extract h2 and h3 headings {% endcomment %}
+  {% if currLevel >= 2 and currLevel <= 3 %}
+    {% assign _workspace = node | split: '</h' %}
+    {% assign _idWorkspace = _workspace[0] | split: 'id="' %}
+    {% assign _idWorkspace = _idWorkspace[1] | split: '"' %}
+    {% assign htmlID = _idWorkspace[0] %}
+    
+    {% comment %} Skip if no ID (can't link to it) {% endcomment %}
+    {% if htmlID %}
+      {% capture _hAttrToStrip %}{{ _workspace[0] | split: '>' | first }}>{% endcapture %}
+      {% assign header = _workspace[0] | replace: _hAttrToStrip, '' | strip_html | strip %}
+      
+      {% comment %} Skip "Sources" and "Footnotes" sections {% endcomment %}
+      {% assign header_lower = header | downcase %}
+      {% unless header_lower == "sources" or header_lower == "footnotes" %}
+        {% if section_count > 0 %}
+          {% assign sections = sections | append: ' • ' %}
+        {% endif %}
+        
+        {% assign section_link = note_url | relative_url | append: '#' | append: htmlID %}
+        {% assign sections = sections | append: '<a href="' | append: section_link | append: '" class="note-section-link">' | append: header | append: '</a>' %}
+        {% assign section_count = section_count | plus: 1 %}
+        
+        {% comment %} Limit to first 5 sections to keep it concise {% endcomment %}
+        {% if section_count >= 5 %}
+          {% break %}
+        {% endif %}
+      {% endunless %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+{% if section_count > 0 %}
+  <div class="note-sections">
+    {{ sections }}
+  </div>
+{% endif %}
+

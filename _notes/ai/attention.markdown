@@ -245,11 +245,11 @@ We can similarly "roll" $$W_{\text{UV}}^{(h)}$$ into $$W_{\text{O}}^{(h)}$$.
 
 ### Sources
 
-- [Attention Is All You Need](https://arxiv.org/abs/1706.03762) – Vaswani et al., 2017
+- [Attention Is All You Need](https://arxiv.org/abs/1706.03762) - Vaswani et al., 2017
 - [Fast Transformer Decoding: One Write-Head is All You Need](https://arxiv.org/abs/1911.02150) - Noam Shazeer, 2019
-- [A Mathematical Framework for Transformer Circuits](https://transformer-circuits.pub/2021/framework/index.html) – Elhage et al., 2021
-- [The Annotated Transformer](https://nlp.seas.harvard.edu/annotated-transformer/) – Huang et al., 2022
-- [An Analogy for Understanding Transformers](https://www.lesswrong.com/posts/euam65XjigaCJQkcN) – Callum McDougall, 2023
+- [A Mathematical Framework for Transformer Circuits](https://transformer-circuits.pub/2021/framework/index.html) - Elhage et al., 2021
+- [The Annotated Transformer](https://nlp.seas.harvard.edu/annotated-transformer/) - Huang et al., 2022
+- [An Analogy for Understanding Transformers](https://www.lesswrong.com/posts/euam65XjigaCJQkcN) - Callum McDougall, 2023
 - [GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints](https://arxiv.org/abs/2305.13245) - Ainslie et al., 2023
 - [DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model](https://arxiv.org/abs/2405.04434) - DeepSeek-AI, 2024
 

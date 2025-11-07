@@ -232,10 +232,10 @@ where $$\alpha_t \in (0, 1)$$ is a data-dependent decay factor, and $$\beta_t \i
 
 - [Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention](https://proceedings.mlr.press/v119/katharopoulos20a.html) - Katharopoulos et al., 2020
 - [Gated Linear Attention Transformers with Hardware-Efficient Training](https://arxiv.org/abs/2312.06635) - Yang et al., 2023
-- [Gated Delta Networks: Improving Mamba2 with Delta Rule](https://arxiv.org/abs/2412.06464) – Yang et al., 2024
+- [Gated Delta Networks: Improving Mamba2 with Delta Rule](https://arxiv.org/abs/2412.06464) - Yang et al., 2024
 - [DeltaNet Explained (Part I)](https://sustcsonglin.github.io/blog/2024/deltanet-1/) - Songlin Yang, 2024
 - [Linear Transformers Are Secretly Fast Weight Programmers](https://arxiv.org/abs/2102.11174) - Schlag et al., 2021
-- [FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness](https://arxiv.org/abs/2205.14135) – Dao et al., 2022
+- [FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness](https://arxiv.org/abs/2205.14135) - Dao et al., 2022
 
 ### Footnotes
 

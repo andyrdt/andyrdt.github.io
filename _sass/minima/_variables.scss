@@ -1,0 +1,42 @@
+@charset "utf-8";
+@use "sass:color";
+
+// Variables shared across all minima partials
+// =============================================================================
+
+// Typography
+$base-font-family: 'EB Garamond' !default;
+$base-font-size: 18px !default;
+$base-font-weight: 400 !default;
+$base-line-height: 1.5 !default;
+$base-letter-spacing: 0.01rem !default;
+$small-font-size: $base-font-size * 0.875 !default;
+$caption-font-size: $base-font-size * 0.75 !default;
+
+// Colors
+$grey-color:       #828282 !default;
+$grey-color-light: color.adjust($grey-color, $lightness: 40%) !default;
+$grey-color-dark:  color.adjust($grey-color, $lightness: -25%) !default;
+$text-color:       color.adjust($grey-color, $lightness: -25%) !default;
+$background-color: #fafafa !default;
+$brand-color:      #6d88a5 !default;
+
+// Layout
+$spacing-unit: 30px !default;
+$content-width:    800px !default;
+$on-palm:          600px !default;
+$on-laptop:        800px !default;
+$table-text-align: left !default;
+
+// Mixins
+// =============================================================================
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+@mixin relative-font-size($ratio) {
+  font-size: $base-font-size * $ratio;
+}
+

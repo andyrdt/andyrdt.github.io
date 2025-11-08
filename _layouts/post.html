@@ -6,16 +6,23 @@ layout: default
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {%- assign date_format = site.minima.date_format | default: "%B %-d, %Y" -%}
-        {{ page.date | date: date_format }}
-      </time>
+      {%- if page.date -%}
+        <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+          {%- assign date_format = site.minima.date_format | default: "%B %-d, %Y" -%}
+          {{ page.date | date: date_format }}
+        </time>
+      {%- endif -%}
+      {%- if page.author -%}
+        {%- if page.date -%} • {%- endif -%}
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
+      {%- endif -%}
       {%- if page.linkpost_site and page.linkpost_link -%}
         <br>
         <span>[Also posted to <a href="{{ page.linkpost_link }}">{{ page.linkpost_site }}</a>]</span>
       {%- endif -%}
     </p>
   </header>
+
   <div class="toc-sidebar">
     <div class="toc-title">
         <a href="#" class="toc-title-link">{{ page.title }}</a>

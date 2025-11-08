@@ -1,3 +1,6 @@
+@use "sass:color";
+@use "minima/variables" as *;
+
 // Album Display Components
 // =============================================================================
 
@@ -16,7 +19,7 @@
     border-radius: 6px;
     position: relative;
     overflow: hidden;
-    background-color: darken($background-color, 2%);
+    background-color: color.adjust($background-color, $lightness: -2%);
     box-shadow: 0 2px 12px rgba(0,0,0,0.04);
     border: 1px solid rgba(0,0,0,0.03);
 }
@@ -132,7 +135,7 @@
     display: flex;
     flex-direction: column;
     margin-top: $spacing-unit * 0.15;
-    color: darken($grey-color, 10%);
+    color: color.adjust($grey-color, $lightness: -10%);
 }
 
 .track-container {

@@ -1,0 +1,13 @@
+{
+  "buildCommand": "bundle install && bundle exec jekyll build",
+  "outputDirectory": "_site",
+  "installCommand": "bundle install",
+  "framework": null,
+  "rewrites": [
+    {
+      "source": "/((?!assets|favicon|fonts|images|.*\\.(css|js|png|jpg|jpeg|gif|svg|ico|xml|webmanifest|woff|woff2|ttf|eot)).*)",
+      "destination": "/$1.html"
+    }
+  ]
+}
+

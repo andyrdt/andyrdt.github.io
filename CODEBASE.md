@@ -104,6 +104,6 @@ Both are simple, standalone modules that don't rely on any frameworks.
 2. Run `bundle install` to install dependencies
 3. Run `bundle exec jekyll serve` for live preview
 4. Make changes and test locally
-5. Commit and push to GitHub to deploy (uses GitHub Pages)
+5. Commit and push to GitHub to deploy (uses Vercel)
 
 For more detailed information, see the [Jekyll documentation](https://jekyllrb.com/docs/). 

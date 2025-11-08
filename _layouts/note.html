@@ -7,8 +7,13 @@ layout: default
     <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
     <p class="post-meta">
       {%- if page.author -%}
-        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
-      {%- endif -%}</p>
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
+      {%- endif -%}
+      {%- if page.linkpost_site and page.linkpost_link -%}
+        {%- if page.author -%}<br>{%- endif -%}
+        <span>[Also posted to <a href="{{ page.linkpost_link }}">{{ page.linkpost_site }}</a>]</span>
+      {%- endif -%}
+    </p>
   </header>
 
   <div class="toc-sidebar">

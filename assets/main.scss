@@ -2,27 +2,11 @@
 ---
 
 // Import core styles from minima where all variables are defined
-@import "minima";
+@use "minima" as *;
 
 // Theme System - Warm variants
 // =============================================================================
-@import "theme-clean";
-
-// Responsive video container
-.iframe_container {
-	position: relative;
-	padding-bottom: 56.25%; /* 16:9 aspect ratio */
-	padding-top: 25px;
-	height: 0;
-	
-	iframe {
-	  position: absolute;
-	  top: 0;
-	  left: 0;
-	  width: 100%;
-	  height: 100%;
-	}
-}
+@use "theme-clean" as *;
 
 // Center images
 .center {
@@ -35,21 +19,22 @@
 // Academic Components
 // =============================================================================
 
-// Theorem, proposition, corollary, lemma styles
-.theorem, .proposition, .corollary, .lemma {
+// Theorem style
+.theorem {
     display: block;
     margin: 12px 0;
     font-style: italic;
+    
+    &:before {
+        content: "Theorem" attr(text) " ";
+        font-weight: bold;
+        font-style: normal;
+    }
+    
+    &[text]:before {
+        content: "Theorem (" attr(text) "). ";
+    }
 }
-
-.theorem:before { content: "Theorem" attr(text) " "; font-weight: bold; font-style: normal; }
-.theorem[text]:before { content: "Theorem (" attr(text) "). "; }
-.proposition:before { content: "Proposition" attr(text) " "; font-weight: bold; font-style: normal; }
-.proposition[text]:before { content: "Proposition (" attr(text) "). "; }
-.corollary:before { content: "Corollary" attr(text) " "; font-weight: bold; font-style: normal; }
-.corollary[text]:before { content: "Corollary (" attr(text) "). "; }
-.lemma:before { content: "Lemma" attr(text) " "; font-weight: bold; font-style: normal; }
-.lemma[text]:before { content: "Lemma (" attr(text) "). "; }
 
 // Proof style
 .proof {

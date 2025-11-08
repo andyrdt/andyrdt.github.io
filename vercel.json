@@ -5,7 +5,7 @@
   "framework": null,
   "rewrites": [
     {
-      "source": "/((?!assets|favicon|fonts|images|.*\\.(css|js|png|jpg|jpeg|gif|svg|ico|xml|webmanifest|woff|woff2|ttf|eot)).*)",
+      "source": "/(.*)",
       "destination": "/$1.html"
     }
   ]

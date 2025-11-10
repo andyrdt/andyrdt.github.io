@@ -58,6 +58,11 @@ show_in_nav: false
     <figcaption>William Shakespeare</figcaption>
 </div>
 
+<div class="quote-card">
+    <q>The knowledge of certain principles easily compensates the lack of knowledge of certain facts.</q>
+    <figcaption>Claude Adrien Helvétius</figcaption>
+</div>
+
 ### On work
 
 <div class="quote-card">
